@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto";
+    color: #f7f5f5;
+    background-color: #0c0f12;
+}
+.container {
+    margin: 0 auto;
+};
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px (-$space);
+};
+
+[class*="col-"] {
+    padding: 0 $space;
+    display: flex;
+}
+
+.hide{
+    display: none !important;
+}
+// craet scolspan css
+@for $col from 1 through $columns {
+    .colspan-#{$col} {
+        width: percentage(1/$columns * $col)
+    }
+}
+
+
+@each $port-name, $port-width in $viewports {
+    @media (min-width: #{$port-width}) {
+        
+        @if $port-name == "xs" {
+            $container-width: calc(100vw - 50px);
+        } @else if $port-name == "sm" {
+            $container-width: calc(100vw - 50px);
+        } @else if $port-name == "md" {
+            $container-width: calc(100vw - 70px);
+        } @else if $port-name == "lg" {
+            $container-width: calc(100vw - 150px);
+        } @else if $port-name == "xl" {
+            $container-width: calc(100vw - 271px);
+        }
+
+        .container {
+            width: $container-width;
+        };
+
+        @for $col from 1 through $columns {
+            .col-#{$port-name}-#{$col} {
+                width: percentage(1/$columns * $col)
+            }
+        }
+    }
+}
