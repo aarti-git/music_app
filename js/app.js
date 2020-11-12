@@ -52,7 +52,7 @@ userSvg.addEventListener("click",function(){
 
 // menu bar mobile 
 
-var menuBar = document.querySelector(".align-self-div");
+var menuBar = document.querySelector(".menu-bar-svg");
 menuBar.addEventListener("click",function(){
     popup.open(".menu-bar-overlay");
 })
@@ -61,9 +61,10 @@ menuBar.addEventListener("click",function(){
     // var a = 0;
     function horizontalscroll(elValue, parent) {
         var parentElm = document.querySelector(parent);
+        var grandParent = parentElm.parentElement; 
         var scrollingImg = parentElm.querySelectorAll(".watch-next-image");
-        var scrollBtnMin = parentElm.querySelector(".scroll-btn-min");
-        var scrollBtnAdd = parentElm.querySelector(".scroll-btn-add");
+        var scrollBtnMin = grandParent.querySelector(".scroll-btn-min");
+        var scrollBtnAdd = grandParent.querySelector(".scroll-btn-add");
   
         var a = parentElm.dataset.slidepos;
         if (a === undefined) {

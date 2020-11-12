@@ -18,8 +18,8 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-space">
                     <div class="div-wrapper">
                         <div class="app-logo-name">
-                            <div class="align-self-div">
-                                <svg class="menu-bar-svg logo-font hide">
+                            <div class="menu-bar-svg">
+                                <svg class="logo-font">
                                     <use xlink:href="./img/icons.svg#menuBar-node"></use>
                                 </svg>
                                 <div class="menu-bar-overlay hide">
@@ -58,11 +58,11 @@
                                 </div>
                             </div>
                             <div class="app-logo">
-                                <div>
+                                <!-- <div>
                                     <svg class="logo-font">
                                         <use xlink:href="./img/icons.svg#music-node"></use>
                                     </svg>
-                                </div>
+                                </div> -->
                                 <h3><span>Music</span>App</h3>
                             </div>
                         </div>
@@ -200,259 +200,405 @@
     <!-- body part -->
     <section class="container">
         <div class="div-parent">
-        <!-- LATEST SONGS -->
+            <!-- LATEST SONGS -->
             <section class="latest-song-section sections-space">
                 <div class="songs-tittle">
                     <h3>LATEST SONGS</h3>
                 </div>
+                <div>
+                    <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, '.img-wrapper')">
+                        <svg class="font">
+                            <use xlink:href="./img/icons.svg#angleLeft-node"></use>
+                        </svg>
+                    </button>
+                </div>
                 <div class="img-wrapper">
-                    <div>
-                        <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, '.img-wrapper')">
-                            <svg class="font">
-                                <use xlink:href="./img/icons.svg#angleLeft-node"></use>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-1.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-1.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
                                         <use xlink:href="./img/icons.svg#playButton-node"></use>
                                     </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-2.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-3.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
                                     </svg>
-                                </div>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-4.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-5.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-6.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-7.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-8.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-9.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-10.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                            </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-11.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#share-node"></use>
+                                            </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                            </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image watch-next-image-width">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-12.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#share-node"></use>
+                                            </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                            </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-2.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="artist-name-div">
+                        <p>waada-hai</p>
+                        <span>arjin kan</span>
                     </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-3.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-4.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-5.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-6.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-7.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-8.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-9.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-10.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-11.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="song-img" src="img/song-12.webp"></a>
-                        <div class="songs-img-overlay-wrapper">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <div>
                     <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,'.img-wrapper')">
                         <svg class="font">
                             <use xlink:href="./img/icons.svg#angleRight-node"></use>
@@ -460,7 +606,8 @@
                     </button>
                 </div>
             </section>
-        <!-- bollywood On Loop -->
+
+            <!-- bollywood On Loop -->
             <section class="bollywoodsong-section">
                 <div class="songs-tittle">
                     <h3>Bollywood On Loop</h3>
@@ -473,7 +620,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-12.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -483,17 +630,21 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-11.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -503,17 +654,21 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-10.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -523,17 +678,21 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-9.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -543,17 +702,21 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-8.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -563,17 +726,21 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-7.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -583,17 +750,21 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-6.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -603,17 +774,21 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-5.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -623,17 +798,21 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-4.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -643,17 +822,21 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-3.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -663,17 +846,21 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-2.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -683,17 +870,21 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="watch-next-image">
+                    <div class="watch-next-image watch-next-image-width">
                         <a><img class="song-img" src="img/song-1.webp"></a>
                         <div class="songs-img-overlay-wrapper">
                             <div class="songs-img-overlay">
@@ -703,17 +894,163 @@
                                     </svg>
                                 </div>
                                 <div class="songs-img-overlay-endFont">
-                                    <svg class="font img-layout-font ">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
-                                    <svg class="font dottedmenu-font img-layout-font">
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
                                         <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
                                     </svg>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,'.img-wrapper2')">
+                        <svg class="font">
+                            <use xlink:href="./img/icons.svg#angleRight-node"></use>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- artist list -->
+            <section class="popularArtist-section sections-space">
+                <div class="songs-tittle">
+                    <h3>popular artist</h3>
+                </div>
+                <div>
+                    <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, '.img-wrapper3')">
+                        <svg class="font">
+                            <use xlink:href="./img/icons.svg#angleLeft-node"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="img-wrapper3">
+                    <div class="watch-next-image artist-section-width">
+                        <div class="artist-img-div">
+                            <img class="artist-img" src="img/lataji.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="">
+                                    <div class="artist-img-overlay"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">lata mangeshkar</div>
+                    </div>
+                    <div class="watch-next-image artist-section-width">
+                        <div class="artist-img-div">
+                            <img class="artist-img" src="img/Kishore.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="">
+                                    <div class="artist-img-overlay">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">Kishore kumar</div>
+                    </div>
+                    <div class="watch-next-image artist-section-width">
+                        <div class="artist-img-div">
+                            <img class="artist-img" src="img/md-rafi.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="">
+                                    <div class="artist-img-overlay">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">Kishore kumar</div>
+                    </div>
+                    <div class="watch-next-image artist-section-width">
+                        <div class="artist-img-div">
+                            <img class="artist-img" src="img/ajayatul-marathi.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="">
+                                    <div class="artist-img-overlay">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">Kishore kumar</div>
+                    </div>
+                    <div class="watch-next-image artist-section-width">
+                        <div class="artist-img-div">
+                            <img class="artist-img" src="img/sanam.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="">
+                                    <div class="artist-img-overlay">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">Kishore kumar</div>
+                    </div>
+                    <div class="watch-next-image artist-section-width">
+                        <div class="artist-img-div">
+                            <img class="artist-img" src="img/neha.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="">
+                                    <div class="artist-img-overlay">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">Kishore kumar</div>
+                    </div>
+                    <div class="watch-next-image artist-section-width">
+                        <div class="artist-img-div">
+                            <img class="artist-img" src="img/RD-Burman.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="">
+                                    <div class="artist-img-overlay">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">Kishore kumar</div>
+                    </div>
+                    <div class="watch-next-image artist-section-width">
+                        <div class="artist-img-div">
+                            <img class="artist-img" src="img/ashaji.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="">
+                                    <div class="artist-img-overlay">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">Kishore kumar</div>
+                    </div>
+                    <div class="watch-next-image artist-section-width">
+                        <div class="artist-img-div">
+                            <img class="artist-img" src="img/lataji.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="">
+                                    <div class="artist-img-overlay">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">Kishore kumar</div>
+                    </div>
+                    <div class="watch-next-image artist-section-width">
+                        <div class="artist-img-div">
+                            <img class="artist-img" src="img/sanam.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="">
+                                    <div class="artist-img-overlay">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-name-div">Kishore kumar</div>
+                    </div>
+                </div>
+                <div>
+                    <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,'.img-wrapper3')">
                         <svg class="font">
                             <use xlink:href="./img/icons.svg#angleRight-node"></use>
                         </svg>

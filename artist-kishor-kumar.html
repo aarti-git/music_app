@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>artist kishor kumar</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+    <section class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-space">
+                    <div class="div-wrapper">
+                        <div class="app-logo-name">
+                            <div class="menu-bar-svg">
+                                <svg class="logo-font">
+                                        <use xlink:href="./img/icons.svg#menuBar-node"></use>
+                                    </svg>
+                                <div class="menu-bar-overlay hide">
+                                    <div class="remove-form" onclick="removeOverlay('.menu-bar-overlay')">
+                                        <button class="remove-form-btn">
+                                                <svg class="cross-font">
+                                                    <use xlink:href="./img/icons.svg#cross-node"></use>
+                                                </svg>
+                                            </button>
+                                    </div>
+                                    <div class="menu-bar-list">
+                                        <ul>
+                                            <li>home</li>
+                                            <li>my music</li>
+                                            <li>dounlode app</li>
+                                            <li>sign in</li>
+                                        </ul>
+                                    </div>
+                                    <div class="fSocial-media-font">
+                                        <div class="font-wrapper">
+                                            <svg class="font">
+                                                    <use xlink:href="./img/icons.svg#facebook-node"></use>
+                                                </svg>
+                                        </div>
+                                        <div class="font-wrapper">
+                                            <svg class="font">
+                                                    <use xlink:href="./img/icons.svg#twitter-node"></use>
+                                                </svg>
+                                        </div>
+                                        <div class="font-wrapper">
+                                            <svg class="font">
+                                                    <use xlink:href="./img/icons.svg#instagram-node"></use>
+                                                </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="app-logo">
+                                <!-- <div>
+                                        <svg class="logo-font">
+                                            <use xlink:href="./img/icons.svg#music-node"></use>
+                                        </svg>
+                                    </div> -->
+                                <h3><span>Music</span>App</h3>
+                            </div>
+                        </div>
+                        <div class="list-wrapper">
+                            <ul class="header-list">
+                                <li><a href="">HOME</a></li>
+                                <li><a href="">my music</a>
+                                    <div class="myMusic-hover-list">
+                                        <ul>
+                                            <li>my plylist</li>
+                                            <li>like songs</li>
+                                            <li>recently plyed songs</li>
+                                            <li>downloaded songs</li>
+                                            <li>Music Language</li>
+                                            <li>Sound Quality</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="">download app</a>
+                                    <div class="download-hover-list">
+                                        <ul>
+                                            <li>for android</li>
+                                            <li>for los</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="div-wrapper">
+                        <div class="search-bar">
+                            <div>
+                                <svg class="search-font">
+                                        <use xlink:href="./img/icons.svg#search-node"></use>
+                                    </svg>
+                            </div>
+                            <input type="text" name="song" placeholder="Search for music you love!" />
+                        </div>
+                        <div class="header-group">
+                            <div class="modes">
+                                <div class="morning-mode-parent">
+                                    <svg class="morning-mode-font">
+                                            <use xlink:href="./img/icons.svg#sun-node"></use>
+                                        </svg>
+                                </div>
+                                <div class="night-mode-parent hide">
+                                    <svg class="night-mode-font">
+                                            <use xlink:href="./img/icons.svg#night-node"></use>
+                                        </svg>
+                                </div>
+                            </div>
+                            <div class="modes veiw-in-dekstop">
+                                <img class="language-img" src="img/language-white.svg">
+                            </div>
+                            <div>
+                                <span class="veiw-in-dekstop" onclick="loginForm()">SIGN IN</span>
+                                <div>
+                                    <svg class="font user-svg modes">
+                                            <use xlink:href="./img/icons.svg#user-node"></use>
+                                        </svg>
+                                    <div class="mobile-account-list hide">
+                                        <ul>
+                                            <li onclick="loginForm()">Login</li>
+                                            <li class="space-top">Music Language</li>
+                                            <li class="space-top">Sound Quality</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- sign in popup -->
+                            <div class="sign-in-div hide">
+                                <div class="login-containt">
+                                    <div>
+                                        <img class="login-img" src="img/login.png">
+                                    </div>
+                                    <div class="form-design">
+                                        <div class="remove-form" onclick="removeOverlay('.sign-in-div')">
+                                            <button class="remove-form-btn">
+                                                    <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#cross-node"></use>
+                                                    </svg>
+                                                </button>
+                                        </div>
+                                        <div class="form-text">
+                                            <h3>Login/Sign Up</h3>
+                                            <span>Get a personalised experience, and access all your music</span>
+                                            <div class="login-input">
+                                                <input type="tel" name="Number" placeholder=" +91 " class="contry-code">
+                                                <input type="number" name="Number" placeholder="ENTER MOBILE NUMBER" class="mobile-no">
+                                            </div>
+                                            <button class="btn">send OTP</button>
+                                        </div>
+                                        <div class="form-end-div">
+                                            <span>To create your account, install Wynk app</span>
+                                            <img class="footer-icon-svg-app" src="img/footer-v2-but-play.png">
+                                            <img class="footer-icon-svg-app" src="img/dt-app-store.svg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- sign in popup end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- hrader end -->
+    <section class="container">
+        <section>
+            <div class="some-links">
+                <ul>
+                    <li>home</li>
+                    <li>hindi song</li>
+                    <li>kishor kumar song</li>
+                    <li>artist</li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-xl-3">
+                    <div>
+                        <img class="page-main-img" src="img/Kishore.webp">
+                        <div class="about-artist">
+                            <h3 class="headings">about kishor kumar</h3>
+                            <div>
+                                 <p>Kishore Kumar was an Indian playback singer, actor, lyricist, composer, producer, director, and screenwriter. He is considered one of the most successful playback singers in the Hindi film industry. Apart from Hindi, he sang in many Indian languages including Bengali, Marathi, Assamese, Gujarati, Kannada, Bhojpuri, Malayalam and Urdu. He has also sung in private albums in several languages especially in Bengali, which are noted as all time classics. He won 8 Filmfare Awards for Best Male Playbac ...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9">
+                    <div class="waada-hai-details">
+                        <h2>Kishore kumar</h2>
+                        <span>1.3M Followers</span>
+                        <div class="album-song-div">
+                            <div class="button-div">
+                                <button class="btn">Play Now</button>
+                                <button class="btn btn-2">download</button>
+                                <button class="btn btn-2">set free hellotune</button>
+                                <div class="font-wrapper">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#heart-node"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="button-div">
+                                <div class="font-wrapper">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                    </svg>
+                                </div>
+                                <div class="font-wrapper">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <!--kishor kumar songs  -->
+                        <div>
+                            <div>
+                                <h3 class="headings">kishor kumar songs</h3>
+                            </div>
+                            <div class="img-wrapper-artist">
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-song-1.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-song-2.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/mere-jevan-sathi.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-sog4.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-song-5.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-song-1.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-song-2.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/mere-jevan-sathi.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-song-5.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-sog4.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-song-2.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-song-5.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-song-1.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-sog4.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="watch-next-image kishor-songs-img-w">
+                                    <img class="song-img" src="img/kishor-song-2.webp">
+                                    <div class="songs-img-overlay-wrapper">
+                                        <a href="waada-hai-song-page.html">
+                                            <div class="songs-img-overlay">
+                                                <div class="play-button-div">
+                                                    <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
+                                                </div>
+                                                <div class="songs-img-overlay-endFont">
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                    <div class="img-layout-font">
+                                                        <svg class="font">
+                                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                                    </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- related singer -->
+        <section class="popularArtist-section sections-space">
+            <div class="songs-tittle">
+                <h3>popular artist</h3>
+            </div>
+            <div class="img-wrapper3">
+                <div class="watch-next-image artist-section-width">
+                    <div class="artist-img-div">
+                        <img class="artist-img" src="img/lataji.webp">
+                        <div class="songs-img-overlay-wrapper">
+                            <a href="">
+                                <div class="artist-img-overlay"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="artist-name-div">lata mangeshkar</div>
+                </div>
+                <div class="watch-next-image artist-section-width">
+                    <div class="artist-img-div">
+                        <img class="artist-img" src="img/md-rafi.webp">
+                        <div class="songs-img-overlay-wrapper">
+                            <a href="">
+                                <div class="artist-img-overlay">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="artist-name-div">Kishore kumar</div>
+                </div>
+                <div class="watch-next-image artist-section-width">
+                    <div class="artist-img-div">
+                        <img class="artist-img" src="img/ajayatul-marathi.webp">
+                        <div class="songs-img-overlay-wrapper">
+                            <a href="">
+                                <div class="artist-img-overlay">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="artist-name-div">Kishore kumar</div>
+                </div>
+                <div class="watch-next-image artist-section-width">
+                    <div class="artist-img-div">
+                        <img class="artist-img" src="img/sanam.webp">
+                        <div class="songs-img-overlay-wrapper">
+                            <a href="">
+                                <div class="artist-img-overlay">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="artist-name-div">Kishore kumar</div>
+                </div>
+                <div class="watch-next-image artist-section-width">
+                    <div class="artist-img-div">
+                        <img class="artist-img" src="img/neha.webp">
+                        <div class="songs-img-overlay-wrapper">
+                            <a href="">
+                                <div class="artist-img-overlay">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="artist-name-div">Kishore kumar</div>
+                </div>
+                <div class="watch-next-image artist-section-width">
+                    <div class="artist-img-div">
+                        <img class="artist-img" src="img/RD-Burman.webp">
+                        <div class="songs-img-overlay-wrapper">
+                            <a href="">
+                                <div class="artist-img-overlay">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="artist-name-div">Kishore kumar</div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- footer section -->
+    <section class="container">
+        <div class="footer-head-wrapper">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 content-space">
+                    <div class="footer-head">
+                        <div>
+                            <img class="footer-icon-svg" src="img/footerIcon.svg">
+                        </div>
+                        <div class="footer-head-containt">
+                            <h3>Best way to Listen to Music!</h3>
+                            <span>Don’t forget to install Wynk Music on your mobile phones</span>
+                        </div>
+                        <div>
+                            <button class="btn getApp-btn">Get App</button>
+                        </div>
+                    </div>
+                    <div class="app-images">
+                        <img class="footer-icon-svg-app" src="img/footer-v2-but-play.png">
+                        <img class="footer-icon-svg-app" src="img/dt-app-store.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                    <div class="footer-columne-wrapper">
+                        <div class="fHeading">LATEST ALBUMS</div>
+                        <div>
+                            <span>THE ALBUM | </span>
+                            <span>Songs of Trance | </span>
+                            <span> Love Marriage | </span>
+                            <span>Love Action Drama | </span>
+                            <span> Kgf Chapter 1 (Kannada) | </span>
+                            <span>Viswasam | </span>
+                            <span>Triple Seat | </span>
+                            <span> Killol | </span>
+                            <span>Champion | </span>
+                            <span>Smile |</span>
+                            <span>Love Action Drama | </span>
+                            <span> G.O.A.T.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 ">
+                    <div class="footer-columne-wrapper">
+                        <div class="fHeading">GENRES</div>
+                        <div>
+                            <span>THE ALBUM | </span>
+                            <span>Songs of Trance | </span>
+                            <span> Love Marriage | </span>
+                            <span>Love Action Drama | </span>
+                            <span> Kgf Chapter 1 (Kannada) | </span>
+                            <span>Viswasam | </span>
+                            <span>Triple Seat | </span>
+                            <span> Killol | </span>
+                            <span>Champion | </span>
+                            <span>Smile |</span>
+                            <span>Love Action Drama | </span>
+                            <span> G.O.A.T.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                    <div class="footer-columne-wrapper">
+                        <div class="fHeading">OLD SONGS</div>
+                        <div>
+                            <span>THE ALBUM | </span>
+                            <span>Songs of Trance | </span>
+                            <span> Love Marriage | </span>
+                            <span>Love Action Drama | </span>
+                            <span> Kgf Chapter 1 (Kannada) | </span>
+                            <span>Viswasam | </span>
+                            <span>Triple Seat | </span>
+                            <span> Killol | </span>
+                            <span>Champion | </span>
+                            <span>Smile |</span>
+                            <span>Love Action Drama | </span>
+                            <span> G.O.A.T.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                    <div class="footer-columne-wrapper">
+                        <div class="fHeading">OLD SONGS</div>
+                        <div>
+                            <span>THE ALBUM | </span>
+                            <span>Songs of Trance | </span>
+                            <span> Love Marriage | </span>
+                            <span>Love Action Drama | </span>
+                            <span> Kgf Chapter 1 (Kannada) | </span>
+                            <span>Viswasam | </span>
+                            <span>Triple Seat | </span>
+                            <span> Killol | </span>
+                            <span>Champion | </span>
+                            <span>Smile |</span>
+                            <span>Love Action Drama | </span>
+                            <span> G.O.A.T.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                    <div class="footer-columne-wrapper">
+                        <div class="fHeading">LANGUAGES</div>
+                        <div>
+                            <span>THE ALBUM | </span>
+                            <span>Songs of Trance | </span>
+                            <span> Love Marriage | </span>
+                            <span>Love Action Drama | </span>
+                            <span> Kgf Chapter 1 (Kannada) | </span>
+                            <span>Viswasam | </span>
+                            <span>Triple Seat | </span>
+                            <span> Killol | </span>
+                            <span>Champion | </span>
+                            <span>Smile |</span>
+                            <span>Love Action Drama | </span>
+                            <span> G.O.A.T.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                    <div class="footer-columne-wrapper">
+                        <div class="fHeading">LANGUAGES</div>
+                        <div>
+                            <span>THE ALBUM | </span>
+                            <span>Songs of Trance | </span>
+                            <span> Love Marriage | </span>
+                            <span>Love Action Drama | </span>
+                            <span> Kgf Chapter 1 (Kannada) | </span>
+                            <span>Viswasam | </span>
+                            <span>Triple Seat | </span>
+                            <span> Killol | </span>
+                            <span>Champion | </span>
+                            <span>Smile |</span>
+                            <span>Love Action Drama | </span>
+                            <span> G.O.A.T.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                    <div class="footer-columne-wrapper">
+                        <div class="fHeading">TOP SONGS</div>
+                        <div>
+                            <span>THE ALBUM | </span>
+                            <span>Songs of Trance | </span>
+                            <span> Love Marriage | </span>
+                            <span>Love Action Drama | </span>
+                            <span> Kgf Chapter 1 (Kannada) | </span>
+                            <span>Viswasam | </span>
+                            <span>Triple Seat | </span>
+                            <span> Killol | </span>
+                            <span>Champion | </span>
+                            <span>Smile |</span>
+                            <span>Love Action Drama | </span>
+                            <span> G.O.A.T.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                    <div class="footer-columne-wrapper">
+                        <div class="fHeading">TOP SEARCHED LYRICS</div>
+                        <div>
+                            <span>THE ALBUM | </span>
+                            <span>Songs of Trance | </span>
+                            <span> Love Marriage | </span>
+                            <span>Love Action Drama | </span>
+                            <span> Kgf Chapter 1 (Kannada) | </span>
+                            <span>Viswasam | </span>
+                            <span>Triple Seat | </span>
+                            <span> Killol | </span>
+                            <span>Champion | </span>
+                            <span>Smile |</span>
+                            <span>Love Action Drama | </span>
+                            <span> G.O.A.T.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- secont row end
+      footer social media contact details started  -->
+        <div class="fSocial-media">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="fSocial-media-list">
+                        <a>About Us<span> | </span></a>
+                        <a>Advertise with Us<span> | </span></a>
+                        <a>Privacy Policy<span> | </span></a>
+                        <a>Work with us<span> | </span></a>
+                        <a>Contact Us<span> | </span></a>
+                        <a>Feedback<span> | </span></a>
+                        <a>Hellotunes</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 containt">
+                    <div class="fSocial-media-font">
+                        <div class="font-wrapper">
+                            <svg class="font">
+                                <use xlink:href="./img/icons.svg#facebook-node"></use>
+                            </svg>
+                        </div>
+                        <div class="font-wrapper">
+                            <svg class="font">
+                                <use xlink:href="./img/icons.svg#twitter-node"></use>
+                            </svg>
+                        </div>
+                        <div class="font-wrapper">
+                            <svg class="font">
+                                <use xlink:href="./img/icons.svg#instagram-node"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footerLastSec">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
+                    Wynk Music is the one-stop music app for the latest to the greatest songs that you love. Play your favourite music online for free or download mp3. Enjoy from over 60 Lakh Hindi, English, Bollywood, Regional, Latest, Old songs and more.
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 containt">
+                    2020 © All rights reserved | Airtel Digital Limited
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</body>
+
+</html>
