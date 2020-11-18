@@ -1043,6 +1043,10 @@ body ul {
   justify-content: center;
 }
 
+.artist-section-width {
+  width: 50%;
+}
+
 @media (min-width: 768px) {
   .artist-section-width {
     width: 16.666666666666668%;

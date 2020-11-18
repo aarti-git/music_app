@@ -627,6 +627,7 @@ body ul {
 // artist list section
 
 .artist-section-width {
+  width: 50%;
   @include above('md'){
     width: 16.666666666666668%;
   }
