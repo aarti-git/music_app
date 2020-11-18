@@ -626,12 +626,12 @@ body ul {
 }
 // artist list section
 
-.artist-section-width {
-  width: 50%;
-  @include above('md'){
-    width: 16.666666666666668%;
-  }
-}
+// .artist-section-width {
+//    width: 50%;
+//   @include above('md'){
+//     width: 16.666666666666668%;
+//   }
+// }
 .artist-img-div {
   width: 100%;
   position: relative;
