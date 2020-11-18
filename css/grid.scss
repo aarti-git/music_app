@@ -40,9 +40,9 @@ body {
     @media (min-width: #{$port-width}) {
         
         @if $port-name == "xs" {
-            $container-width: calc(100vw - 50px);
+            $container-width: calc(100vw - 30px);
         } @else if $port-name == "sm" {
-            $container-width: calc(100vw - 50px);
+            $container-width: calc(100vw - 30px);
         } @else if $port-name == "md" {
             $container-width: calc(100vw - 70px);
         } @else if $port-name == "lg" {

@@ -462,22 +462,33 @@ body ul {
   overflow: hidden;
 }
 .songs-tittle h3 {
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 400;
   margin-bottom: 20px;
+  @include above('md'){
+    font-size: 22px;
+    font-weight: 500;
+  }
 }
 .sections-space {
-  margin: 50px 0;
+  margin: 30px 0;
   position: relative;
 }
 .watch-next-image:hover .songs-img-overlay-wrapper {
   display: block;
 }
-.watch-next-image-width {
-  width: 12.5% !important;
-}
+// .watch-next-image-width {
+//   width: 50% !important;
+//   @include above('md'){
+//     width: 20% !important;
+//   }
+//   @include above('lg'){
+//     width: 12.5% !important;
+//   }
+// }
+
 .watch-next-image {
-  width: 100%;
+  width: auto;
   display: inline-block;
   position: relative;
   flex-shrink: 0;
@@ -493,13 +504,36 @@ body ul {
 .popularArtist-section:hover .scroll-btn-add {
   display: block;
 }
+.old-song-section:hover .scroll-btn-add{
+  display: block;
+}
+.img-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.img-wrapper2::-webkit-scrollbar {
+  display: none;
+}
+.img-wrapper3::-webkit-scrollbar {
+  display: none;
+}
+.img-wrapper4::-webkit-scrollbar {
+  display: none;
+}
+
 
 .img-wrapper,
 .img-wrapper2,
-.img-wrapper3 {
+.img-wrapper3,
+.img-wrapper4 {
   display: flex;
   position: relative;
   margin: 0 -10px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+    // @include above('md'){
+    //   overflow-x: scroll;
+    //   scroll-behavior: smooth;
+    // }
 }
 .song-img {
   width: 100%;
@@ -591,8 +625,11 @@ body ul {
   justify-content: center;
 }
 // artist list section
+
 .artist-section-width {
-  width: 16.666666666666668%;
+  @include above('md'){
+    width: 16.666666666666668%;
+  }
 }
 .artist-img-div {
   width: 100%;
@@ -617,19 +654,35 @@ body ul {
 }
 .artist-name-div {
   text-align: center;
-    margin: 20px 0 10px;
-    font-weight: 300;
-    font-size: 17px;
-    text-transform: capitalize;
+  margin: 20px 0 10px;
+  font-weight: 300;
+  font-size: 17px;
+  text-transform: capitalize;
 }
-.artist-name-div p{
+.song-name-div{
+  margin: 5px;
+  
+}
+.song-name-div p{
   font-size: 15px;
   font-weight: 400;
+    // @include above('md'){
+    //   font-size: 25px;
+    // }
+    // @include above('lg'){
+    //   font-size: 15px;
+    // }
 }
-.artist-name-div span{
+.song-name-div span{
   font-size: 13px;
   font-weight: 300;
   color: #818c94;
+  // @include above('md'){
+  //   font-size: 23px;
+  // }
+  // @include above('lg'){
+  //   font-size: 12px;
+  // }
 }
 
 // wadda hai song new page
