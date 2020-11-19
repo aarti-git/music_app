@@ -461,14 +461,29 @@ body ul {
 .div-parent {
   overflow: hidden;
 }
+.songs-tittle{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
 .songs-tittle h3 {
   font-size: 17px;
   font-weight: 400;
-  margin-bottom: 20px;
   @include above('md'){
     font-size: 22px;
     font-weight: 500;
   }
+}
+.songs-tittle a:hover{
+  background-color: #e50019;
+  color: white;
+  border-radius:10px;
+}
+.songs-tittle a{
+  font-size: 13px;
+  color: #ed1c24;
+  align-self: center;
+  padding: 2px 7px;
 }
 .sections-space {
   margin: 30px 0;
@@ -478,13 +493,13 @@ body ul {
   display: block;
 }
 // .watch-next-image-width {
-//   width: 50% !important;
+//   width: auto;
 //   @include above('md'){
-//     width: 20% !important;
+//     width: 20% ;
 //   }
-//   @include above('lg'){
-//     width: 12.5% !important;
-//   }
+  // @include above('lg'){
+  //   width: 12.5%;
+  // }
 // }
 
 .watch-next-image {
@@ -494,6 +509,19 @@ body ul {
   flex-shrink: 0;
   transition: transform 0.1s ease;
   padding: 0 10px;
+  @include above('xs'){
+    width: 33% ;
+  }
+  @include above('sm'){
+    width: 25% ;
+  }
+  @include above('md'){
+    width: 16.5% ;
+  }
+  @include above('lg'){
+    width: 12.5%;
+  }
+
 }
 .latest-song-section:hover .scroll-btn-add {
   display: block;

@@ -867,10 +867,15 @@ body ul {
   overflow: hidden;
 }
 
+.songs-tittle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .songs-tittle h3 {
   font-size: 17px;
   font-weight: 400;
-  margin-bottom: 20px;
 }
 
 @media (min-width: 768px) {
@@ -878,6 +883,19 @@ body ul {
     font-size: 22px;
     font-weight: 500;
   }
+}
+
+.songs-tittle a:hover {
+  background-color: #e50019;
+  color: white;
+  border-radius: 10px;
+}
+
+.songs-tittle a {
+  font-size: 13px;
+  color: #ed1c24;
+  align-self: center;
+  padding: 2px 7px;
 }
 
 .sections-space {
@@ -896,6 +914,30 @@ body ul {
   flex-shrink: 0;
   transition: transform 0.1s ease;
   padding: 0 10px;
+}
+
+@media (min-width: 0) {
+  .watch-next-image {
+    width: 33%;
+  }
+}
+
+@media (min-width: 480px) {
+  .watch-next-image {
+    width: 25%;
+  }
+}
+
+@media (min-width: 768px) {
+  .watch-next-image {
+    width: 16.5%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .watch-next-image {
+    width: 12.5%;
+  }
 }
 
 .latest-song-section:hover .scroll-btn-add {
