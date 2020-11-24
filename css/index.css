@@ -863,6 +863,45 @@ body ul {
   }
 }
 
+.atomaticScrolling {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.atomaticScroll-img-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+}
+
+.atomaticScroll-next-image {
+  width: 900px;
+  height: 300px;
+  padding: 0 10px;
+}
+
+.poster-parent {
+  position: relative;
+  width: 900px;
+  margin: 0 auto;
+  margin: 0 -10px;
+  display: -webkit-box;
+}
+
+.poster-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.leftImgSect {
+  position: absolute;
+  top: 0;
+  right: 100%;
+}
+
 .div-parent {
   overflow: hidden;
 }
@@ -940,6 +979,12 @@ body ul {
   }
 }
 
+@media (min-width: 1500px) {
+  .watch-next-image {
+    width: 16.5%;
+  }
+}
+
 .latest-song-section:hover .scroll-btn-add {
   display: block;
 }
@@ -1000,6 +1045,14 @@ body ul {
   outline: none;
   color: white;
   border-radius: 50%;
+}
+
+.songposterscroll-btn-add {
+  right: 155px;
+}
+
+.songposterscroll-btn-min {
+  left: 194px;
 }
 
 .scroll-btn-min {
@@ -1477,10 +1530,6 @@ body ul {
   .containt {
     justify-content: flex-end;
   }
-}
-
-.poster-img-wrapper {
-  display: flex;
 }
 
 .getApp-btn {

@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
    popup.init();
+  //  atomaticScroll();
+
   });
 
 // mornig and night modes
@@ -56,6 +58,80 @@ var menuBar = document.querySelector(".menu-bar-svg");
 menuBar.addEventListener("click",function(){
     popup.open(".menu-bar-overlay");
 })
+
+
+//  // poster scrolling
+//  var n = 0;
+//  var p ;
+//  var imgSrcArray = [
+//      "img/amit-trivedi.webp",
+//      "img/sad.webp",
+//      "img/english-songs.webp",
+//      "img/serial-songs.webp",
+//      "img/workout.webp",
+//  ]
+//  var leftImg = document.querySelector(".img1");
+//  var centerImg = document.querySelector(".img2");
+//  var rightImg = document.querySelector(".img3");
+//  var arryaIndexCount = imgSrcArray.length;
+
+//  function posterScrolling(scrollingFlage) {
+//   if (scrollingFlage && n <= arryaIndexCount) {
+//     p = centerImg.src;
+//       n++;
+//       if (n === arryaIndexCount) {
+//         n = 0;
+//       }
+//   }else if (!scrollingFlage && n > 0) {
+//     n--;
+//   }
+  
+//   centerImg.src = imgSrcArray[n];
+//   leftImg.src = p;
+// }
+
+// // atomatic scrolling
+//  function atomaticScroll() {
+//   // interval = setInterval(function() {
+//   //     if (n <= arryaIndexCount) {
+//   //       centerImg.src = imgSrcArray[n];
+//   //         n++;
+//   //         if (n === arryaIndexCount) {
+//   //             n = 0;
+//   //         }
+//   //     }
+//   // }, 3000);
+//  }
+// poster scrolling
+function posterScrolling(elValue) {
+  var parentElm = document.querySelector(".atomaticScroll-img-wrapper");
+  var grandParent = parentElm.parentElement; 
+  var scrollingImg = parentElm.querySelectorAll(".atomaticScroll-next-image");
+  var scrollBtnMin = grandParent.querySelector(".songposterscroll-btn-min");
+  var scrollBtnAdd = grandParent.querySelector(".songposterscroll-btn-add");
+
+  var a = parentElm.dataset.slidepos;
+  if (a === undefined) {
+    a = 0;
+  } else {
+    a = Number(a);
+  }
+  // var x = 200;
+  if (elValue) {
+    a -= 100;
+  } else if (!elValue) {
+    a += 100;
+  }
+
+  parentElm.dataset.slidepos = a;
+  // save the value of a
+  for (var i = 0; i < scrollingImg.length; i++) {
+    scrollingImg[i].style.transform = "translateX(" + a + "%)";
+  }
+}
+
+
+
 
 // horizontal scrolling in js
     // var a = 0;

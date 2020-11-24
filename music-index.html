@@ -9,6 +9,8 @@
     <script defer src="./js/app.js"></script>
     <script src="popup.js"></script>
     <!-- <link rel="stylesheet" href="./bootstrap_link/bootstrap.min.css" /> -->
+    <!-- spotify access token -->
+    <!-- BQCYp0YegTq6sGWzZzXkxPPBPBcgridrH7LAFJThCBmMt6yafnODDoWQYThVjGvd5lQDKNdL1YfFVyUd5kjY9iFD5ELnHhv1LMyU7I_0fPlhM6cc4LGr9YUe16aEkJ8iqJZre-BSSe6yK8miehK-w0r1zxl-IK5bEPCGrOnHkI02G70X0A -->
 </head>
 
 <body>
@@ -173,29 +175,41 @@
     </section>
     <!-- header section end -->
     <!-- atomatic scrollig -->
-    <!-- <section class="">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="poster-img-wrapper">
-                    <div class="watch-next-image">
-                        <a><img class="poster-img" src="img/workout.webp"></a>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="poster-img" src="img/amit-trivedi.webp"></a>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="poster-img" src="img/sad.webp"></a>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="poster-img" src="img/english-songs.webp"></a>
-                    </div>
-                    <div class="watch-next-image">
-                        <a><img class="poster-img" src="img/serial-songs.webp"></a>
-                    </div>
-                </diV>
-            </div>
+    <section class="atomaticScrolling">
+        <div>
+            <button class="comman-scrolling-css songposterscroll-btn-min" onclick="posterScrolling(false)">
+                <svg class="font">
+                    <use xlink:href="./img/icons.svg#angleLeft-node"></use>
+                </svg>
+            </button>
         </div>
-    </section> -->
+        <div class="atomaticScroll-img-wrapper">
+            <div class="poster-parent">
+                <div class="atomaticScroll-next-image leftImgSect">
+                    <a><img class="poster-img img1" src="img/workout.webp"></a>
+                </div>
+                <div class="atomaticScroll-next-image">
+                    <a><img class="poster-img img2" src="img/amit-trivedi.webp"></a>
+                </div>
+                <div class="atomaticScroll-next-image rightImgSect">
+                    <a><img class="poster-img img3" src="img/sad.webp"></a>
+                </div>
+                <div class="atomaticScroll-next-image">
+                    <a><img class="poster-img" src="img/english-songs.webp"></a>
+                </div>
+                <div class="atomaticScroll-next-image">
+                    <a><img class="poster-img" src="img/serial-songs.webp"></a>
+                </div>
+            </div>
+        </diV>
+        <div>
+            <button class="comman-scrolling-css songposterscroll-btn-add" onclick="posterScrolling(true)">
+                <svg class="font">
+                    <use xlink:href="./img/icons.svg#angleRight-node"></use>
+                </svg>
+            </button>
+        </div>
+    </section>
 
     <!-- body part -->
     <section class="container">
@@ -1037,9 +1051,12 @@
                                 <a href="waada-hai-song-page.html">
                                     <div class="songs-img-overlay">
                                         <div class="play-button-div">
-                                            <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
+                                            <!-- <audio controls>
+                                                <source src="https://p.scdn.co/mp3-preview/56de6f8b348530f54dbfb855247c5e51b844ee03?cid=60097a884dd54b7ebc0ef5880805585f" type="audio/ogg">
+                                            </audio> -->
+                                                <svg class="play-font">
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
                                         </div>
                                         <div class="songs-img-overlay-endFont">
                                             <div class="img-layout-font">
@@ -1808,3 +1825,4 @@
 <!-- content-space -->
 
 </html>
+<!-- git push https://aarti-git:iamaarti001@github.com/aarti-git/music_app.git master -->
