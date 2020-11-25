@@ -8,8 +8,6 @@
  */
 
 // spotify access token 
-//BQCYp0YegTq6sGWzZzXkxPPBPBcgridrH7LAFJThCBmMt6yafnODDoWQYThVjGvd5lQDKNdL1YfFVyUd5kjY9iFD5ELnHhv1LMyU7I_0fPlhM6cc4LGr9YUe16aEkJ8iqJZre-BSSe6yK8miehK-w0r1zxl-IK5bEPCGrOnHkI02G70X0A 
-// BQCf2G1uIbhqsSF6LMedcNWwujv1-qpTCsXh3JCtPX2sb6pOEvk0aMMCOtru-i-1tRNxNuduJi8phjf10Ici0i3I_MtSNAhAnPiAvKjJoICrAVXnXgcj31Fs7OPydMdwfAnNj0OrTsCDWrRr1CfLUFQDyvC0EJ5G8cDP2RaTSgGBZJj9jA
 
 var express = require('express'); // Express web server framework
 var request = require('request'); // "Request" library
@@ -147,5 +145,5 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
-console.log('Listening on 8888');
+console.log('Listening on 8888 : http://localhost:8888');
 app.listen(8888);

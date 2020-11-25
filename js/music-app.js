@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-   popup.init();
+  popup.init();
   //  atomaticScroll();
 
   });
@@ -148,15 +148,15 @@ function posterScrolling(elValue) {
         } else {
           a = Number(a);
         }
-        var x = 700;
+        var x = 800;
         if (elValue) {
-          a -= 700;
+          a -= 800;
           scrollBtnMin.style.display = "block";
-          if (a == -(x * 1)) {
+          if (a == -(x * 2)) {
             scrollBtnAdd.style.display = "none";
           }
         } else if (!elValue) {
-          a += 700;
+          a += 800;
           if (a == 0) {
             scrollBtnMin.style.display = "none";
             scrollBtnAdd.style.display = "block";

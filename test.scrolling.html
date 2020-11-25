@@ -1,47 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style type="text/css">
-        .atomaticScrolling {
-            /* overflow: hidden; */
-        }
-        .atomaticScroll-img-wrapper{
-            width: 900px;
-            height: 300px;
-            margin: 0 auto;
-            display: flex;
-        }
-        .poster-img{
-            width: 100%;
-            height: 100%;
-        }
-        .leftImgSect{
-            position: absolute;
-            top: 0;
-            right: 100%;
-        }
-        /* .atomaticScroll-next-image{
-            width: 900px;
-            height: 300px;
-            display: flex;
-        } */
-    </style>
+    <link rel="stylesheet" href="css/index.css" />
+    <script defer src="./js/test-app.js"></script>
+    <script src="./js/scroll-list.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script defer src="./js/music-app.js"></script>
 </head>
+
 <body>
-    <section class="atomaticScrolling">
-        <div class="atomaticScroll-next-image leftImgSect">
-            <a><img class="poster-img img1" src="img/workout.webp"></a>
+    <section class="container">
+        <div class="div-parent">
+            <!-- LATEST SONGS -->
+            <section class="latest-song-section sections-space">
+                <div class="songs-tittle">
+                    <h3>new Release</h3>
+                    <a>See All</a>
+                </div>
+                <div>
+                    <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, '.img-wrapper')">
+                        <svg class="font">
+                            <use xlink:href="./img/icons.svg#angleLeft-node"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="img-wrapper">
+                </div>
+                <div>
+                    <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,'.img-wrapper')">
+                        <svg class="font">
+                            <use xlink:href="./img/icons.svg#angleRight-node"></use>
+                        </svg>
+                    </button>
+                </div>
+            </section>
         </div>
-        <div class="atomaticScroll-img-wrapper">
-            <a><img class="poster-img img2" src="img/amit-trivedi.webp"></a>
-        </div>
-        <div class="atomaticScroll-next-image rightImgSect">
-            <a><img class="poster-img img3" src="img/sad.webp"></a>
-        </div>
-           
     </section>
 </body>
+
 </html>
+<!-- <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-12.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="waada-hai-song-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#share-node"></use>
+                                            </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                            </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                </div> -->

@@ -979,12 +979,6 @@ body ul {
   }
 }
 
-@media (min-width: 1500px) {
-  .watch-next-image {
-    width: 16.5%;
-  }
-}
-
 .latest-song-section:hover .scroll-btn-add {
   display: block;
 }
@@ -1138,6 +1132,16 @@ body ul {
   justify-content: center;
 }
 
+.artist-section-width {
+  width: 50%;
+}
+
+@media (min-width: 768px) {
+  .artist-section-width {
+    width: 16.666666666666668%;
+  }
+}
+
 .artist-img-div {
   width: 100%;
   position: relative;
@@ -1175,12 +1179,12 @@ body ul {
 }
 
 .song-name-div p {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
 }
 
 .song-name-div span {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
   color: #818c94;
 }
