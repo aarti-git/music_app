@@ -1,10 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
-  popup.init();
-  //  atomaticScroll();
 
-  });
+// outorization tokan :
+const authoTokan = "Bearer BQDeV6YB65IdXKHEsl6iXsGBaGjIIxZHZFd_y9ICslmfSdzXqWpDD5oCQFNfqXk262ltOiwZUnczNB7IexVeAX0kKVatg7xHAWV9uC8lrJt3VolLDPyiRekpSXzXmeGehiYL_CANLFenJncxVVBrI0-HM1FJ-BF2TcttLTrEqvofblNb1Q";
 
-// mornig and night modes
 var screenModes = document.querySelector(".modes");
 var isnightMode = false;
 screenModes.addEventListener("click", function () {
@@ -157,6 +154,46 @@ function posterScrolling(elValue) {
           }
         } else if (!elValue) {
           a += 800;
+          if (a == 0) {
+            scrollBtnMin.style.display = "none";
+            scrollBtnAdd.style.display = "block";
+          } 
+          // else if (a < -(x * 1)) {
+          //   scrollBtnAdd.style.display = "block";
+          // }
+        }
+  
+        parentElm.dataset.slidepos = a;
+        // save the value of a
+  
+        for (var i = 0; i < scrollingImg.length; i++) {
+          scrollingImg[i].style.transform = "translateX(" + a + "%)";
+        }
+      }
+
+      // artist horizontalscroll
+      function twoTimethorizontalscroll(elValue, parent) {
+        var parentElm = document.querySelector(parent);
+        var grandParent = parentElm.parentElement; 
+        var scrollingImg = parentElm.querySelectorAll(".watch-next-image");
+        var scrollBtnMin = grandParent.querySelector(".scroll-btn-min");
+        var scrollBtnAdd = grandParent.querySelector(".scroll-btn-add");
+  
+        var a = parentElm.dataset.slidepos;
+        if (a === undefined) {
+          a = 0;
+        } else {
+          a = Number(a);
+        }
+        var x = 600;
+        if (elValue) {
+          a -= 600;
+          scrollBtnMin.style.display = "block";
+          if (a == -(x * 1)) {
+            scrollBtnAdd.style.display = "none";
+          }
+        } else if (!elValue) {
+          a += 600;
           if (a == 0) {
             scrollBtnMin.style.display = "none";
             scrollBtnAdd.style.display = "block";

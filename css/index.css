@@ -370,6 +370,37 @@ body ul {
   margin-left: 20px;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.audioTag {
+  opacity: 0;
+}
+
+.audio-position {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  height: 100%;
+  margin: 0 -8px;
+}
+
+.artistAlbum-audio-position {
+  position: absolute;
+  top: 60px;
+  left: 53px;
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+}
+
 .header {
   width: 100%;
   background-color: #21252d;
@@ -902,6 +933,70 @@ body ul {
   right: 100%;
 }
 
+.player-position {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 10px;
+  width: 100%;
+  z-index: 2;
+}
+
+.song-player-bar {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #21252df5;
+  padding: 15px;
+  border-radius: 4px;
+  z-index: 1;
+  border: 1px solid #454545;
+}
+
+.player-bar-sections {
+  display: flex;
+  align-items: center;
+}
+
+.song-Name-artist-div {
+  align-self: center;
+  margin-left: 10px;
+}
+
+.song-player-bar p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.song-player-bar span {
+  display: block;
+  padding-top: 2px;
+  color: #818c94;
+  font-size: 12px;
+}
+
+.play-font-onPlayerBar {
+  width: 15px;
+  height: 15px;
+  align-self: center;
+}
+
+.play-button-onPlayerBar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #bf1016;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+}
+
+.side-font-onPlayerBar {
+  margin: 0 30px;
+}
+
+.next-pervious-onPlayerBar {
+  margin: 0 8px;
+}
+
 .div-parent {
   overflow: hidden;
 }
@@ -948,7 +1043,7 @@ body ul {
 
 .watch-next-image {
   width: auto;
-  display: inline-block;
+  display: inline-table;
   position: relative;
   flex-shrink: 0;
   transition: transform 0.1s ease;
@@ -1202,8 +1297,15 @@ body ul {
 }
 
 .button-div p {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
+}
+
+.button-div span {
+  display: block;
+  padding-top: 2px;
+  color: #818c94;
+  font-size: 12px;
 }
 
 .artist-song-list:hover .sections-space {
@@ -1214,15 +1316,21 @@ body ul {
   display: block;
 }
 
+.artist-song-list:hover .font-opacity {
+  opacity: 0;
+}
+
 .artist-song-list:hover {
   border: 1px solid #7e7e7e;
+  background-color: #4f4f4f2e;
 }
 
 .artist-song-list {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  padding: 8px;
   border-radius: 5px;
+  position: relative;
   border: 1px solid transparent;
 }
 
@@ -1257,6 +1365,8 @@ body ul {
 
 .playButton-position {
   position: relative;
+  align-self: center;
+  color: #e8121a;
 }
 
 .playButton-on-image {
@@ -1276,18 +1386,19 @@ body ul {
   border-right: 1px solid;
 }
 
-.artist-Arjun-Kanungo {
+.artist-info-section {
   margin-top: 50px;
 }
 
-.Arjun-Kanungo-inf {
+.artist-inf {
   display: flex;
   margin-top: 15px;
 }
 
-.Arjun-Kanungo-img {
+.artists-img {
   border-radius: 50%;
   margin-right: 20px;
+  width: 120px;
 }
 
 .artist-name {
@@ -1340,8 +1451,9 @@ body ul {
 
 .headings {
   font-weight: 400;
-  font-size: 22px;
-  margin-bottom: 5px;
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
 }
 
 .about-song p {

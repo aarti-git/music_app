@@ -1,4 +1,161 @@
-<!DOCTYPE html>
+// "https://api.spotify.com/v1/albums/2d9BCZeAAhiZWPpbX9aPCW?market=IN" 
+// this id artist api bad bunny https://api.spotify.com/v1/artists/4q3ewBCX7sLwd24euuV69X
+var authToken = "Bearer BQDWc1zNy4gYXk3-rGZfNoI6TcLbkmKp514uxJLa9QlLQN3oBM8TlRganQjdByRwE3nJZ9iqVCunarGFChRGDm1RzEBm_n4iji1hRvB3dPqYc3K_ZDofPL29M7EyihqVSrsoJv_XJvlbCybwsxof6usvGuX1wCKGbaTAEuZwZc_PsRtyDw";
+const albumSongs = {
+    init : function(albumId){
+        var _this = this;
+        // albim api
+        $.ajax({
+            url: "https://api.spotify.com/v1/albums/" + albumId + "?market=IN",
+            type: "GET",
+            headers : {
+                authorization: authToken,
+            },
+            success: function(result){
+                console.log("album api-success")
+                console.log(result);
+                _this.creatsongList(result)
+                // this._albumArtistId =result.artists[0].id;
+                // console.log(this._albumArtistId)
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    },
+    getArtists: function(artists = [],callback){
+        artists.
+        $.ajax({
+            url: "https://api.spotify.com/v1/artists/?ids="+ albumArtistId + "",
+            type: "GET",
+            headers : {
+                authorization: authToken,
+            },
+            success: function(result){
+                console.log("artist api - success")
+                console.log(result);
+                callback(result);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    },
+    creatsongList : function(result){
+        var data = result;
+        var albumImg = data.images;
+        var songName = data.name;
+        var label = data.label;
+        var albumType = data.type;
+        var albumArtistId = data.artists[0].id;
+        var albumArtistsName = data.artists[0].name;
+        var imgSrc = this.getImg(albumImg,albumImg[1].width);
+        this.craetalbumBody({imgSrc, songName, label, albumType, albumArtistsName, albumArtistId});
+
+        var array = data.tracks.items;
+        for(var i=0; i<array.length; i++){
+            var albumItems = array[i];
+            var albumArtists = albumItems.artists;
+            var albumName = albumItems.name;
+            var artistNames = this.artistName(albumArtists);
+            var songMP3Url = albumItems.preview_url;
+            this.creatHTML(songMP3Url,albumName,artistNames);
+        };
+    },
+    artistInfo : function(artistApiResult){
+        var artistData = artistApiResult;
+        var artistImgArray = artistData.images;
+        // var _artistImg = "img/defalt-singer.jpg";
+        // _artistImg = artistImgArray[1].url;
+        // if(artistImgArray[1].url){
+        var _artistImg = artistImgArray[1].url
+        // }
+        return _artistImg ;
+    },
+    craetalbumBody : function(obj){
+        _this = this;
+        this.getArtist(albumArtistId, function(ArtistData){
+            var x = _this.artistInfo(ArtistData);
+            return x;
+        });
+
+        var albumSection = document.querySelector(".page-section-wrapper");
+        var aboutsongsection = document.querySelector(".about-song-section");
+        albumSection.innerHTML= template.album(obj);
+
+        // about song section inner html
+        aboutsongsection.innerHTML= template.albumAboutSong({})
+    },
+    creatHTML : function(songMP3Url, albumName, artistNames){
+        var albumSongList = document.querySelector(".album-song-list");
+            var songdivWrapper = document.createElement("div");
+            songdivWrapper.classList.add("artist-song-list");
+            songdivWrapper.innerHTML=`
+            <div class="button-div">
+                <audio controls class="audio-position">
+                    <source src="${songMP3Url}" type="audio/ogg">
+                </audio>
+                <div class="playButton-position">
+                    <svg class="font font-opacity">
+                        <use xlink:href="./img/icons.svg#music-list-node"></use>
+                    </svg>
+                    <div>
+                        <svg class="playButton-on-image">
+                            <use xlink:href="./img/icons.svg#playButton-node"></use>
+                            <use style="display:none" xlink:href="./img/icons.svg#night-node"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="align-self">
+                    <p>${albumName}</p>
+                    <span>${artistNames}</span>
+                </div>
+            </div>
+            <div class="button-div">
+                <div class="font-wrapper align-self">
+                    <svg class="font">
+                        <use xlink:href="./img/icons.svg#download-node"></use>
+                    </svg>
+                </div>
+                <div class="font-wrapper align-self">
+                    <svg class="font">
+                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                    </svg>
+                </div>
+            </div>
+            `
+            albumSongList.append(songdivWrapper);
+    },
+    getImg : function(albumImg,ImgWidth){
+        // if(ImgWidth !== 300){
+        //     ImgWidth = albumImg[0].width;
+        // }
+        for(var i=0;i<albumImg.length;i++){
+            var imgItems = albumImg[i];
+            if(imgItems.width == ImgWidth){
+                var imgUrl = imgItems.url;   
+                return imgUrl;
+            }     
+        }
+    },
+    artistName : function(albumArtists){
+        var saveSingerN = "";
+        var x = albumArtists.slice(0, 2);
+        for(var i=0; i<x.length;i++){
+            var artistItems = albumArtists[i];
+            var singerName = artistItems.name;
+            if(i==0){
+                saveSingerN += singerName;
+            }else{
+                saveSingerN += " , " + singerName 
+            }  
+        }
+        return saveSingerN;
+    },
+}
+
+// html
+const HTML = `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,7 +167,6 @@
     <script defer src="./js/music-app.js"></script>
     <script src="js/new-releases.js"></script>
     <script src="js/artist.js"></script>
-    <script src="js/categories.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="popup.js"></script>
 </head>
@@ -306,7 +462,7 @@
             <!-- bollywood On Loop -->
             <section class="bollywoodsong-section sections-space">
                 <div class="songs-tittle">
-                    <h3>Categories</h3>
+                    <h3>Bollywood On Loop</h3>
                     <a>See All</a>
                 </div>
                 <div>
@@ -317,7 +473,390 @@
                     </button>
                 </div>
                 <div class="img-wrapper2">
-                    
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-12.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-11.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-10.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-9.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-8.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-7.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-6.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-5.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-4.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                        </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-3.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                            <use xlink:href="./img/icons.svg#share-node"></use>
+                                        </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                            </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-2.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#share-node"></use>
+                                            </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                            </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
+                    <div class="watch-next-image">
+                        <div class="song-img-overlay-wrapper">
+                            <img class="song-img" src="img/song-1.webp">
+                            <div class="songs-img-overlay-wrapper">
+                                <a href="song-album-page.html">
+                                    <div class="songs-img-overlay">
+                                        <div class="play-button-div">
+                                            <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                        </div>
+                                        <div class="songs-img-overlay-endFont">
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#share-node"></use>
+                                            </svg>
+                                            </div>
+                                            <div class="img-layout-font">
+                                                <svg class="font">
+                                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                            </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="song-name-div">
+                            <p>waada-hai</p>
+                            <span>arjin kan</span>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,'.img-wrapper2')">
@@ -349,9 +888,12 @@
                                 <a href="song-album-page.html">
                                     <div class="songs-img-overlay">
                                         <div class="play-button-div">
+                                            <!-- <audio controls>
+                                                <source src="https://p.scdn.co/mp3-preview/56de6f8b348530f54dbfb855247c5e51b844ee03?cid=60097a884dd54b7ebc0ef5880805585f" type="audio/ogg">
+                                            </audio> -->
                                             <svg class="play-font">
-                                                <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                            </svg>
+                                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                                </svg>
                                         </div>
                                         <div class="songs-img-overlay-endFont">
                                             <div class="img-layout-font">
@@ -744,7 +1286,7 @@
                     <a>See All</a>
                 </div>
                 <div>
-                    <button class="comman-scrolling-css scroll-btn-min" onclick="twoTimethorizontalscroll(false, '.img-wrapper4')">
+                    <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, '.img-wrapper4')">
                         <svg class="font">
                             <use xlink:href="./img/icons.svg#angleLeft-node"></use>
                         </svg>
@@ -872,7 +1414,7 @@
                     </div> -->
                 </div>
                 <div>
-                    <button class="comman-scrolling-css scroll-btn-add" onclick="twoTimethorizontalscroll(true,'.img-wrapper4')">
+                    <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,'.img-wrapper4')">
                         <svg class="font">
                             <use xlink:href="./img/icons.svg#angleRight-node"></use>
                         </svg>
@@ -1120,4 +1662,4 @@
 <!-- content-space -->
 
 </html>
-<!-- git push https://aarti-git:iamaarti001@github.com/aarti-git/music_app.git master -->
+<!-- git push https://aarti-git:iamaarti001@github.com/aarti-git/music_app.git master --></div>`;

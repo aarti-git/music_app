@@ -41,7 +41,32 @@ body ul {
   border: 0 !important;
   margin-left: 20px;
 }
-// header-css
+.justify-center{
+  justify-content: center;
+}
+.justify-end{
+  justify-content: flex-end;
+}
+.audioTag {
+  opacity: 0;
+}
+.audio-position{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  height: 100%;
+  margin: 0 -8px;
+}
+.artistAlbum-audio-position {
+  position: absolute;
+  top: 60px;
+  left: 53px;
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+}
 .header {
   width: 100%;
   background-color: #21252d;
@@ -456,7 +481,7 @@ body ul {
   }
 }
 // atomatic img scroling
-.atomaticScrolling{
+.atomaticScrolling {
   overflow: hidden;
   position: relative;
   margin-bottom: 50px;
@@ -467,7 +492,7 @@ body ul {
   align-items: center;
   display: flex;
 }
-.atomaticScroll-next-image{
+.atomaticScroll-next-image {
   width: 900px;
   height: 300px;
   padding: 0 10px;
@@ -479,7 +504,7 @@ body ul {
   margin: 0 -10px;
   display: -webkit-box;
 }
-.poster-img{
+.poster-img {
   width: 100%;
   height: 100%;
   border-radius: 30px;
@@ -494,12 +519,68 @@ body ul {
 //   margin: 0 18px;
 // }
 
+// player bar css
+.player-position{
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 10px;
+  width: 100%;
+  z-index: 2;
+}
+.song-player-bar {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #21252df5;
+  padding:15px;
+  border-radius: 4px;
+  z-index: 1;
+  border: 1px solid #454545;
+  
+}
+.player-bar-sections{
+  display: flex;
+  align-items: center;
+}
+.song-Name-artist-div{
+  align-self: center;
+  margin-left: 10px;
+}
+.song-player-bar p{
+  font-size: 16px;
+  font-weight: 400;
+}
+.song-player-bar span{
+  display: block;
+  padding-top: 2px;
+  color: #818c94;
+  font-size: 12px;
+}
+.play-font-onPlayerBar{
+  width: 15px;
+  height: 15px;
+  align-self: center;
+}
+.play-button-onPlayerBar{
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #bf1016;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+}
+.side-font-onPlayerBar{
+  margin: 0 30px;
+}
+.next-pervious-onPlayerBar{
+  margin: 0 8px;
+}
 
 // app body containt
 .div-parent {
   overflow: hidden;
 }
-.songs-tittle{
+.songs-tittle {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
@@ -507,17 +588,17 @@ body ul {
 .songs-tittle h3 {
   font-size: 17px;
   font-weight: 400;
-  @include above('md'){
+  @include above("md") {
     font-size: 22px;
     font-weight: 500;
   }
 }
-.songs-tittle a:hover{
+.songs-tittle a:hover {
   background-color: #e50019;
   color: white;
-  border-radius:10px;
+  border-radius: 10px;
 }
-.songs-tittle a{
+.songs-tittle a {
   font-size: 13px;
   color: #ed1c24;
   align-self: center;
@@ -535,28 +616,29 @@ body ul {
 //   @include above('md'){
 //     width: 20% ;
 //   }
-  // @include above('lg'){
-  //   width: 12.5%;
-  // }
+// @include above('lg'){
+//   width: 12.5%;
+// }
 // }
 
 .watch-next-image {
   width: auto;
-  display: inline-block;
+  display: inline-table;
   position: relative;
   flex-shrink: 0;
   transition: transform 0.1s ease;
   padding: 0 10px;
-  @include above('xs'){
-    width: 33% ;
+  // height: 230px;
+  @include above("xs") {
+    width: 33%;
   }
-  @include above('sm'){
-    width: 25% ;
+  @include above("sm") {
+    width: 25%;
   }
-  @include above('md'){
-    width: 16.5% ;
+  @include above("md") {
+    width: 16.5%;
   }
-  @include above('lg'){
+  @include above("lg") {
     width: 12.5%;
   }
   // @include above('xl'){
@@ -572,7 +654,7 @@ body ul {
 .popularArtist-section:hover .scroll-btn-add {
   display: block;
 }
-.old-song-section:hover .scroll-btn-add{
+.old-song-section:hover .scroll-btn-add {
   display: block;
 }
 .img-wrapper::-webkit-scrollbar {
@@ -588,7 +670,6 @@ body ul {
   display: none;
 }
 
-
 .img-wrapper,
 .img-wrapper2,
 .img-wrapper3,
@@ -598,10 +679,10 @@ body ul {
   margin: 0 -10px;
   overflow-x: scroll;
   scroll-behavior: smooth;
-    // @include above('md'){
-    //   overflow-x: scroll;
-    //   scroll-behavior: smooth;
-    // }
+  // @include above('md'){
+  //   overflow-x: scroll;
+  //   scroll-behavior: smooth;
+  // }
 }
 .song-img {
   width: 100%;
@@ -620,10 +701,10 @@ body ul {
   color: white;
   border-radius: 50%;
 }
-.songposterscroll-btn-add{
+.songposterscroll-btn-add {
   right: 155px;
 }
-.songposterscroll-btn-min{
+.songposterscroll-btn-min {
   left: 194px;
 }
 .scroll-btn-min {
@@ -634,7 +715,7 @@ body ul {
   right: -18px;
   display: none;
 }
-.song-img-overlay-wrapper{
+.song-img-overlay-wrapper {
   width: 100%;
   position: relative;
 }
@@ -701,8 +782,8 @@ body ul {
 // artist list section
 
 .artist-section-width {
-   width: 50%;
-  @include above('md'){
+  width: 50%;
+  @include above("md") {
     width: 16.666666666666668%;
   }
 }
@@ -734,21 +815,20 @@ body ul {
   font-size: 17px;
   text-transform: capitalize;
 }
-.song-name-div{
+.song-name-div {
   margin: 5px;
-  
 }
-.song-name-div p{
+.song-name-div p {
   font-size: 13px;
   font-weight: 400;
-    // @include above('md'){
-    //   font-size: 25px;
-    // }
-    // @include above('lg'){
-    //   font-size: 15px;
-    // }
+  // @include above('md'){
+  //   font-size: 25px;
+  // }
+  // @include above('lg'){
+  //   font-size: 15px;
+  // }
 }
-.song-name-div span{
+.song-name-div span {
   font-size: 12px;
   font-weight: 300;
   color: #818c94;
@@ -772,24 +852,36 @@ body ul {
   position: relative;
 }
 .button-div p {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
 }
+.button-div span {
+  display: block;
+  padding-top: 2px;
+  color: #818c94;
+  font-size: 12px;
+}
+
 .artist-song-list:hover .sections-space {
   margin-top: -1px;
 }
 .artist-song-list:hover .playButton-on-image {
   display: block;
 }
+.artist-song-list:hover .font-opacity{
+  opacity: 0;
+}
 .artist-song-list:hover {
   border: 1px solid #7e7e7e;
+  background-color: #4f4f4f2e
   // margin: -1px;
 }
 .artist-song-list {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  padding: 8px;
   border-radius: 5px;
+  position: relative;
   // margin: 2px 0;
   border: 1px solid transparent;
 }
@@ -818,6 +910,8 @@ body ul {
 }
 .playButton-position {
   position: relative;
+  align-self: center;
+  color: #e8121a;
 }
 .playButton-on-image {
   display: none;
@@ -844,16 +938,17 @@ body ul {
   color: #b6b6b6;
   border-right: 1px solid;
 }
-.artist-Arjun-Kanungo {
+.artist-info-section {
   margin-top: 50px;
 }
-.Arjun-Kanungo-inf {
+.artist-inf {
   display: flex;
   margin-top: 15px;
 }
-.Arjun-Kanungo-img {
+.artists-img {
   border-radius: 50%;
   margin-right: 20px;
+  width: 120px;
 }
 .artist-name {
   align-self: center;
@@ -897,8 +992,9 @@ body ul {
 }
 .headings {
   font-weight: 400;
-  font-size: 22px;
-  margin-bottom: 5px;
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
 }
 .about-song p {
   font-size: 14px;
@@ -914,19 +1010,19 @@ body ul {
 }
 
 // artist page. html
-.about-artist{
+.about-artist {
   margin-top: 50px;
-} 
+}
 .about-artist p {
   font-size: 15px;
   font-weight: 400;
   color: #818c94;
-} 
-.img-wrapper-artist{
+}
+.img-wrapper-artist {
   position: relative;
   margin: 0 -10px;
 }
-.kishor-songs-img-w{
+.kishor-songs-img-w {
   width: 19.66%;
   margin: 20px 0;
 }

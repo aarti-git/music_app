@@ -2,8 +2,20 @@
 <html>
 
 <head>
-    <title>wadda hai song</title>
+    <title>album page</title>
     <link rel="stylesheet" href="css/index.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/new-release-albumPage.js"></script>
+    <!-- <script src="js/authorization-tokan.js"></script> -->
+    <script defer src="js/music-app.js"></script>
+    <script>
+        var url = new URL(location.href);
+        var albumId = url.searchParams.get('album-id');
+        document.addEventListener("DOMContentLoaded", function () {
+            albumSongs.init(albumId);
+        });
+    </script>
 </head>
 
 <body>
@@ -168,264 +180,7 @@
     </section>
     <!-- hrader end -->
     <section class="container">
-        <section>
-            <div class="some-links">
-                <ul>
-                    <li>home</li>
-                    <li>hindi song</li>
-                    <li>wadda hai song</li>
-                    <li>wadda hai</li>
-                </ul>
-            </div>
-            <div class="row">
-                <div class="col-xl-3">
-                    <div>
-                        <img class="page-main-img" src="img/wadda-hai-song.webp">
-                        <div class="artist-Arjun-Kanungo">
-                            <h3 class="headings">Artist</h3>
-                            <div class="Arjun-Kanungo-inf">
-                                <div>
-                                    <img class="Arjun-Kanungo-img" src="img/Arjun-Kanungo.webp" />
-                                </div>
-                                <div class="artist-name">
-                                    <p>Arjun Kanungo</p>
-                                    <span>Singer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-9">
-                    <div class="waada-hai-details">
-                        <h2>Waada Hai</h2>
-                        <span>wadda hai</span>
-                        <span>4:11 • ℗ 2020 Universal Music India Pvt. Ltd.</span>
-                        <div class="album-song-div">
-                            <div class="button-div">
-                                <button class="btn">Play Now</button>
-                                <button class="btn btn-2">download</button>
-                                <button class="btn btn-2">set free hellotune</button>
-                                <div class="font-wrapper">
-                                    <svg class="font">
-                                        <use xlink:href="./img/icons.svg#heart-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="button-div">
-                                <div class="font-wrapper">
-                                    <svg class="font">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="font-wrapper">
-                                    <svg class="font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="headings">Other Arjun Kanungo Songs</h3>
-                            <div class="artist-song-list">
-                                <div class="button-div">
-                                    <div class="playButton-position">
-                                        <img class="album-list-img" src="img/song-1.webp">
-                                        <div>
-                                            <svg class="playButton-on-image">
-                                                <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="align-self">
-                                        <p>wadda hai</p>
-                                        <span>Arjun Kanungo- artist</span>
-                                    </div>
-                                </div>
-                                <div class="button-div">
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#download-node"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="artist-song-list">
-                                <div class="button-div">
-                                    <div class="playButton-position">
-                                        <img class="album-list-img" src="img/song-2.webp">
-                                        <div>
-                                            <svg class="playButton-on-image">
-                                                <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="align-self">
-                                        <p>tum na ho</p>
-                                        <span>Arjun Kanungo- artist</span>
-                                    </div>
-                                </div>
-                                <div class="button-div">
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#download-node"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="artist-song-list">
-                                <div class="button-div">
-                                    <div class="playButton-position">
-                                        <img class="album-list-img" src="img/song-3.webp">
-                                        <div>
-                                            <svg class="playButton-on-image">
-                                                <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="align-self">
-                                        <p>woh baarishein</p>
-                                        <span>Arjun Kanungo- artist</span>
-                                    </div>
-                                </div>
-                                <div class="button-div">
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#download-node"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="artist-song-list">
-                                <div class="button-div">
-                                    <div class="playButton-position">
-                                        <img class="album-list-img" src="img/song-4.webp">
-                                        <div>
-                                            <svg class="playButton-on-image">
-                                                <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="align-self">
-                                        <p> tu na mera</p>
-                                        <span>Arjun Kanungo- artist</span>
-                                    </div>
-                                </div>
-                                <div class="button-div">
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#download-node"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="artist-song-list">
-                                <div class="button-div">
-                                    <div class="playButton-position">
-                                        <img class="album-list-img" src="img/song-5.webp">
-                                        <div>
-                                            <svg class="playButton-on-image">
-                                                <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="align-self">
-                                        <p>aaya na tu</p>
-                                        <span>Arjun Kanungo- artist</span>
-                                    </div>
-                                </div>
-                                <div class="button-div">
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#download-node"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="artist-song-list">
-                                <div class="button-div">
-                                    <div class="playButton-position">
-                                        <img class="album-list-img" src="img/song-6.webp">
-                                        <div>
-                                            <svg class="playButton-on-image">
-                                                <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="align-self">
-                                        <p>wadda hai</p>
-                                        <span>Arjun Kanungo- artist</span>
-                                    </div>
-                                </div>
-                                <div class="button-div">
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#download-node"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="artist-song-list">
-                                <div class="button-div">
-                                    <div class="playButton-position">
-                                        <img class="album-list-img" src="img/song-7.webp">
-                                        <div>
-                                            <svg class="playButton-on-image">
-                                                <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="align-self">
-                                        <p>hona chanda</p>
-                                        <span>Arjun Kanungo- artist</span>
-                                    </div>
-                                </div>
-                                <div class="button-div">
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#download-node"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="font-wrapper align-self">
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
+        <section class="page-section-wrapper">
         </section>
         <section class="latest-song-section sections-space">
             <div class="songs-tittle">
@@ -510,16 +265,7 @@
                 </div>
             </div>
         </section>
-        <section>
-            <div class="about-song">
-                <div>
-                    <img src="img/song-1.webp">
-                </div>
-                <div>
-                    <h3 class="headings">About Song</h3>
-                    <p>Waada Hai is a song which is sung by <a herf="artist-page.html">Arjun Kanungo</a> . The duration of the song is 4 min, 11 sec. You can listen to Waada Hai song online for free, or download the mp3 from the Wynk Music mobile app. Keep Wynking!</p>
-                </div>
-            </div>
+        <section class="about-song-section">
         </section>
     </section>
     <!-- footer section -->
