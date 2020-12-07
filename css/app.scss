@@ -102,10 +102,10 @@ body ul {
   height: 23px;
   width: 23px;
   color: #ed1c24;
-  margin-right: 10px;
   @include above("md") {
     height: 25px;
     width: 25px;
+    margin-right: 10px;
   }
 }
 
@@ -238,7 +238,8 @@ body ul {
 }
 .menu-bar-svg {
   align-self: center;
-  display: block;
+  display: flex;
+  // display: block;
   @include above("lg") {
     display: none;
   }
@@ -298,6 +299,11 @@ body ul {
   color: white;
   font-size: 15px;
 }
+.authBtn{
+  width: auto;
+  display: inline-block;
+  margin-top: 30px;
+}
 .btn-2 {
   background-color: transparent;
   border: 1px solid;
@@ -311,6 +317,7 @@ body ul {
   padding: 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  z-index: 1;
 }
 
 .mobile-account-list ul {
@@ -357,6 +364,8 @@ body ul {
   margin: 0 auto;
   border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 0 12px #00000082;
+  
   @include above("sm") {
     width: 800px;
     position: unset;
@@ -369,19 +378,27 @@ body ul {
   display: flex;
 }
 
+.auth-frame {
+  width: 100%;
+}
+
 .login-img {
   display: none;
   @include above("sm") {
     display: block;
-    width: 330px;
-    height: 100%;
+    width: 40%;
   }
 }
 .form-design {
-  padding: 20px;
+  width: 100%;
+  position: relative;
+  @include above("sm") {
+    width: 60%;
+  }
 }
 .remove-form {
   float: right;
+  margin: 10px;
 }
 .remove-form button:hover {
   box-shadow: 0 0 3px #bebdbd;
@@ -394,10 +411,7 @@ body ul {
   color: #cfd0d0;
 }
 .form-text {
-  padding: 10px;
-  @include above("sm") {
-    padding: 20px;
-  }
+  padding: 20px;
 }
 .form-text h3 {
   font-size: 24px;
@@ -451,7 +465,8 @@ body ul {
   display: none;
   @include above("sm") {
     display: block;
-    margin-top: 130px;
+    position: absolute;
+    bottom: 0;
     padding: 20px;
   }
 }
@@ -555,7 +570,8 @@ body ul {
   color: #818c94;
   font-size: 12px;
 }
-.play-font-onPlayerBar{
+.play-font-onPlayerBar,
+.pause-font-onPlayerBar{
   width: 15px;
   height: 15px;
   align-self: center;
@@ -570,10 +586,28 @@ body ul {
   justify-content: center;
 }
 .side-font-onPlayerBar{
-  margin: 0 30px;
+  display: none;
+  @include above("sm"){
+    display: block;
+    margin: 0 10px;
+  }
+  @include above("lg"){
+    margin: 0 30px;
+  }
 }
 .next-pervious-onPlayerBar{
   margin: 0 8px;
+  display: none;
+  @include above("sm"){
+    display: block;
+  }
+}
+.volumefont-onPlayerBar{
+  display: none;
+  @include above("sm"){
+    display: block;
+    margin-right: 15px;
+  }
 }
 
 // app body containt
@@ -605,8 +639,11 @@ body ul {
   padding: 2px 7px;
 }
 .sections-space {
-  margin: 30px 0;
+  margin: 50px 0;
   position: relative;
+  @include above("md") {
+    margin: 30px 0;
+  }
 }
 .watch-next-image:hover .songs-img-overlay-wrapper {
   display: block;
@@ -630,7 +667,7 @@ body ul {
   padding: 0 10px;
   // height: 230px;
   @include above("xs") {
-    width: 33%;
+    width: 40%;
   }
   @include above("sm") {
     width: 25%;
@@ -782,17 +819,33 @@ body ul {
 // artist list section
 
 .artist-section-width {
-  width: 50%;
+  width: 40%;
+  @include above("sm") {
+    width: 25%;
+  }
   @include above("md") {
+    width: 20%;
+  }
+  @include above("lg") {
     width: 16.666666666666668%;
   }
 }
 .artist-img-div {
   width: 100%;
+  // padding-top: 100%;
   position: relative;
 }
+.artist-img-wrapper{
+  position: relative;
+  padding-top: 100%;
+}
 .artist-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
+  object-fit: cover;
   border-radius: 50%;
   vertical-align: middle;
 }
@@ -816,14 +869,20 @@ body ul {
   text-transform: capitalize;
 }
 .song-name-div {
-  margin: 5px;
+  margin: 8px 5px;
+  white-space: nowrap;
+  width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #818c94;
 }
 .song-name-div p {
   font-size: 13px;
-  font-weight: 400;
-  // @include above('md'){
-  //   font-size: 25px;
-  // }
+  font-weight: 300;
+  color: white;
+  @include above('md'){
+    font-size: 15px;
+  }
   // @include above('lg'){
   //   font-size: 15px;
   // }
@@ -844,7 +903,17 @@ body ul {
 .album-song-div {
   display: flex;
   justify-content: space-between;
-  margin: 40px 0;
+  margin: 20px 0;
+  @include above("md"){
+    margin: 40px 0;
+  }
+}
+.free-hellotune-btn,
+.share-btn{
+  display: none;
+  @include above("md"){
+    display: block;
+  }
 }
 .button-div {
   display: flex;
@@ -866,7 +935,7 @@ body ul {
   margin-top: -1px;
 }
 .artist-song-list:hover .playButton-on-image {
-  display: block;
+  opacity: 1;
 }
 .artist-song-list:hover .font-opacity{
   opacity: 0;
@@ -895,11 +964,18 @@ body ul {
   border-radius: 10px;
 }
 .Playlists-width {
-  width: 16.666666666666668%;
+  width:33%;
+  @include above("md"){
+    width:16.6666666666%;
+  }
 }
 .some-links {
+  display: none;
   margin: 0px 0 40px;
   text-transform: capitalize;
+  @include above("sm"){
+    display: block;
+  }
 }
 .some-links ul {
   display: flex;
@@ -914,7 +990,8 @@ body ul {
   color: #e8121a;
 }
 .playButton-on-image {
-  display: none;
+  // display: none;
+  opacity: 0;
   width: 16px;
   height: 16px;
   position: absolute;
@@ -939,39 +1016,98 @@ body ul {
   border-right: 1px solid;
 }
 .artist-info-section {
-  margin-top: 50px;
+  margin-top: 30px;
+  @include above("md"){
+   margin-top: 50px;
+  }
+}
+.artist-infom{
+  display: flex;
+  @include above("md"){
+    display: unset;
+  }
 }
 .artist-inf {
-  display: flex;
-  margin-top: 15px;
+  display: block;
+  margin: 0 20px;
+  @include above("md"){
+    display: flex;
+    margin-top: 15px;
+    margin: 0;
+  }
 }
 .artists-img {
+  width: 90px;
+  height: 90px;
+  margin: 0;
   border-radius: 50%;
-  margin-right: 20px;
-  width: 120px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  @include above("md"){ 
+    margin-right: 20px;
+    height: 80px;
+    width: 80px;
+  }
 }
 .artist-name {
   align-self: center;
   font-weight: 300;
-  font-size: 18px;
 }
 .artist-name span {
-  font-size: 14px;
+  font-size: 13px;
   color: #818c94;
 }
-.page-main-img {
-  border-radius: 10px;
-  width: 90%;
+.abot-artist-columan{
+  width: 100%;
+  @include above("md"){
+    width: 90%;
+  }
 }
-.waada-hai-details {
+.album-main-img-div{
+  width: 100%;
+  @include above("md"){
+    width: 90%;
+  }
+}
+.page-main-img-parent{
+  position: relative;
+  padding-top: 50%;
+  @include above("md"){
+    position: static;
+    padding-top: 0;
+  }
+}
+.page-main-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  @include above("md"){
+    position: static;
+    height: auto;
+    object-fit: none;
+  }
+}
+.song-details {
   width: 100%;
   text-transform: capitalize;
+  margin-top: 50px;
+  @include above("md"){
+    margin-top: 0;
+  }
 }
-.waada-hai-details h2 {
-  font-size: 32px;
+.song-details h2 {
+  font-size: 25px;
   font-weight: 500;
+  @include above("md"){
+    font-size: 32px;
+   
+  }
 }
-.waada-hai-details span {
+.song-details span {
   display: block;
   padding-top: 2px;
   color: #818c94;
@@ -1014,17 +1150,25 @@ body ul {
   margin-top: 50px;
 }
 .about-artist p {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
   color: #818c94;
 }
 .img-wrapper-artist {
-  position: relative;
   margin: 0 -10px;
+  text-align: center;
+  @include above("md"){
+    position: relative;
+    text-align: unset;
+  }
 }
-.kishor-songs-img-w {
-  width: 19.66%;
-  margin: 20px 0;
+.artist-album-img-w {
+  width: 45%;
+  margin: 10px 0;
+  @include above("md"){
+    width: 19.99%;
+    margin: 25px 0;
+  }
 }
 // footer css
 .footer-head-wrapper {

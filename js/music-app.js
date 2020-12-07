@@ -1,7 +1,3 @@
-
-// outorization tokan :
-const authoTokan = "Bearer BQDeV6YB65IdXKHEsl6iXsGBaGjIIxZHZFd_y9ICslmfSdzXqWpDD5oCQFNfqXk262ltOiwZUnczNB7IexVeAX0kKVatg7xHAWV9uC8lrJt3VolLDPyiRekpSXzXmeGehiYL_CANLFenJncxVVBrI0-HM1FJ-BF2TcttLTrEqvofblNb1Q";
-
 var screenModes = document.querySelector(".modes");
 var isnightMode = false;
 screenModes.addEventListener("click", function () {
@@ -20,24 +16,12 @@ screenModes.addEventListener("click", function () {
 })
 
 // Login \sign-in 
-
-// var LogIn = document.querySelectorAll(".Login");
-// var signINParent = document.querySelector(".sign-in-div");
-// LogIn.addEventListener("click", function () {
-    // popup.open(".sign-in-div");
-    // mobileAccountList.classList.add("hide"); 
-// });
 function loginForm(){
     popup.open(".sign-in-div");
     mobileAccountList.classList.add("hide"); 
 }
 
 // remove form remove button
-
-// var removeBtn = document.querySelector(".remove-form");
-// removeBtn.addEventListener("click",function(){
-//     popup.close(".sign-in-div");
-// })
 function removeOverlay(x){
     popup.close(x); 
 }
@@ -56,50 +40,6 @@ menuBar.addEventListener("click",function(){
     popup.open(".menu-bar-overlay");
 })
 
-
-//  // poster scrolling
-//  var n = 0;
-//  var p ;
-//  var imgSrcArray = [
-//      "img/amit-trivedi.webp",
-//      "img/sad.webp",
-//      "img/english-songs.webp",
-//      "img/serial-songs.webp",
-//      "img/workout.webp",
-//  ]
-//  var leftImg = document.querySelector(".img1");
-//  var centerImg = document.querySelector(".img2");
-//  var rightImg = document.querySelector(".img3");
-//  var arryaIndexCount = imgSrcArray.length;
-
-//  function posterScrolling(scrollingFlage) {
-//   if (scrollingFlage && n <= arryaIndexCount) {
-//     p = centerImg.src;
-//       n++;
-//       if (n === arryaIndexCount) {
-//         n = 0;
-//       }
-//   }else if (!scrollingFlage && n > 0) {
-//     n--;
-//   }
-  
-//   centerImg.src = imgSrcArray[n];
-//   leftImg.src = p;
-// }
-
-// // atomatic scrolling
-//  function atomaticScroll() {
-//   // interval = setInterval(function() {
-//   //     if (n <= arryaIndexCount) {
-//   //       centerImg.src = imgSrcArray[n];
-//   //         n++;
-//   //         if (n === arryaIndexCount) {
-//   //             n = 0;
-//   //         }
-//   //     }
-//   // }, 3000);
-//  }
-// poster scrolling
 function posterScrolling(elValue) {
   var parentElm = document.querySelector(".atomaticScroll-img-wrapper");
   var grandParent = parentElm.parentElement; 
@@ -138,75 +78,64 @@ function posterScrolling(elValue) {
         var scrollingImg = parentElm.querySelectorAll(".watch-next-image");
         var scrollBtnMin = grandParent.querySelector(".scroll-btn-min");
         var scrollBtnAdd = grandParent.querySelector(".scroll-btn-add");
-  
+      
+        var elWidth = scrollingImg[0].offsetWidth;
         var a = parentElm.dataset.slidepos;
+        var scrollBtncantroler ;
+        var noOfScrollingDistance ;
         if (a === undefined) {
           a = 0;
         } else {
           a = Number(a);
         }
-        var x = 800;
+        if(scrollingImg.length < 16){
+          scrollBtncantroler = 1;
+        }else{
+          scrollBtncantroler = 2;
+        }
+        if(elWidth < 165){
+          noOfScrollingDistance = 800;
+        }else{
+          noOfScrollingDistance = 600;
+        }
+       
+        var scrillingWidth = noOfScrollingDistance;
         if (elValue) {
-          a -= 800;
+          a -= noOfScrollingDistance;
           scrollBtnMin.style.display = "block";
-          if (a == -(x * 2)) {
+          if (a == -(scrillingWidth * scrollBtncantroler)) {
             scrollBtnAdd.style.display = "none";
           }
         } else if (!elValue) {
-          a += 800;
+          a += noOfScrollingDistance;
           if (a == 0) {
             scrollBtnMin.style.display = "none";
             scrollBtnAdd.style.display = "block";
           } 
-          // else if (a < -(x * 1)) {
-          //   scrollBtnAdd.style.display = "block";
-          // }
         }
   
         parentElm.dataset.slidepos = a;
         // save the value of a
-  
         for (var i = 0; i < scrollingImg.length; i++) {
           scrollingImg[i].style.transform = "translateX(" + a + "%)";
         }
       }
 
-      // artist horizontalscroll
-      function twoTimethorizontalscroll(elValue, parent) {
-        var parentElm = document.querySelector(parent);
-        var grandParent = parentElm.parentElement; 
-        var scrollingImg = parentElm.querySelectorAll(".watch-next-image");
-        var scrollBtnMin = grandParent.querySelector(".scroll-btn-min");
-        var scrollBtnAdd = grandParent.querySelector(".scroll-btn-add");
-  
-        var a = parentElm.dataset.slidepos;
-        if (a === undefined) {
-          a = 0;
-        } else {
-          a = Number(a);
-        }
-        var x = 600;
-        if (elValue) {
-          a -= 600;
-          scrollBtnMin.style.display = "block";
-          if (a == -(x * 1)) {
-            scrollBtnAdd.style.display = "none";
+      // toggle play puse
+      var isClick = false;
+      function togglePlayPause(parentEl){
+        // parentEl.addEventListener("click",function(){
+        //  var parentEl = document.querySelector(parent);
+          var playBtn =parentEl.firstElementChild;
+          var pauseBtn = parentEl.lastElementChild;
+          if(!isClick){
+            playBtn.classList.add("hide");
+            pauseBtn.classList.remove("hide");
+          }else{
+            playBtn.classList.remove("hide");
+            pauseBtn.classList.add("hide");
           }
-        } else if (!elValue) {
-          a += 600;
-          if (a == 0) {
-            scrollBtnMin.style.display = "none";
-            scrollBtnAdd.style.display = "block";
-          } 
-          // else if (a < -(x * 1)) {
-          //   scrollBtnAdd.style.display = "block";
-          // }
-        }
-  
-        parentElm.dataset.slidepos = a;
-        // save the value of a
-  
-        for (var i = 0; i < scrollingImg.length; i++) {
-          scrollingImg[i].style.transform = "translateX(" + a + "%)";
-        }
+          isClick = !isClick;
+          // })
+        
       }

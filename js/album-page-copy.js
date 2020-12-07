@@ -8,9 +8,6 @@ const albumSongs = {
         $.ajax({
             url: "https://api.spotify.com/v1/albums/" + albumId + "?market=IN",
             type: "GET",
-            headers : {
-                authorization: authToken,
-            },
             success: function(result){
                 console.log("album api-success")
                 console.log(result);
@@ -28,9 +25,6 @@ const albumSongs = {
         $.ajax({
             url: "https://api.spotify.com/v1/artists/?ids="+ albumArtistId + "",
             type: "GET",
-            headers : {
-                authorization: authToken,
-            },
             success: function(result){
                 console.log("artist api - success")
                 console.log(result);

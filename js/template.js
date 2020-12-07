@@ -15,24 +15,30 @@ const template = {
                 </ul>
             </div>
             <div class="row">
-                <div class="col-xl-3">
-                    <div>
-                        <img class="page-main-img" src="${obj.imgSrc}">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                    <div class="album-main-img-div">
+                        <div class="page-main-img-parent">
+                            <img class="page-main-img" src="${obj.imgSrc}">
+                        </div>
                         <div class="artist-info-section">
                             <h3 class="headings">Artist</h3>
+                            <div class="artist-infom">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-9">
-                    <div class="waada-hai-details">
-                        <h2 class="song-name">${obj.songName}</h2>
-                        <span>${obj.songName}</span>
-                        <span>4:11 • ${obj.releasedate} ℗  ${obj.label}  Pvt.</span>
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                    <div class="song-details">
+                        <div>
+                            <h2 class="song-name">${obj.songName}</h2>
+                            <span>${obj.songName}</span>
+                            <span>4:11 • ${obj.releasedate} ℗  ${obj.label}  Pvt.</span>
+                        </div>
                         <div class="album-song-div">
                             <div class="button-div">
                                 <button class="btn">Play Now</button>
                                 <button class="btn btn-2">download</button>
-                                <button class="btn btn-2">set free hellotune</button>
+                                <button class="btn btn-2 free-hellotune-btn">set free hellotune</button>
                                 <div class="font-wrapper">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#heart-node"></use>
@@ -40,7 +46,7 @@ const template = {
                                 </div>
                             </div>
                             <div class="button-div">
-                                <div class="font-wrapper">
+                                <div class="font-wrapper share-btn">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#share-node"></use>
                                     </svg>
@@ -100,10 +106,12 @@ const template = {
                     <svg class="font font-opacity">
                         <use xlink:href="./img/icons.svg#music-list-node"></use>
                     </svg>
-                    <div>
+                    <div onclick="togglePlayPause(this)" class="toggle">
                         <svg class="playButton-on-image">
                             <use xlink:href="./img/icons.svg#playButton-node"></use>
-                            <use style="display:none" xlink:href="./img/icons.svg#night-node"></use>
+                        </svg>
+                        <svg class="playButton-on-image hide">
+                            <use xlink:href="./img/icons.svg#pause-node"></use>
                         </svg>
                     </div>
                 </div>

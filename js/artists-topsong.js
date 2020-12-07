@@ -5,9 +5,6 @@ const artistTopSong = {
         $.ajax({
             url: "https://api.spotify.com/v1/artists/"+ artistId + "",
             type: "GET",
-            headers : {
-                authorization:authoTokan,
-            },
             success: function(result){
                 console.log(" artist api - success")
                 console.log(result);
@@ -24,9 +21,6 @@ const artistTopSong = {
         $.ajax({
             url: "https://api.spotify.com/v1/artists/"+ artistId +"/top-tracks?market=IN",
             type: "GET",
-            headers : {
-                authorization:authoTokan,
-            },
             success: function(result){
                 console.log("artist-topsong-api-success")
                 console.log(result);
@@ -54,10 +48,11 @@ const artistTopSong = {
             var albumItems = array[i];
             // var albumArtists = albumItems.artists;
             var albumName = albumItems.name;
+            var albumId = albumItems.album.id;
             var albumImg = albumItems.album.images[1].url
             // var artistNames = this.artistName(albumArtists);
-            var songMP3Url = albumItems.preview_url;
-            this.creatSongList(songMP3Url,albumName,albumImg);
+            // var songMP3Url = albumItems.preview_url;
+            this.creatSongList(albumId,albumName,albumImg);
         };
     },
     craetAlbumBody : function(obj){
@@ -73,9 +68,11 @@ const artistTopSong = {
         </ul>
     </div>
     <div class="row">
-        <div class="col-xl-3">
-            <div>
-                <img class="page-main-img" src="${obj.imgSrc}">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3"">
+            <div class="abot-artist-columan">
+                <div class="page-main-img-parent">
+                    <img class="page-main-img" src="${obj.imgSrc}">
+                </div>
                 <div class="about-artist">
                     <h3 class="headings">about ${obj.artistName}</h3>
                     <div>
@@ -84,38 +81,36 @@ const artistTopSong = {
                 </div>
             </div>
         </div>
-        <div class="col-xl-9">
-            <div class="waada-hai-details">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+            <div class="song-details">
                 <h2>${obj.artistName}</h2>
                 <span>${obj.followers}M Followers</span>
                 <div class="album-song-div">
-                    <div class="button-div">
-                        <button class="btn">Play Now</button>
-                        <button class="btn btn-2">download</button>
-                        <button class="btn btn-2">set free hellotune</button>
-                        <div class="font-wrapper">
-                            <svg class="font">
-                                <use xlink:href="./img/icons.svg#heart-node"></use>
-                            </svg>
+                            <div class="button-div">
+                                <button class="btn">Play Now</button>
+                                <button class="btn btn-2">download</button>
+                                <button class="btn btn-2 free-hellotune-btn">set free hellotune</button>
+                                <div class="font-wrapper">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#heart-node"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="button-div">
+                                <div class="font-wrapper share-btn">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                    </svg>
+                                </div>
+                                <div class="font-wrapper">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="button-div">
-                        <div class="font-wrapper">
-                            <svg class="font">
-                                <use xlink:href="./img/icons.svg#share-node"></use>
-                            </svg>
-                        </div>
-                        <div class="font-wrapper">
-                            <svg class="font">
-                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <!--kishor kumar songs  -->
-                <div>
                     <div>
-                        <h3 class="headings">kishor kumar songs</h3>
+                        <h3 class="headings">Albums</h3>
                     </div>
                     <div class="img-wrapper-artist">
                     </div>
@@ -126,19 +121,16 @@ const artistTopSong = {
         `
         //  template.album(obj);
     },
-    creatSongList : function(songMP3Url,albumName,albumImg){
+    creatSongList : function(albumId,albumName,albumImg){
         var imgwrapperartist = document.querySelector(".img-wrapper-artist");
             var songdivWrapper = document.createElement("div");
-            songdivWrapper.classList.add("watch-next-image","kishor-songs-img-w");
+            songdivWrapper.classList.add("watch-next-image","artist-album-img-w");
             // var songListObj = {songMP3Url,albumName,artistNames}
             songdivWrapper.innerHTML=`
                 <div class="song-img-overlay-wrapper">
                     <img class="song-img" src="${albumImg}">
-                    <audio controls class="artistAlbum-audio-position">
-                        <source src="${songMP3Url}" type="audio/ogg">
-                    </audio>
                     <div class="songs-img-overlay-wrapper">
-                        <a href="">
+                        <a href="song-album-page.html?album-id=${albumId}">
                             <div class="songs-img-overlay">
                                 <div class="play-button-div">
                                     <svg class="play-font">

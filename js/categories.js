@@ -1,15 +1,11 @@
 const categories = {
     init: function(){
         var _this = this;
+        
         $.ajax({
             url: "https://api.spotify.com/v1/browse/categories?country=IN&offset=0&limit=15",
             type: "GET",
-            headers : {
-                authorization:authoTokan,
-            },
             success: function(result){
-                console.log("categories api success")
-                console.log(result);
                 _this.creatsongList(result)
             },
             error: function (error) {
@@ -25,11 +21,8 @@ const categories = {
             var categorieItem = array[i];
             var albumName = categorieItem.name;
             var albumImg = categorieItem.icons;
-            // var albumArtists = categoriesItem.artists;
             var albumId = categorieItem.id;
             var imgSrc = albumImg[0].url;
-            // var imgSrc = this.getImg(albumImg,);
-            // var artistNames = this.artistName(albumArtists);
             this.creatHTML(imgSrc,albumName,albumId);
         };
     },
@@ -41,7 +34,7 @@ const categories = {
         <div class="song-img-overlay-wrapper">
             <img class="song-img" src=${imgSrc}>
             <div class="songs-img-overlay-wrapper">
-                <a href="song-album-page.html?album-id=${albumId}">
+                <a href="categories-album.html?album-id=${albumId}">
                     <div class="songs-img-overlay">
                         <div class="songs-img-overlay-endFont">
                             <div class="img-layout-font">

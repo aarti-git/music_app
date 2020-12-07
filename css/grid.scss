@@ -40,9 +40,11 @@ body {
     @media (min-width: #{$port-width}) {
         
         @if $port-name == "xs" {
-            $container-width: calc(100vw - 30px);
+            $container-width: 100%;
+            $padding: 0 10px;
         } @else if $port-name == "sm" {
             $container-width: calc(100vw - 30px);
+            $padding: 0;
         } @else if $port-name == "md" {
             $container-width: calc(100vw - 70px);
         } @else if $port-name == "lg" {
@@ -53,6 +55,7 @@ body {
 
         .container {
             width: $container-width;
+            padding: $padding;
         };
 
         @for $col from 1 through $columns {

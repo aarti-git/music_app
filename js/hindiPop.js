@@ -1,8 +1,9 @@
-const newRealeases = {
+const hindiPop = {
     init: function(){
         var _this = this;
         $.ajax({
-            url: "https://api.spotify.com/v1/browse/new-releases",
+            // https://api.spotify.com/v1/playlists/6FgTsjPJOoJ1lUwKlkBgaB?market=IN
+            url: "https://api.spotify.com/v1/playlists/6FgTsjPJOoJ1lUwKlkBgaB?market=IN",
             type: "GET",
             success: function(result){
                 _this.creatsongList(result)
@@ -13,25 +14,26 @@ const newRealeases = {
         })
     },
     creatsongList : function(result){
-        var data = result.albums;
+        var data = result.tracks;
         var array = data.items;
         for(var i=0; i<array.length; i++){
             var albumItems = array[i];
-            var albumName = albumItems.name;
-            var albumImg = albumItems.images;
-            var albumArtists = albumItems.artists;
-            var albumId = albumItems.id;
+            var albumTrack = albumItems.track;
+            var albumName = albumTrack.album.name;
+            var albumImg = albumTrack.album.images;
+            var albumArtists = albumTrack.album.artists;
+            var albumId = albumTrack.album.id;
             var imgSrc = this.getImg(albumImg,300);
             var artistNames = this.artistName(albumArtists);
-            var obj ={imgSrc,albumName,artistNames,albumId}
+            var obj={imgSrc,albumName,artistNames,albumId}
             this.creatHTML(obj);
         };
     },
     creatHTML : function(obj){
-        var imgWrapper = document.querySelector(".img-wrapper");
+        var imgWrapper = document.querySelector(".img-wrapper3");
         var songdivWrapper = document.createElement("div");
         songdivWrapper.classList.add("watch-next-image");
-        songdivWrapper.innerHTML= template.album(obj);
+        songdivWrapper.innerHTML=template.album(obj)
         imgWrapper.appendChild(songdivWrapper);
         songdivWrapper.addEventListener("click",function(){
             // albumSongs.init(albumId);

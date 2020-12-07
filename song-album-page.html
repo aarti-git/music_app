@@ -7,12 +7,15 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/template.js"></script>
     <script src="js/new-release-albumPage.js"></script>
-    <!-- <script src="js/authorization-tokan.js"></script> -->
+    <script src="js/token.js"></script>
+    <script src="js/app-modul.js"></script>
+    <script src="js/popup.js"></script>
     <script defer src="js/music-app.js"></script>
     <script>
         var url = new URL(location.href);
         var albumId = url.searchParams.get('album-id');
         document.addEventListener("DOMContentLoaded", function () {
+            app.init();
             albumSongs.init(albumId);
         });
     </script>
@@ -27,19 +30,19 @@
                         <div class="app-logo-name">
                             <div class="menu-bar-svg">
                                 <svg class="logo-font">
-                                        <use xlink:href="./img/icons.svg#menuBar-node"></use>
-                                    </svg>
+                                    <use xlink:href="./img/icons.svg#menuBar-node"></use>
+                                </svg>
                                 <div class="menu-bar-overlay hide">
                                     <div class="remove-form" onclick="removeOverlay('.menu-bar-overlay')">
                                         <button class="remove-form-btn">
-                                                <svg class="cross-font">
-                                                    <use xlink:href="./img/icons.svg#cross-node"></use>
-                                                </svg>
-                                            </button>
+                                            <svg class="cross-font">
+                                                <use xlink:href="./img/icons.svg#cross-node"></use>
+                                            </svg>
+                                        </button>
                                     </div>
                                     <div class="menu-bar-list">
                                         <ul>
-                                            <li>home</li>
+                                            <li><a href="">home</a></li>
                                             <li>my music</li>
                                             <li>dounlode app</li>
                                             <li>sign in</li>
@@ -48,28 +51,28 @@
                                     <div class="fSocial-media-font">
                                         <div class="font-wrapper">
                                             <svg class="font">
-                                                    <use xlink:href="./img/icons.svg#facebook-node"></use>
-                                                </svg>
+                                                <use xlink:href="./img/icons.svg#facebook-node"></use>
+                                            </svg>
                                         </div>
                                         <div class="font-wrapper">
                                             <svg class="font">
-                                                    <use xlink:href="./img/icons.svg#twitter-node"></use>
-                                                </svg>
+                                                <use xlink:href="./img/icons.svg#twitter-node"></use>
+                                            </svg>
                                         </div>
                                         <div class="font-wrapper">
                                             <svg class="font">
-                                                    <use xlink:href="./img/icons.svg#instagram-node"></use>
-                                                </svg>
+                                                <use xlink:href="./img/icons.svg#instagram-node"></use>
+                                            </svg>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="app-logo">
                                 <!-- <div>
-                                        <svg class="logo-font">
-                                            <use xlink:href="./img/icons.svg#music-node"></use>
-                                        </svg>
-                                    </div> -->
+                                    <svg class="logo-font">
+                                        <use xlink:href="./img/icons.svg#music-node"></use>
+                                    </svg>
+                                </div> -->
                                 <h3><span>Music</span>App</h3>
                             </div>
                         </div>
@@ -103,8 +106,8 @@
                         <div class="search-bar">
                             <div>
                                 <svg class="search-font">
-                                        <use xlink:href="./img/icons.svg#search-node"></use>
-                                    </svg>
+                                    <use xlink:href="./img/icons.svg#search-node"></use>
+                                </svg>
                             </div>
                             <input type="text" name="song" placeholder="Search for music you love!" />
                         </div>
@@ -112,13 +115,13 @@
                             <div class="modes">
                                 <div class="morning-mode-parent">
                                     <svg class="morning-mode-font">
-                                            <use xlink:href="./img/icons.svg#sun-node"></use>
-                                        </svg>
+                                        <use xlink:href="./img/icons.svg#sun-node"></use>
+                                    </svg>
                                 </div>
                                 <div class="night-mode-parent hide">
                                     <svg class="night-mode-font">
-                                            <use xlink:href="./img/icons.svg#night-node"></use>
-                                        </svg>
+                                        <use xlink:href="./img/icons.svg#night-node"></use>
+                                    </svg>
                                 </div>
                             </div>
                             <div class="modes veiw-in-dekstop">
@@ -128,8 +131,8 @@
                                 <span class="veiw-in-dekstop" onclick="loginForm()">SIGN IN</span>
                                 <div>
                                     <svg class="font user-svg modes">
-                                            <use xlink:href="./img/icons.svg#user-node"></use>
-                                        </svg>
+                                        <use xlink:href="./img/icons.svg#user-node"></use>
+                                    </svg>
                                     <div class="mobile-account-list hide">
                                         <ul>
                                             <li onclick="loginForm()">Login</li>
@@ -143,25 +146,19 @@
                             <!-- sign in popup -->
                             <div class="sign-in-div hide">
                                 <div class="login-containt">
-                                    <div>
-                                        <img class="login-img" src="img/login.png">
-                                    </div>
+                                    <img class="login-img" src="img/login.png">
                                     <div class="form-design">
                                         <div class="remove-form" onclick="removeOverlay('.sign-in-div')">
                                             <button class="remove-form-btn">
-                                                    <svg class="font">
-                                                        <use xlink:href="./img/icons.svg#cross-node"></use>
-                                                    </svg>
-                                                </button>
+                                                <svg class="font">
+                                                    <use xlink:href="./img/icons.svg#cross-node"></use>
+                                                </svg>
+                                            </button>
                                         </div>
                                         <div class="form-text">
                                             <h3>Login/Sign Up</h3>
                                             <span>Get a personalised experience, and access all your music</span>
-                                            <div class="login-input">
-                                                <input type="tel" name="Number" placeholder=" +91 " class="contry-code">
-                                                <input type="number" name="Number" placeholder="ENTER MOBILE NUMBER" class="mobile-no">
-                                            </div>
-                                            <button class="btn">send OTP</button>
+                                            <a class="btn authBtn" href="/login">Authenticate</a>
                                         </div>
                                         <div class="form-end-div">
                                             <span>To create your account, install Wynk app</span>

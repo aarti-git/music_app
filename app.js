@@ -8,7 +8,6 @@
  */
 
 // spotify access token 
-
 var express = require('express'); // Express web server framework
 var request = require('request'); // "Request" library
 var cors = require('cors');
@@ -38,7 +37,7 @@ var stateKey = 'spotify_auth_state';
 
 var app = express();
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/'))
    .use(cors())
    .use(cookieParser());
 
@@ -105,12 +104,11 @@ app.get('/callback', function(req, res) {
           console.log(body);
         });
 
-        // we can also pass the token to the browser to make requests from there
-        res.redirect('/#' +
-          querystring.stringify({
-            access_token: access_token,
-            refresh_token: refresh_token
-          }));
+        // set tokens in cookie
+        res.cookie('spotify_access_token', access_token);
+        res.cookie('spotify_refresh_token', refresh_token);
+        
+        res.redirect('/');
       } else {
         res.redirect('/#' +
           querystring.stringify({

@@ -110,7 +110,8 @@ body {
 
 @media (min-width: 0) {
   .container {
-    width: calc(100vw - 30px);
+    width: 100%;
+    padding: 0 10px;
   }
   .col-xs-1 {
     width: 8.33333%;
@@ -153,6 +154,7 @@ body {
 @media (min-width: 480px) {
   .container {
     width: calc(100vw - 30px);
+    padding: 0;
   }
   .col-sm-1 {
     width: 8.33333%;
@@ -195,6 +197,7 @@ body {
 @media (min-width: 768px) {
   .container {
     width: calc(100vw - 70px);
+    padding: 0;
   }
   .col-md-1 {
     width: 8.33333%;
@@ -237,6 +240,7 @@ body {
 @media (min-width: 1024px) {
   .container {
     width: calc(100vw - 150px);
+    padding: 0;
   }
   .col-lg-1 {
     width: 8.33333%;
@@ -279,6 +283,7 @@ body {
 @media (min-width: 1500px) {
   .container {
     width: calc(100vw - 271px);
+    padding: 0;
   }
   .col-xl-1 {
     width: 8.33333%;
@@ -436,13 +441,13 @@ body ul {
   height: 23px;
   width: 23px;
   color: #ed1c24;
-  margin-right: 10px;
 }
 
 @media (min-width: 768px) {
   .logo-font {
     height: 25px;
     width: 25px;
+    margin-right: 10px;
   }
 }
 
@@ -588,7 +593,7 @@ body ul {
 
 .menu-bar-svg {
   align-self: center;
-  display: block;
+  display: flex;
 }
 
 @media (min-width: 1024px) {
@@ -666,6 +671,12 @@ body ul {
   font-size: 15px;
 }
 
+.authBtn {
+  width: auto;
+  display: inline-block;
+  margin-top: 30px;
+}
+
 .btn-2 {
   background-color: transparent;
   border: 1px solid;
@@ -680,6 +691,7 @@ body ul {
   padding: 20px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  z-index: 1;
 }
 
 .mobile-account-list ul {
@@ -725,6 +737,7 @@ body ul {
   margin: 0 auto;
   border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 0 12px #00000082;
 }
 
 @media (min-width: 480px) {
@@ -741,6 +754,10 @@ body ul {
   display: flex;
 }
 
+.auth-frame {
+  width: 100%;
+}
+
 .login-img {
   display: none;
 }
@@ -748,17 +765,24 @@ body ul {
 @media (min-width: 480px) {
   .login-img {
     display: block;
-    width: 330px;
-    height: 100%;
+    width: 40%;
   }
 }
 
 .form-design {
-  padding: 20px;
+  width: 100%;
+  position: relative;
+}
+
+@media (min-width: 480px) {
+  .form-design {
+    width: 60%;
+  }
 }
 
 .remove-form {
   float: right;
+  margin: 10px;
 }
 
 .remove-form button:hover {
@@ -774,13 +798,7 @@ body ul {
 }
 
 .form-text {
-  padding: 10px;
-}
-
-@media (min-width: 480px) {
-  .form-text {
-    padding: 20px;
-  }
+  padding: 20px;
 }
 
 .form-text h3 {
@@ -857,7 +875,8 @@ body ul {
 @media (min-width: 480px) {
   .form-end-div {
     display: block;
-    margin-top: 130px;
+    position: absolute;
+    bottom: 0;
     padding: 20px;
   }
 }
@@ -973,7 +992,8 @@ body ul {
   font-size: 12px;
 }
 
-.play-font-onPlayerBar {
+.play-font-onPlayerBar,
+.pause-font-onPlayerBar {
   width: 15px;
   height: 15px;
   align-self: center;
@@ -990,11 +1010,42 @@ body ul {
 }
 
 .side-font-onPlayerBar {
-  margin: 0 30px;
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .side-font-onPlayerBar {
+    display: block;
+    margin: 0 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .side-font-onPlayerBar {
+    margin: 0 30px;
+  }
 }
 
 .next-pervious-onPlayerBar {
   margin: 0 8px;
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .next-pervious-onPlayerBar {
+    display: block;
+  }
+}
+
+.volumefont-onPlayerBar {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .volumefont-onPlayerBar {
+    display: block;
+    margin-right: 15px;
+  }
 }
 
 .div-parent {
@@ -1033,8 +1084,14 @@ body ul {
 }
 
 .sections-space {
-  margin: 30px 0;
+  margin: 50px 0;
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .sections-space {
+    margin: 30px 0;
+  }
 }
 
 .watch-next-image:hover .songs-img-overlay-wrapper {
@@ -1052,7 +1109,7 @@ body ul {
 
 @media (min-width: 0) {
   .watch-next-image {
-    width: 33%;
+    width: 40%;
   }
 }
 
@@ -1228,10 +1285,22 @@ body ul {
 }
 
 .artist-section-width {
-  width: 50%;
+  width: 40%;
+}
+
+@media (min-width: 480px) {
+  .artist-section-width {
+    width: 25%;
+  }
 }
 
 @media (min-width: 768px) {
+  .artist-section-width {
+    width: 20%;
+  }
+}
+
+@media (min-width: 1024px) {
   .artist-section-width {
     width: 16.666666666666668%;
   }
@@ -1242,8 +1311,18 @@ body ul {
   position: relative;
 }
 
+.artist-img-wrapper {
+  position: relative;
+  padding-top: 100%;
+}
+
 .artist-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
+  object-fit: cover;
   border-radius: 50%;
   vertical-align: middle;
 }
@@ -1270,12 +1349,24 @@ body ul {
 }
 
 .song-name-div {
-  margin: 5px;
+  margin: 8px 5px;
+  white-space: nowrap;
+  width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #818c94;
 }
 
 .song-name-div p {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 300;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .song-name-div p {
+    font-size: 15px;
+  }
 }
 
 .song-name-div span {
@@ -1287,7 +1378,25 @@ body ul {
 .album-song-div {
   display: flex;
   justify-content: space-between;
-  margin: 40px 0;
+  margin: 20px 0;
+}
+
+@media (min-width: 768px) {
+  .album-song-div {
+    margin: 40px 0;
+  }
+}
+
+.free-hellotune-btn,
+.share-btn {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .free-hellotune-btn,
+  .share-btn {
+    display: block;
+  }
 }
 
 .button-div {
@@ -1313,7 +1422,7 @@ body ul {
 }
 
 .artist-song-list:hover .playButton-on-image {
-  display: block;
+  opacity: 1;
 }
 
 .artist-song-list:hover .font-opacity {
@@ -1346,12 +1455,25 @@ body ul {
 }
 
 .Playlists-width {
-  width: 16.666666666666668%;
+  width: 33%;
+}
+
+@media (min-width: 768px) {
+  .Playlists-width {
+    width: 16.6666666666%;
+  }
 }
 
 .some-links {
+  display: none;
   margin: 0px 0 40px;
   text-transform: capitalize;
+}
+
+@media (min-width: 480px) {
+  .some-links {
+    display: block;
+  }
 }
 
 .some-links ul {
@@ -1370,7 +1492,7 @@ body ul {
 }
 
 .playButton-on-image {
-  display: none;
+  opacity: 0;
   width: 16px;
   height: 16px;
   position: absolute;
@@ -1387,47 +1509,139 @@ body ul {
 }
 
 .artist-info-section {
-  margin-top: 50px;
+  margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+  .artist-info-section {
+    margin-top: 50px;
+  }
+}
+
+.artist-infom {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .artist-infom {
+    display: unset;
+  }
 }
 
 .artist-inf {
-  display: flex;
-  margin-top: 15px;
+  display: block;
+  margin: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .artist-inf {
+    display: flex;
+    margin-top: 15px;
+    margin: 0;
+  }
 }
 
 .artists-img {
+  width: 90px;
+  height: 90px;
+  margin: 0;
   border-radius: 50%;
-  margin-right: 20px;
-  width: 120px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .artists-img {
+    margin-right: 20px;
+    height: 80px;
+    width: 80px;
+  }
 }
 
 .artist-name {
   align-self: center;
   font-weight: 300;
-  font-size: 18px;
 }
 
 .artist-name span {
-  font-size: 14px;
+  font-size: 13px;
   color: #818c94;
 }
 
-.page-main-img {
-  border-radius: 10px;
-  width: 90%;
+.abot-artist-columan {
+  width: 100%;
 }
 
-.waada-hai-details {
+@media (min-width: 768px) {
+  .abot-artist-columan {
+    width: 90%;
+  }
+}
+
+.album-main-img-div {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .album-main-img-div {
+    width: 90%;
+  }
+}
+
+.page-main-img-parent {
+  position: relative;
+  padding-top: 50%;
+}
+
+@media (min-width: 768px) {
+  .page-main-img-parent {
+    position: static;
+    padding-top: 0;
+  }
+}
+
+.page-main-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+@media (min-width: 768px) {
+  .page-main-img {
+    position: static;
+    height: auto;
+    object-fit: none;
+  }
+}
+
+.song-details {
   width: 100%;
   text-transform: capitalize;
+  margin-top: 50px;
 }
 
-.waada-hai-details h2 {
-  font-size: 32px;
+@media (min-width: 768px) {
+  .song-details {
+    margin-top: 0;
+  }
+}
+
+.song-details h2 {
+  font-size: 25px;
   font-weight: 500;
 }
 
-.waada-hai-details span {
+@media (min-width: 768px) {
+  .song-details h2 {
+    font-size: 32px;
+  }
+}
+
+.song-details span {
   display: block;
   padding-top: 2px;
   color: #818c94;
@@ -1476,19 +1690,33 @@ body ul {
 }
 
 .about-artist p {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
   color: #818c94;
 }
 
 .img-wrapper-artist {
-  position: relative;
   margin: 0 -10px;
+  text-align: center;
 }
 
-.kishor-songs-img-w {
-  width: 19.66%;
-  margin: 20px 0;
+@media (min-width: 768px) {
+  .img-wrapper-artist {
+    position: relative;
+    text-align: unset;
+  }
+}
+
+.artist-album-img-w {
+  width: 45%;
+  margin: 10px 0;
+}
+
+@media (min-width: 768px) {
+  .artist-album-img-w {
+    width: 19.99%;
+    margin: 25px 0;
+  }
 }
 
 .footer-head-wrapper {

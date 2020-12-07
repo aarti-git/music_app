@@ -7,9 +7,6 @@ const albumSongs = {
         $.ajax({
             url: "https://api.spotify.com/v1/albums/" + albumId + "?market=IN",
             type: "GET",
-            headers : {
-                authorization:authoTokan,
-            },
             success: function(result){
                 console.log("album api-success")
                 console.log(result);
@@ -25,9 +22,6 @@ const albumSongs = {
         $.ajax({
             url: "https://api.spotify.com/v1/artists?ids="+ albumArtistId + "",
             type: "GET",
-            headers : {
-                authorization:authoTokan,
-            },
             success: function(result){
                 console.log("artist api - success")
                 console.log(result);
@@ -73,7 +67,7 @@ const albumSongs = {
             var item = artistData[i];
             var artistMainImg = item.images[1].url;
             var albumArtistsName = item.name;
-            var artistSection = document.querySelector(".artist-info-section");
+            var artistSection = document.querySelector(".artist-infom");
             var craetArtistDiv = document.createElement("div");
             craetArtistDiv.classList.add("artist-inf");
             var artistObj = {artistMainImg,albumArtistsName};
