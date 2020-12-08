@@ -23,38 +23,15 @@ const categories = {
             var albumImg = categorieItem.icons;
             var albumId = categorieItem.id;
             var imgSrc = albumImg[0].url;
-            this.creatHTML(imgSrc,albumName,albumId);
+            var obj = {imgSrc,albumName,albumId}
+            this.creatHTML(obj);
         };
     },
-    creatHTML : function(imgSrc,albumName,albumId){
+    creatHTML : function(obj){
         var imgWrapper = document.querySelector(".img-wrapper2");
         var songdivWrapper = document.createElement("div");
         songdivWrapper.classList.add("watch-next-image");
-        songdivWrapper.innerHTML=`
-        <div class="song-img-overlay-wrapper">
-            <img class="song-img" src=${imgSrc}>
-            <div class="songs-img-overlay-wrapper">
-                <a href="categories-album.html?album-id=${albumId}">
-                    <div class="songs-img-overlay">
-                        <div class="songs-img-overlay-endFont">
-                            <div class="img-layout-font">
-                                <svg class="font">
-                            <use xlink:href="./img/icons.svg#share-node"></use>
-                        </svg>
-                            </div>
-                            <div class="img-layout-font">
-                                <svg class="font">
-                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                        </svg>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="song-name-div">
-            <p>${albumName}</p>
-        </div>`
+        songdivWrapper.innerHTML= template.categoriesAlbum(obj)
         imgWrapper.appendChild(songdivWrapper);
         songdivWrapper.addEventListener("click",function(){
             // albumSongs.init(albumId);

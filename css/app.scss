@@ -870,16 +870,16 @@ body ul {
 }
 .song-name-div {
   margin: 8px 5px;
-  white-space: nowrap;
-  width: 130px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   color: #818c94;
 }
 .song-name-div p {
   font-size: 13px;
   font-weight: 300;
   color: white;
+  white-space: nowrap;
+  width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   @include above('md'){
     font-size: 15px;
   }
@@ -888,9 +888,14 @@ body ul {
   // }
 }
 .song-name-div span {
+  display: block;
   font-size: 12px;
   font-weight: 300;
   color: #818c94;
+  white-space: nowrap;
+  width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   // @include above('md'){
   //   font-size: 23px;
   // }
@@ -921,14 +926,28 @@ body ul {
   position: relative;
 }
 .button-div p {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+  @include above("md"){
+    font-size: 15px;
+  }
 }
 .button-div span {
   display: block;
   padding-top: 2px;
   color: #818c94;
-  font-size: 12px;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+  @include above("md"){
+    font-size: 12px;
+  }
 }
 
 .artist-song-list:hover .sections-space {
@@ -1072,6 +1091,9 @@ body ul {
 .page-main-img-parent{
   position: relative;
   padding-top: 50%;
+  @include above("sm"){
+    padding-top: 35%;
+  }
   @include above("md"){
     position: static;
     padding-top: 0;
@@ -1088,7 +1110,7 @@ body ul {
   @include above("md"){
     position: static;
     height: auto;
-    object-fit: none;
+    object-fit: unset;
   }
 }
 .song-details {
@@ -1102,6 +1124,7 @@ body ul {
 .song-details h2 {
   font-size: 25px;
   font-weight: 500;
+  margin-bottom: 5px;
   @include above("md"){
     font-size: 32px;
    
@@ -1127,10 +1150,14 @@ body ul {
   border-radius: 10px;
 }
 .headings {
+  font-size: 20px;
   font-weight: 400;
-  font-size: 24px;
   margin-bottom: 15px;
   text-transform: uppercase;
+
+  @include above(){
+    font-size: 24px;
+  }
 }
 .about-song p {
   font-size: 14px;
@@ -1154,7 +1181,8 @@ body ul {
   font-weight: 400;
   color: #818c94;
 }
-.img-wrapper-artist {
+.img-wrapper-artist ,
+.img-wrapper-categoriesAlbum{
   margin: 0 -10px;
   text-align: center;
   @include above("md"){

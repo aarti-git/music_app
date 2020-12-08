@@ -37,12 +37,6 @@ const playlistSongs = {
         var albumName = data.name;
         var albumType = data.type
         var imgSrc = albumImg[0].url;
-        // var label = data.label;
-        // var albumType = data.album_type;
-        // var releasedate =data.release_date;
-        // var albumArtistArray= data.artists;
-        // var albumArtistsName = data.artists[0].name;
-        // var imgSrc = this.getImg(albumImg,albumImg[1].width);
         var obj = {imgSrc, albumName,albumType}
         this.craetAlbumBody(obj);
         var array = data.tracks.items;
@@ -56,95 +50,77 @@ const playlistSongs = {
             this.creatSongList(songMP3Url,albumName,artistNames);
         };
     },
-    // createArtistList : function(artistArrayFromAlbum){
-    //     var albumArtistId = artistArrayFromAlbum.map(function(item){return item.id}).join();
-    //     this.getArtists(albumArtistId, function(ArtistData){
-    //          _this.artistInfo(ArtistData);
-    //     });
-    // },
-    // artistInfo : function(artistApiResult){
-    //     artistObj = {}
-    //     var artistData = artistApiResult.artists;
-    //     for(i=0; i<artistData.length; i++){
-    //         var item = artistData[i];
-    //         var artistMainImg = item.images[1].url;
-    //         var albumArtistsName = item.name;
-    //         var artistSection = document.querySelector(".artist-info-section");
-    //         var craetArtistDiv = document.createElement("div");
-    //         craetArtistDiv.classList.add("artist-inf");
-    //         var artistObj = {artistMainImg,albumArtistsName};
-    //         craetArtistDiv.innerHTML=template.aboutartists(artistObj)
-    //     artistSection.append(craetArtistDiv);
-    //     }
-    // },
     craetAlbumBody : function(obj){
-        _this = this;
-        // var artistArrayFromAlbum = obj.albumArtistArray;
-        // this.createArtistList(artistArrayFromAlbum);
+        // _this = this;
         var albumSection = document.querySelector(".page-section-wrapper");
         var aboutsongsection = document.querySelector(".about-song-section");
-        albumSection.innerHTML=  `
-        <div class="some-links">
-            <ul>
-                <li>home</li>
-                <li>Playlist</li>
-                <li>${obj.albumName} SONG</li>
-                <li>${obj.albumName}</li>
-            </ul>
-        </div>
-        <div class="row">
-            <div class="col-xl-3">
-                <div>
-                    <img class="page-main-img" src="${obj.imgSrc}">
-                </div>
-            </div>
-            <div class="col-xl-9">
-                <div class="waada-hai-details">
-                    <h2 class="song-name">${obj.albumName}</h2>
-                    <span>${obj.albumName}</span>
-                    <div class="album-song-div">
-                        <div class="button-div">
-                            <button class="btn">Play Now</button>
-                            <button class="btn btn-2">download</button>
-                            <button class="btn btn-2">set free hellotune</button>
-                            <div class="font-wrapper">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#heart-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="button-div">
-                            <div class="font-wrapper">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#share-node"></use>
-                                </svg>
-                            </div>
-                            <div class="font-wrapper">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="album-song-list">
-                        <h3 class="headings">Other <a>${obj.albumType}</a> Songs</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+        albumSection.innerHTML= template.categoriesPlaylist(obj);
+        // template.album(obj);
+        
+    //      `
+    //     <div class="some-links">
+    //         <ul>
+    //             <li>home</li>
+    //             <li>Playlist</li>
+    //             <li>${obj.albumName} SONG</li>
+    //             <li>${obj.albumName}</li>
+    //         </ul>
+    //     </div>
+    //     <div class="row">
+    //         <div class="col-xl-3">
+    //             <div>
+    //                 <img class="page-main-img" src="${obj.imgSrc}">
+    //             </div>
+    //         </div>
+    //         <div class="col-xl-9">
+    //             <div class="waada-hai-details">
+    //                 <h2 class="song-name">${obj.albumName}</h2>
+    //                 <span>${obj.albumName}</span>
+    //                 <div class="album-song-div">
+    //                     <div class="button-div">
+    //                         <button class="btn">Play Now</button>
+    //                         <button class="btn btn-2">download</button>
+    //                         <button class="btn btn-2">set free hellotune</button>
+    //                         <div class="font-wrapper">
+    //                             <svg class="font">
+    //                                 <use xlink:href="./img/icons.svg#heart-node"></use>
+    //                             </svg>
+    //                         </div>
+    //                     </div>
+    //                     <div class="button-div">
+    //                         <div class="font-wrapper">
+    //                             <svg class="font">
+    //                                 <use xlink:href="./img/icons.svg#share-node"></use>
+    //                             </svg>
+    //                         </div>
+    //                         <div class="font-wrapper">
+    //                             <svg class="font">
+    //                                 <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+    //                             </svg>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //                 <div class="album-song-list">
+    //                     <h3 class="headings">Other <a>${obj.albumType}</a> Songs</h3>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </div>
+    // `
+
      // about song section inner html
-     aboutsongsection.innerHTML = `<div class="about-song">
-     <div>
-         <img src="${obj.imgSrc}">
-     </div>
-     <div>
-         <h3 class="headings">About Song</h3>
-         <p>${obj.albumName} is a song which is sung by <a herf="artist-page.html">${obj.albumType}</a>. 
-         The duration of the song is 4 min, 11 sec. You can listen to Waada Hai song online for free, 
-         or download the mp3 from the Wynk Music mobile app. Keep Wynking!</p>
-     </div>
- </div>`;
+     aboutsongsection.innerHTML = template.aboutpageSong(obj);
+//      `<div class="about-song">
+//      <div>
+//          <img src="${obj.imgSrc}">
+//      </div>
+//      <div>
+//          <h3 class="headings">About Song</h3>
+//          <p>${obj.albumName} is a song which is sung by <a herf="artist-page.html">${obj.albumType}</a>. 
+//          The duration of the song is 4 min, 11 sec. You can listen to Waada Hai song online for free, 
+//          or download the mp3 from the Wynk Music mobile app. Keep Wynking!</p>
+//      </div>
+//  </div>`;
     },
     creatSongList : function(songMP3Url,albumName,artistNames){
         var albumSongList = document.querySelector(".album-song-list");

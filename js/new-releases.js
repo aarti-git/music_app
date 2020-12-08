@@ -31,7 +31,7 @@ const newRealeases = {
         var imgWrapper = document.querySelector(".img-wrapper");
         var songdivWrapper = document.createElement("div");
         songdivWrapper.classList.add("watch-next-image");
-        songdivWrapper.innerHTML= template.album(obj);
+        songdivWrapper.innerHTML= template.newReleaseAlbum(obj);
         imgWrapper.appendChild(songdivWrapper);
         songdivWrapper.addEventListener("click",function(){
             // albumSongs.init(albumId);

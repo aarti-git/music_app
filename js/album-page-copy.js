@@ -148,6 +148,178 @@ const albumSongs = {
     },
 }
 
+
+const template = {
+    newReleaseAlbum: function(obj){
+        return buildTemplate(obj, 
+            `
+        <div class="song-img-overlay-wrapper">
+            <img class="song-img" src=${obj.imgSrc}>
+            <div class="songs-img-overlay-wrapper">
+                <a href="song-album-page.html?album-id=${obj.albumId}">
+                    <div class="songs-img-overlay">
+                        <div class="songs-img-overlay-endFont">
+                            <div class="img-layout-font">
+                                <svg class="font">
+                            <use xlink:href="./img/icons.svg#share-node"></use>
+                        </svg>
+                            </div>
+                            <div class="img-layout-font">
+                                <svg class="font">
+                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                        </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="song-name-div">
+            <p>${obj.albumName}</p>
+            <span>${obj.artistNames}</span>
+        </div>`
+            )
+    },
+    artistalbumList: function(obj){
+        return buildTemplate(obj, 
+            `
+            <div class="artist-img-div">
+                <div class="artist-img-wrapper">
+                    <img class="artist-img" src="${obj.imgSrc}">
+                </div>
+                <div class="songs-img-overlay-wrapper">
+                    <a href="artists-topsong-albumpage.html?artis-id=${obj.artistId}">
+                        <div class="artist-img-overlay"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="artist-name-div">${obj.artistName}</div>
+            `
+            )
+    },
+    categoriesAlbum: function(obj){
+        return buildTemplate(obj, `
+            <div class="song-img-overlay-wrapper">
+                <img class="song-img" src=${obj.imgSrc}>
+                <div class="songs-img-overlay-wrapper">
+                    <a href="categories-album.html?album-id=${obj.albumId}">
+                        <div class="songs-img-overlay">
+                            <div class="songs-img-overlay-endFont">
+                                <div class="img-layout-font">
+                                    <svg class="font">
+                                <use xlink:href="./img/icons.svg#share-node"></use>
+                            </svg>
+                                </div>
+                                <div class="img-layout-font">
+                                    <svg class="font">
+                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                            </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="song-name-div">
+                <p>${obj.albumName}</p>
+            </div>`
+            )
+    },  
+    // categories.template 
+    CategoriesAlbum: function(obj){
+        return buildTemplate(obj,
+            `
+        <div class="some-links">
+        <ul>
+            <li>home</li>
+            <li>hindi song</li>
+            <li>${obj.categoriesName} song</li>
+            <li>${obj.categoriesName}</li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-xl-3">
+            <div>
+                <img class="page-main-img" src="${obj.imgSrc}">
+            </div>
+        </div>
+        <div class="col-xl-9">
+            <div class="waada-hai-details">
+                <h2>${obj.categoriesName}</h2>
+                <div class="album-song-div">
+                    <div class="button-div">
+                        <button class="btn">Play Now</button>
+                        <button class="btn btn-2">download</button>
+                        <button class="btn btn-2">set free hellotune</button>
+                        <div class="font-wrapper">
+                            <svg class="font">
+                                <use xlink:href="./img/icons.svg#heart-node"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="button-div">
+                        <div class="font-wrapper">
+                            <svg class="font">
+                                <use xlink:href="./img/icons.svg#share-node"></use>
+                            </svg>
+                        </div>
+                        <div class="font-wrapper">
+                            <svg class="font">
+                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h3 class="headings">Albums</h3>
+                    </div>
+                    <div class="img-wrapper-categoriesAlbum">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        `
+            
+        )
+    },
+    categoriesAlbumList:function(Listobj){
+        return buildTemplate(Listobj,`
+            <div class="song-img-overlay-wrapper">
+                    <img class="song-img" src="${Listobj.albumImg}">
+                    <div class="songs-img-overlay-wrapper">
+                        <a href="categories-playlist.html?playlist-id=${Listobj.albumId}">
+                            <div class="songs-img-overlay">
+                                <div class="play-button-div">
+                                    <svg class="play-font">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                </div>
+                                <div class="songs-img-overlay-endFont">
+                                    <div class="img-layout-font">
+                                        <svg class="font">
+                                    <use xlink:href="./img/icons.svg#share-node"></use>
+                                </svg>
+                                    </div>
+                                    <div class="img-layout-font">
+                                        <svg class="font">
+                                    <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="song-name-div">
+                    <p>${Listobj.albumName}</p>
+                </div>
+            `
+            
+        )
+    }
+}
 // html
 const HTML = `<!DOCTYPE html>
 <html lang="en">

@@ -1350,10 +1350,6 @@ body ul {
 
 .song-name-div {
   margin: 8px 5px;
-  white-space: nowrap;
-  width: 130px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   color: #818c94;
 }
 
@@ -1361,6 +1357,10 @@ body ul {
   font-size: 13px;
   font-weight: 300;
   color: white;
+  white-space: nowrap;
+  width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (min-width: 768px) {
@@ -1370,9 +1370,14 @@ body ul {
 }
 
 .song-name-div span {
+  display: block;
   font-size: 12px;
   font-weight: 300;
   color: #818c94;
+  white-space: nowrap;
+  width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .album-song-div {
@@ -1406,15 +1411,35 @@ body ul {
 }
 
 .button-div p {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .button-div p {
+    font-size: 15px;
+  }
 }
 
 .button-div span {
   display: block;
   padding-top: 2px;
   color: #818c94;
-  font-size: 12px;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 200px;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .button-div span {
+    font-size: 12px;
+  }
 }
 
 .artist-song-list:hover .sections-space {
@@ -1593,6 +1618,12 @@ body ul {
   padding-top: 50%;
 }
 
+@media (min-width: 480px) {
+  .page-main-img-parent {
+    padding-top: 35%;
+  }
+}
+
 @media (min-width: 768px) {
   .page-main-img-parent {
     position: static;
@@ -1614,7 +1645,7 @@ body ul {
   .page-main-img {
     position: static;
     height: auto;
-    object-fit: none;
+    object-fit: unset;
   }
 }
 
@@ -1633,6 +1664,7 @@ body ul {
 .song-details h2 {
   font-size: 25px;
   font-weight: 500;
+  margin-bottom: 5px;
 }
 
 @media (min-width: 768px) {
@@ -1664,10 +1696,16 @@ body ul {
 }
 
 .headings {
+  font-size: 20px;
   font-weight: 400;
-  font-size: 24px;
   margin-bottom: 15px;
   text-transform: uppercase;
+}
+
+@media (min-width: null) {
+  .headings {
+    font-size: 24px;
+  }
 }
 
 .about-song p {
@@ -1695,13 +1733,15 @@ body ul {
   color: #818c94;
 }
 
-.img-wrapper-artist {
+.img-wrapper-artist,
+.img-wrapper-categoriesAlbum {
   margin: 0 -10px;
   text-align: center;
 }
 
 @media (min-width: 768px) {
-  .img-wrapper-artist {
+  .img-wrapper-artist,
+  .img-wrapper-categoriesAlbum {
     position: relative;
     text-align: unset;
   }
