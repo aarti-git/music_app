@@ -1,6 +1,7 @@
 const hindiPop = {
     init: function(){
         var _this = this;
+        this.creatBodyHtml();
         $.ajax({
             // https://api.spotify.com/v1/playlists/6FgTsjPJOoJ1lUwKlkBgaB?market=IN
             url: "https://api.spotify.com/v1/playlists/6FgTsjPJOoJ1lUwKlkBgaB?market=IN",
@@ -12,6 +13,14 @@ const hindiPop = {
                 console.log(error);
             }
         })
+    },
+    creatBodyHtml:function(){
+        var latestSongSection = document.querySelector(".hindiPop-section");
+        var className = "\'.img-wrapper3\'";
+        var jsClass =   "\'img-wrapper3\'";
+        var headerName = "hindiPop"
+        var obj ={className,jsClass,headerName};
+        latestSongSection.innerHTML=template.albumsBodyHtml(obj);
     },
     creatsongList : function(result){
         var data = result.tracks;

@@ -55,7 +55,7 @@ body ul {
   top: 0;
   left: 0;
   z-index: 1;
-  opacity: 0;
+  // opacity: 0;
   height: 100%;
   margin: 0 -8px;
 }
@@ -70,7 +70,10 @@ body ul {
 .header {
   width: 100%;
   background-color: #21252d;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
+  @include above("md"){
+    margin-bottom: 35px;
+  }
 }
 .content-space {
   justify-content: space-between;
@@ -499,30 +502,47 @@ body ul {
 .atomaticScrolling {
   overflow: hidden;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
+  @include above("md"){
+    margin-bottom: 30px;
+  }
 }
 .atomaticScroll-img-wrapper {
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
   align-items: center;
   display: flex;
+  @include above("md"){
+    max-width: 900px;
+  }
 }
 .atomaticScroll-next-image {
-  width: 900px;
-  height: 300px;
+  width: 100%;
+  height: 140px;
   padding: 0 10px;
+  @include above("md"){
+    width: 900px;
+    height: 300px;
+  }
 }
 .poster-parent {
   position: relative;
-  width: 900px;
+  width: 100%;
   margin: 0 auto;
-  margin: 0 -10px;
   display: -webkit-box;
+  @include above("md"){
+    margin: 0 -10px;
+    width: 900px;
+  }
 }
 .poster-img {
   width: 100%;
   height: 100%;
   border-radius: 30px;
+  object-fit: cover;
+  @include above("md"){
+    object-fit: unset;
+  }
 }
 .leftImgSect {
   position: absolute;
@@ -620,12 +640,17 @@ body ul {
   margin-bottom: 20px;
 }
 .songs-tittle h3 {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 400;
   @include above("md") {
     font-size: 22px;
     font-weight: 500;
   }
+}
+.songs-tittle span{
+  font-size: 12px;
+  padding: 0 5px;
+  font-weight: 300;
 }
 .songs-tittle a:hover {
   background-color: #e50019;
@@ -639,7 +664,7 @@ body ul {
   padding: 2px 7px;
 }
 .sections-space {
-  margin: 50px 0;
+  margin: 20px 0;
   position: relative;
   @include above("md") {
     margin: 30px 0;
@@ -682,16 +707,16 @@ body ul {
   //   width: 12.5%;
   // }
 }
-.latest-song-section:hover .scroll-btn-add {
+.new-release-section:hover .scroll-btn-add {
   display: block;
 }
-.bollywoodsong-section:hover .scroll-btn-add {
+.Categories-section:hover .scroll-btn-add {
   display: block;
 }
 .popularArtist-section:hover .scroll-btn-add {
   display: block;
 }
-.old-song-section:hover .scroll-btn-add {
+.hindiPop-section:hover .scroll-btn-add {
   display: block;
 }
 .img-wrapper::-webkit-scrollbar {
@@ -739,10 +764,30 @@ body ul {
   border-radius: 50%;
 }
 .songposterscroll-btn-add {
-  right: 155px;
+  right: 0;
+  @include above("md"){
+    right: 155px;
+  }
 }
+
+.scrolling-btn-min-parent{
+  display: none;
+  @include above("md"){
+    display: block;
+  }
+}
+.scrolling-btn-add-parent{
+  display: none;
+  @include above("md"){
+    display: block;
+  }
+}
+
 .songposterscroll-btn-min {
-  left: 194px;
+  left: 40px;
+  @include above("md"){
+    left: 194px;
+  }
 }
 .scroll-btn-min {
   left: 22px;
@@ -1106,11 +1151,14 @@ body ul {
   border-radius: 10px;
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
+  vertical-align: middle;
   @include above("md"){
     position: static;
-    height: auto;
-    object-fit: unset;
+    height: 260px;
+    // object-fit: unset;
+    width: 100%;
+
   }
 }
 .song-details {
@@ -1144,18 +1192,21 @@ body ul {
   text-transform: capitalize;
 }
 .about-song img {
-  width: 100px;
-  height: 100%;
-  margin-right: 25px;
-  border-radius: 10px;
+  display: none;
+  @include above("md"){
+    width: 100px;
+    vertical-align: middle;
+    margin-right: 25px;
+    border-radius: 10px;
+  }
+  
 }
 .headings {
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 15px;
   text-transform: uppercase;
-
-  @include above(){
+  @include above("md"){
     font-size: 24px;
   }
 }

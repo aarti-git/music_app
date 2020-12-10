@@ -41,8 +41,9 @@ const albumSongs = {
         var releasedate =data.release_date;
         var albumArtistArray= data.artists;
         var albumArtistsName = data.artists[0].name;
+        var albumArtistsId = data.artists[0].id;
         var imgSrc = this.getImg(albumImg,albumImg[1].width);
-        var obj = {imgSrc, songName, label, albumType, albumArtistsName, albumArtistArray, releasedate}
+        var obj = {imgSrc, songName, label, albumType, albumArtistsName, albumArtistArray, releasedate,albumArtistsId}
         this.craetAlbumBody(obj);
         var array = data.tracks.items;
         for(var i=0; i<array.length; i++){
@@ -51,7 +52,8 @@ const albumSongs = {
             var albumName = albumItems.name;
             var artistNames = this.artistName(albumArtists);
             var songMP3Url = albumItems.preview_url;
-            this.creatSongList(songMP3Url,albumName,artistNames);
+            var songListObj = {songMP3Url,albumName,artistNames}
+            this.creatSongList(songListObj);
         };
     },
     createArtistList : function(artistArrayFromAlbum){
@@ -61,16 +63,17 @@ const albumSongs = {
         });
     },
     artistInfo : function(artistApiResult){
-        artistObj = {}
+        // artistObj = {}
         var artistData = artistApiResult.artists;
         for(i=0; i<artistData.length; i++){
             var item = artistData[i];
             var artistMainImg = item.images[1].url;
             var albumArtistsName = item.name;
+            var albumArtistsId = item.id;
             var artistSection = document.querySelector(".artist-infom");
             var craetArtistDiv = document.createElement("div");
             craetArtistDiv.classList.add("artist-inf");
-            var artistObj = {artistMainImg,albumArtistsName};
+            var artistObj = {artistMainImg,albumArtistsName,albumArtistsId};
             craetArtistDiv.innerHTML=template.aboutartists(artistObj)
         artistSection.append(craetArtistDiv);
         }
@@ -84,15 +87,19 @@ const albumSongs = {
         albumSection.innerHTML= template.album(obj);
      // about song section inner html
      aboutsongsection.innerHTML = template.albumAboutSong(obj);
+    //  this.craeatPlayerBar(obj)
     },
-    creatSongList : function(songMP3Url,albumName,artistNames){
+    creatSongList : function(songListObj){
         var albumSongList = document.querySelector(".album-song-list");
             var songdivWrapper = document.createElement("div");
             songdivWrapper.classList.add("artist-song-list");
-            var songListObj = {songMP3Url,albumName,artistNames}
             songdivWrapper.innerHTML=template.songListHtml(songListObj)
             albumSongList.append(songdivWrapper);
     },
+    // craeatPlayerBar : function(obj){
+        // var playerParent = document.querySelector(".song-player-bar");
+        // playerParent.innerHTML= template.playerBar(obj);
+    // },
     getImg : function(albumImg,ImgWidth){
         // if(ImgWidth !== 300){
         //     ImgWidth = albumImg[0].width;

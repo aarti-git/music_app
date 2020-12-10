@@ -17,6 +17,8 @@
     <script src="js/popup.js"></script>
     
     <script defer src="js/music-app.js"></script>
+    <!-- <script defer src="js/musicApp.js"></script> -->
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -25,6 +27,8 @@
             categories.init();
             artistList.init();
             hindiPop.init();
+            // appJs.init();
+            atomaticScroll();
         });
     </script>
 </head>
@@ -289,104 +293,20 @@
     <!-- body part -->
     <section class="container">
         <div class="div-parent">
-            <!-- LATEST SONGS -->
-            <section class="latest-song-section sections-space">
-                <div class="songs-tittle">
-                    <h3>New Release</h3>
-                    <a>See All</a>
-                </div>
-                <div>
-                    <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, '.img-wrapper')">
-                        <svg class="font">
-                            <use xlink:href="./img/icons.svg#angleLeft-node"></use>
-                        </svg>
-                    </button>
-                </div>
-                <div class="img-wrapper">
-
-                </div>
-                <div>
-                    <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,'.img-wrapper')">
-                        <svg class="font">
-                            <use xlink:href="./img/icons.svg#angleRight-node"></use>
-                        </svg>
-                    </button>
-                </div>
+            <!-- new-release-section -->
+            <section class="new-release-section sections-space">
             </section>
 
-            <!-- bollywood On Loop -->
-            <section class="bollywoodsong-section sections-space">
-                <div class="songs-tittle">
-                    <h3>Categories</h3>
-                    <a>See All</a>
-                </div>
-                <div>
-                    <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, '.img-wrapper2')">
-                        <svg class="font">
-                            <use xlink:href="./img/icons.svg#angleLeft-node"></use>
-                        </svg>
-                    </button>
-                </div>
-                <div class="img-wrapper2">
-                    
-                </div>
-                <div>
-                    <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,'.img-wrapper2')">
-                        <svg class="font">
-                            <use xlink:href="./img/icons.svg#angleRight-node"></use>
-                        </svg>
-                    </button>
-                </div>
+            <!-- Categories -->
+            <section class="Categories-section sections-space">
             </section>
 
-            <!-- old songs -->
-            <section class="old-song-section sections-space">
-                <div class="songs-tittle">
-                    <h3>OLD SONGS</h3>
-                    <a>See All</a>
-                </div>
-                <div>
-                    <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, '.img-wrapper3')">
-                        <svg class="font">
-                            <use xlink:href="./img/icons.svg#angleLeft-node"></use>
-                        </svg>
-                    </button>
-                </div>
-                <div class="img-wrapper3">
-                </div>
-                <div>
-                    <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,'.img-wrapper3')">
-                        <svg class="font">
-                            <use xlink:href="./img/icons.svg#angleRight-node"></use>
-                        </svg>
-                    </button>
-                </div>
+            <!--hindiPop -->
+            <section class="hindiPop-section sections-space">
             </section>
-
 
             <!-- artist list -->
             <section class="popularArtist-section sections-space">
-                <div class="songs-tittle">
-                    <h3>popular artist</h3>
-                    <a>See All</a>
-                </div>
-                <div>
-                    <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, '.img-wrapper4')">
-                        <svg class="font">
-                            <use xlink:href="./img/icons.svg#angleLeft-node"></use>
-                        </svg>
-                    </button>
-                </div>
-                <div class="img-wrapper4">
-                    
-                </div>
-                <div>
-                    <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,'.img-wrapper4')">
-                        <svg class="font">
-                            <use xlink:href="./img/icons.svg#angleRight-node"></use>
-                        </svg>
-                    </button>
-                </div>
             </section>
         </div>
     </section>
@@ -626,7 +546,6 @@
         </div>
     </section>
 </body>
-<!-- content-space -->
-
 </html>
+
 <!-- git push https://aarti-git:iamaarti001@github.com/aarti-git/music_app.git master -->

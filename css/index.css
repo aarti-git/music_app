@@ -392,7 +392,6 @@ body ul {
   top: 0;
   left: 0;
   z-index: 1;
-  opacity: 0;
   height: 100%;
   margin: 0 -8px;
 }
@@ -409,7 +408,13 @@ body ul {
 .header {
   width: 100%;
   background-color: #21252d;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: 35px;
+  }
 }
 
 .content-space {
@@ -916,34 +921,66 @@ body ul {
 .atomaticScrolling {
   overflow: hidden;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .atomaticScrolling {
+    margin-bottom: 30px;
+  }
 }
 
 .atomaticScroll-img-wrapper {
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
   align-items: center;
   display: flex;
 }
 
+@media (min-width: 768px) {
+  .atomaticScroll-img-wrapper {
+    max-width: 900px;
+  }
+}
+
 .atomaticScroll-next-image {
-  width: 900px;
-  height: 300px;
+  width: 100%;
+  height: 140px;
   padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .atomaticScroll-next-image {
+    width: 900px;
+    height: 300px;
+  }
 }
 
 .poster-parent {
   position: relative;
-  width: 900px;
+  width: 100%;
   margin: 0 auto;
-  margin: 0 -10px;
   display: -webkit-box;
+}
+
+@media (min-width: 768px) {
+  .poster-parent {
+    margin: 0 -10px;
+    width: 900px;
+  }
 }
 
 .poster-img {
   width: 100%;
   height: 100%;
   border-radius: 30px;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .poster-img {
+    object-fit: unset;
+  }
 }
 
 .leftImgSect {
@@ -1059,7 +1096,7 @@ body ul {
 }
 
 .songs-tittle h3 {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -1068,6 +1105,12 @@ body ul {
     font-size: 22px;
     font-weight: 500;
   }
+}
+
+.songs-tittle span {
+  font-size: 12px;
+  padding: 0 5px;
+  font-weight: 300;
 }
 
 .songs-tittle a:hover {
@@ -1084,7 +1127,7 @@ body ul {
 }
 
 .sections-space {
-  margin: 50px 0;
+  margin: 20px 0;
   position: relative;
 }
 
@@ -1131,11 +1174,11 @@ body ul {
   }
 }
 
-.latest-song-section:hover .scroll-btn-add {
+.new-release-section:hover .scroll-btn-add {
   display: block;
 }
 
-.bollywoodsong-section:hover .scroll-btn-add {
+.Categories-section:hover .scroll-btn-add {
   display: block;
 }
 
@@ -1143,7 +1186,7 @@ body ul {
   display: block;
 }
 
-.old-song-section:hover .scroll-btn-add {
+.hindiPop-section:hover .scroll-btn-add {
   display: block;
 }
 
@@ -1194,11 +1237,43 @@ body ul {
 }
 
 .songposterscroll-btn-add {
-  right: 155px;
+  right: 0;
+}
+
+@media (min-width: 768px) {
+  .songposterscroll-btn-add {
+    right: 155px;
+  }
+}
+
+.scrolling-btn-min-parent {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .scrolling-btn-min-parent {
+    display: block;
+  }
+}
+
+.scrolling-btn-add-parent {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .scrolling-btn-add-parent {
+    display: block;
+  }
 }
 
 .songposterscroll-btn-min {
-  left: 194px;
+  left: 40px;
+}
+
+@media (min-width: 768px) {
+  .songposterscroll-btn-min {
+    left: 194px;
+  }
 }
 
 .scroll-btn-min {
@@ -1638,14 +1713,15 @@ body ul {
   border-radius: 10px;
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
+  vertical-align: middle;
 }
 
 @media (min-width: 768px) {
   .page-main-img {
     position: static;
-    height: auto;
-    object-fit: unset;
+    height: 260px;
+    width: 100%;
   }
 }
 
@@ -1689,10 +1765,16 @@ body ul {
 }
 
 .about-song img {
-  width: 100px;
-  height: 100%;
-  margin-right: 25px;
-  border-radius: 10px;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .about-song img {
+    width: 100px;
+    vertical-align: middle;
+    margin-right: 25px;
+    border-radius: 10px;
+  }
 }
 
 .headings {
@@ -1702,7 +1784,7 @@ body ul {
   text-transform: uppercase;
 }
 
-@media (min-width: null) {
+@media (min-width: 768px) {
   .headings {
     font-size: 24px;
   }

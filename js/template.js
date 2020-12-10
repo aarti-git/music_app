@@ -45,7 +45,7 @@ const template = {
                     <img class="artist-img" src="${obj.imgSrc}">
                 </div>
                 <div class="songs-img-overlay-wrapper">
-                    <a href="artists-topsong-albumpage.html?artis-id=${obj.artistId}">
+                    <a href="artists-topsong-albumpage.html?artist-id=${obj.artistId}">
                         <div class="artist-img-overlay"></div>
                     </a>
                 </div>
@@ -156,7 +156,7 @@ const template = {
                 </div>
                 <div>
                     <h3 class="headings">About Song</h3>
-                    <p>${obj.songName} is a song which is sung by <a herf="artist-page.html">${obj.albumArtistsName}</a>. 
+                    <p>${obj.songName} is a song which is sung by <a href="artists-topsong-albumpage.html?artist-id=${obj.albumArtistsId}">${obj.albumArtistsName}</a>. 
                     The duration of the song is 4 min, 11 sec. You can listen to Waada Hai song online for free, 
                     or download the mp3 from the Wynk Music mobile app. Keep Wynking!</p>
                 </div>
@@ -165,7 +165,7 @@ const template = {
     },
     aboutartists:function(artistObj){
        return buildTemplate(artistObj, 
-            `
+            `<a href="artists-topsong-albumpage.html?artist-id=${artistObj.albumArtistsId}">
             <div>
                 <img class="artists-img" src="${artistObj.artistMainImg}" />
             </div>
@@ -173,6 +173,7 @@ const template = {
                 <p>${artistObj.albumArtistsName}</p>
                 <span>Singer</span>
             </div>
+            </a>
             `
         ) 
     },
@@ -486,6 +487,96 @@ const template = {
             `
            
         ) 
-    }
+    },
+    // audio player
+     playerBar:function(obj){
+       return buildTemplate(obj,
+    //         `<div class="row">
+    //         <div class="col-xs-8 col-sm-5 col-md-4 col-xl-4">
+    //             <div class="player-bar-sections">
+    //                 <div class="playButton-position">
+    //                     <img class="album-list-img" src="img/song-1.webp">
+    //                 </div>
+    //                 <div class="song-Name-artist-div">
+    //                     <p>${obj.a}</p>
+    //                     <span>${obj.b}</span>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //         <div class="col-xs-2 col-sm-4 col-md-4 col-xl-4 justify-center">
+    //             <div class="player-bar-sections">
+    //                 <div class="side-font-onPlayerBar">
+    //                     <svg class="font">
+    //                         <use xlink:href="./img/icons.svg#shuffer-node"></use>
+    //                     </svg>
+    //                 </div>
+    //                 <div class="next-pervious-onPlayerBar">
+    //                     <svg class="font">
+    //                         <use xlink:href="./img/icons.svg#step-backward-node"></use>
+    //                     </svg>
+    //                 </div>
+    //                 <div class="play-button-onPlayerBar" onclick="togglePlayPause(this)">
+    //                     <svg class="play-font-onPlayerBar">
+    //                         <use xlink:href="./img/icons.svg#playButton-node"></use>
+    //                     </svg>
+    //                     <svg class="pause-font-onPlayerBar hide">
+    //                         <use xlink:href="./img/icons.svg#pause-node"></use>
+    //                     </svg>
+    //                 </div>
+    //                 <div class="next-pervious-onPlayerBar">
+    //                     <svg class="font">
+    //                         <use xlink:href="./img/icons.svg#step-forward-node"></use>
+    //                     </svg>
+    //                 </div>
+    //                 <div class="side-font-onPlayerBar">
+    //                     <svg class="font">
+    //                         <use xlink:href="./img/icons.svg#repeat-node"></use>
+    //                     </svg>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //         <div class="col-xs-2 col-sm-3 col-md-4 col-xl-4 justify-end">
+    //             <div class="player-bar-sections">
+    //                 <div class="volumefont-onPlayerBar">
+    //                     <svg class="logo-font">
+    //                         <use xlink:href="./img/icons.svg#volume-node"></use>
+    //                     </svg>
+    //                 </div>
+    //                 <div>
+    //                     <svg class="font">
+    //                         <use xlink:href="./img/icons.svg#music-list-node"></use>
+    //                     </svg>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </div>`
+             )
+     },
+    // all album scrolling list body html:
 
+    albumsBodyHtml: function(obj){
+        return buildTemplate(obj,
+        `
+            <div class="songs-tittle">
+                <h3>${obj.headerName}</h3>
+                <a>See All</a>
+            </div>
+            <div class="scrolling-btn-min-parent">
+                <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, ${obj.className})">
+                    <svg class="font">
+                        <use xlink:href="./img/icons.svg#angleLeft-node"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class= ${obj.jsClass}>
+            </div>
+            <div class="scrolling-btn-add-parent">
+                <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,${obj.className})">
+                    <svg class="font">
+                        <use xlink:href="./img/icons.svg#angleRight-node"></use>
+                    </svg>
+                </button>
+            </div>
+        `)
+    },
 }

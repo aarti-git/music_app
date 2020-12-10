@@ -4,6 +4,7 @@
 const artistList = {
     init: function(){
         var _this = this;
+        this.creatBodyHtml();
         $.ajax({
             url: "https://api.spotify.com/v1/artists?ids=5f4QpKfy7ptCHwTqspnSJI%2C4YRxDV8wJFPHPTeXepOstw%2C0oOet2f43PA68X5RxKobEy%2C5rQoBDKFnd1n6BkdbgVaRL%2C7o7doCwqft91WC690aglWC%2C0GF4shudTAFv8ak9eWdd4Y%2C61JrslREXq98hurYL2hYoc%2C5fvTHKKzW44A9867nPDocM%2C70B80Lwx2sxti0M1Ng9e8K%2C3gBKY0y3dFFVRqicLnVZYz%2C4K6blSRoklNdpw4mzLxwfn",
             type: "GET",
@@ -18,6 +19,14 @@ const artistList = {
             }
         })
 
+    },
+    creatBodyHtml:function(){
+        var latestSongSection = document.querySelector(".popularArtist-section");
+        var className = "\'.img-wrapper4\'";
+        var jsClass =   "\'img-wrapper4\'";
+        var headerName = "popular artist"
+        var obj ={className,jsClass,headerName};
+        latestSongSection.innerHTML=template.albumsBodyHtml(obj);
     },
     creatsongList : function(result){
         var array = result.artists;

@@ -1,6 +1,7 @@
 const newRealeases = {
     init: function(){
         var _this = this;
+        this.creatBodyHtml();
         $.ajax({
             url: "https://api.spotify.com/v1/browse/new-releases",
             type: "GET",
@@ -11,6 +12,14 @@ const newRealeases = {
                 console.log(error);
             }
         })
+    },
+    creatBodyHtml:function(){
+        var latestSongSection = document.querySelector(".new-release-section");
+        var className = "\'.img-wrapper\'";
+        var jsClass =   "\'img-wrapper\'";
+        var headerName = "New Release<span>(English)</span>"
+        var obj ={className,jsClass,headerName};
+        latestSongSection.innerHTML=template.albumsBodyHtml(obj);
     },
     creatsongList : function(result){
         var data = result.albums;
@@ -37,6 +46,19 @@ const newRealeases = {
             // albumSongs.init(albumId);
         })
     },
+    // creatScrollingBtn:function(){
+    //     var imgWrapper = document.querySelector(".img-wrapper");
+    //     var ScrollingMinBtn = imgWrapper.querySelector(".scrolling-btn-min-parent");
+    //     var ScrollingAddBtn =  imgWrapper.querySelector(".scrolling-btn-add-parent");
+    //     var className = "\'.img-wrapper\'";
+    //     var falseCond = false;
+    //     var trueCond = true;
+    //     var minObj = {falseCond,className};
+    //     var addObj = {trueCond,className};
+    //     ScrollingMinBtn.innerHTML=template.ScrollingMinBtn(minObj);
+    //     ScrollingAddBtn.innerHTML=template.ScrollingAddBtn(addObj);
+
+    // },
     getImg : function(albumImg,ImgWidth){
         if(ImgWidth !== 300){
             ImgWidth = albumImg[0].width;

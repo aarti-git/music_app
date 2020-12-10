@@ -1,7 +1,7 @@
 const categories = {
     init: function(){
         var _this = this;
-        
+        this.creatBodyHtml();
         $.ajax({
             url: "https://api.spotify.com/v1/browse/categories?country=IN&offset=0&limit=15",
             type: "GET",
@@ -13,6 +13,14 @@ const categories = {
             }
         })
 
+    },
+    creatBodyHtml:function(){
+        var latestSongSection = document.querySelector(".Categories-section");
+        var className = "\'.img-wrapper2\'";
+        var jsClass =   "\'img-wrapper2\'";
+        var headerName = "Categories"
+        var obj ={className,jsClass,headerName};
+        latestSongSection.innerHTML=template.albumsBodyHtml(obj);
     },
     creatsongList : function(result){
         var data = result.categories;
@@ -26,6 +34,7 @@ const categories = {
             var obj = {imgSrc,albumName,albumId}
             this.creatHTML(obj);
         };
+        // this.creatScrollingBtn();
     },
     creatHTML : function(obj){
         var imgWrapper = document.querySelector(".img-wrapper2");
