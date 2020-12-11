@@ -559,7 +559,7 @@ const template = {
         `
             <div class="songs-tittle">
                 <h3>${obj.headerName}</h3>
-                <a>See All</a>
+                <a onclick="seeAllBtn(${obj.className})">See All</a>
             </div>
             <div class="scrolling-btn-min-parent">
                 <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, ${obj.className})">

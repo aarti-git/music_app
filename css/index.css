@@ -372,7 +372,13 @@ body ul {
 .align-self {
   align-self: center;
   border: 0 !important;
-  margin-left: 20px;
+  margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+  .align-self {
+    margin-left: 20px;
+  }
 }
 
 .justify-center {
@@ -404,6 +410,11 @@ body ul {
   z-index: 1;
   opacity: 0;
   width: 100%;
+}
+
+.listContaintCenter {
+  display: block !important;
+  text-align: center;
 }
 
 .header {
@@ -679,11 +690,18 @@ body ul {
 
 .btn {
   display: block;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-radius: 20px;
   background-color: #e8121a;
   color: white;
-  font-size: 15px;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
 }
 
 .authBtn {
@@ -1137,7 +1155,7 @@ body ul {
 }
 
 .sections-space {
-  margin: 20px 0;
+  margin: 40px 0 30px 0;
   position: relative;
 }
 
@@ -1162,7 +1180,7 @@ body ul {
 
 @media (min-width: 0) {
   .watch-next-image {
-    width: 40%;
+    width: 35%;
   }
 }
 
@@ -1443,9 +1461,10 @@ body ul {
   font-weight: 300;
   color: white;
   white-space: nowrap;
-  width: 130px;
+  width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 3px;
 }
 
 @media (min-width: 768px) {
@@ -1456,11 +1475,11 @@ body ul {
 
 .song-name-div span {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 300;
   color: #818c94;
   white-space: nowrap;
-  width: 130px;
+  width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -1468,7 +1487,7 @@ body ul {
 .album-song-div {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0;
+  margin: 20px 0 50px 0;
 }
 
 @media (min-width: 768px) {
@@ -1500,13 +1519,14 @@ body ul {
   font-weight: 400;
   white-space: nowrap;
   overflow: hidden;
-  width: 200px;
+  width: 180px;
   text-overflow: ellipsis;
 }
 
 @media (min-width: 768px) {
   .button-div p {
     font-size: 15px;
+    width: 200px;
   }
 }
 
@@ -1630,6 +1650,8 @@ body ul {
 
 .artist-infom {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 @media (min-width: 768px) {
@@ -1640,20 +1662,20 @@ body ul {
 
 .artist-inf {
   display: block;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
 @media (min-width: 768px) {
   .artist-inf {
     display: flex;
-    margin-top: 15px;
+    margin: 15px 10px;
     margin: 0;
   }
 }
 
 .artists-img {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   margin: 0;
   border-radius: 50%;
   margin-bottom: 10px;
@@ -1663,14 +1685,20 @@ body ul {
 @media (min-width: 768px) {
   .artists-img {
     margin-right: 20px;
-    height: 80px;
-    width: 80px;
   }
 }
 
 .artist-name {
   align-self: center;
   font-weight: 300;
+}
+
+.artist-name p {
+  font-size: 13px;
+  width: 80px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .artist-name span {
@@ -1811,8 +1839,14 @@ body ul {
 }
 
 .about-song a {
-  color: #818c94;
-  font-weight: 500;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .about-song a {
+    color: #818c94;
+    font-weight: 500;
+  }
 }
 
 .about-artist {

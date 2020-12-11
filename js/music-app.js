@@ -85,6 +85,7 @@
           a = Number(a);
         }
         a += 100;
+
         if(a == 200){
           a = -300;
         }
@@ -240,4 +241,16 @@
                 </div>`
                     // template.playerBar(obj)
               })
+        }
+
+        // see all button
+        var btnClick = false; 
+        function seeAllBtn(parentElm){
+          var parentSongAlbum = document.querySelector(parentElm);
+          if(!btnClick){
+            parentSongAlbum.classList.add("listContaintCenter")
+          }else{
+            parentSongAlbum.classList.remove("listContaintCenter")
+          }
+          btnClick = !btnClick;
         }
