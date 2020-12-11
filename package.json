@@ -1,10 +1,10 @@
 {
-  "scripts": {
-    "start": "node app.js"
-  },
+  "name": "music_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "dependencies": {
     "gulp-sass": "^4.1.0",
-    "helmet": "^4.2.0",
     "lolhost": "^1.1.2",
     "node-sass": "^5.0.0"
   },
@@ -15,5 +15,19 @@
     "gulp": "^4.0.2",
     "querystring": "~0.2.0",
     "request": "~2.83.0"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarti-git/music_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aarti-git/music_app/issues"
+  },
+  "homepage": "https://github.com/aarti-git/music_app#readme"
 }
