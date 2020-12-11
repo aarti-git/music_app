@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "gulp-sass": "^4.1.0",
     "helmet": "^4.2.0",
