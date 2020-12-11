@@ -289,11 +289,16 @@ body ul {
 .night-mode-font,
 .font,
 .morning-mode-font {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   cursor: pointer;
   align-self: center;
+  @include above("md") {
+    width: 18px;
+    height: 18px;
+  }
 }
+
 .btn {
   display: block;
   padding: 10px 15px;
@@ -960,9 +965,9 @@ body ul {
 }
 .free-hellotune-btn,
 .share-btn{
-  display: none;
+  display: none !important;
   @include above("md"){
-    display: block;
+    display: block !important;
   }
 }
 .button-div {
@@ -1074,8 +1079,8 @@ body ul {
 //   margin: 0 5px;
 // }
 .some-links li {
-  padding: 0 8px;
-  font-size: 15px;
+  padding: 0 5px;
+  font-size: 12px;
   color: #b6b6b6;
   border-right: 1px solid;
 }
@@ -1270,8 +1275,11 @@ body ul {
 
 .footer-head-containt {
   align-self: center;
-  margin: 0 20px;
+  margin: 0 10px;
   line-height: 27px;
+  @include above("md") {
+    margin: 0 20px;
+  }
 }
 
 .footer-head-containt span {
@@ -1370,11 +1378,18 @@ body ul {
 .font-wrapper {
   border-radius: 50%;
   border: 1px solid #7e7e7e;
-  margin-left: 20px;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
+  margin-left: 10px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
+  @include above("md") {
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
 }
 
 .footerLastSec {

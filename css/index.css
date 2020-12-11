@@ -662,10 +662,19 @@ body ul {
 .night-mode-font,
 .font,
 .morning-mode-font {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   cursor: pointer;
   align-self: center;
+}
+
+@media (min-width: 768px) {
+  .night-mode-font,
+  .font,
+  .morning-mode-font {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .btn {
@@ -1470,13 +1479,13 @@ body ul {
 
 .free-hellotune-btn,
 .share-btn {
-  display: none;
+  display: none !important;
 }
 
 @media (min-width: 768px) {
   .free-hellotune-btn,
   .share-btn {
-    display: block;
+    display: block !important;
   }
 }
 
@@ -1603,8 +1612,8 @@ body ul {
 }
 
 .some-links li {
-  padding: 0 8px;
-  font-size: 15px;
+  padding: 0 5px;
+  font-size: 12px;
   color: #b6b6b6;
   border-right: 1px solid;
 }
@@ -1865,8 +1874,14 @@ body ul {
 
 .footer-head-containt {
   align-self: center;
-  margin: 0 20px;
+  margin: 0 10px;
   line-height: 27px;
+}
+
+@media (min-width: 768px) {
+  .footer-head-containt {
+    margin: 0 20px;
+  }
 }
 
 .footer-head-containt span {
@@ -1975,11 +1990,21 @@ body ul {
 .font-wrapper {
   border-radius: 50%;
   border: 1px solid #7e7e7e;
-  margin-left: 20px;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
+  margin-left: 10px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .font-wrapper {
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
 }
 
 .footerLastSec {
