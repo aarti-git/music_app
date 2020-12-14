@@ -417,6 +417,19 @@ body ul {
   text-align: center;
 }
 
+#song-not-availab {
+  color: red;
+  font-size: 10px;
+  display: inline-block;
+}
+
+.outsidArrow {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -10px;
+  left: 0;
+}
+
 .header {
   width: 100%;
   background-color: #21252d;
@@ -620,16 +633,10 @@ body ul {
 }
 
 .search-font {
-  width: 16px;
-  height: 16px;
-  margin: 4px 7px;
-}
-
-@media (min-width: 768px) {
-  .search-font {
-    width: 18px;
-    height: 18px;
-  }
+  width: 15px;
+  height: 15px;
+  margin: 0px 7px;
+  vertical-align: middle;
 }
 
 .search-bar input {
@@ -641,10 +648,11 @@ body ul {
     display: block;
     padding: 0 10px;
     background-color: black;
-    font-size: 16px;
+    font-size: 15px;
     color: #f7f5f5;
     outline: none;
     width: 100%;
+    text-transform: capitalize;
   }
 }
 
@@ -1014,7 +1022,13 @@ body ul {
 .leftImgSect {
   position: absolute;
   top: 0;
-  right: 100%;
+  left: -100%;
+}
+
+.rightImgSect {
+  position: absolute;
+  top: 0;
+  right: -300%;
 }
 
 .player-position {
@@ -1028,7 +1042,7 @@ body ul {
 .song-player-bar {
   width: 100%;
   margin: 0 auto;
-  background-color: #21252df5;
+  background-color: #202226;
   padding: 15px;
   border-radius: 4px;
   z-index: 1;
@@ -1256,12 +1270,19 @@ body ul {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  background-color: #000000e0;
+  width: 30px;
+  height: 30px;
+  background-color: #0000009e;
   outline: none;
   color: white;
   border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+  .comman-scrolling-css {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .songposterscroll-btn-add {
@@ -1295,7 +1316,7 @@ body ul {
 }
 
 .songposterscroll-btn-min {
-  left: 40px;
+  left: 30px;
 }
 
 @media (min-width: 768px) {
@@ -1470,6 +1491,7 @@ body ul {
 @media (min-width: 768px) {
   .song-name-div p {
     font-size: 15px;
+    width: 130px;
   }
 }
 
@@ -1482,6 +1504,12 @@ body ul {
   width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .song-name-div span {
+    width: 130px;
+  }
 }
 
 .album-song-div {
@@ -1669,7 +1697,16 @@ body ul {
   .artist-inf {
     display: flex;
     margin: 15px 10px;
-    margin: 0;
+  }
+}
+
+.artist-img-name-div {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .artist-img-name-div {
+    display: flex;
   }
 }
 
@@ -1699,6 +1736,12 @@ body ul {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@media (min-width: 1024px) {
+  .artist-name p {
+    width: 100%;
+  }
 }
 
 .artist-name span {

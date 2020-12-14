@@ -27,7 +27,6 @@
             categories.init();
             artistList.init();
             hindiPop.init();
-            // appJs.init();
             atomaticScroll();
         });
     </script>
@@ -121,7 +120,7 @@
                                     <use xlink:href="./img/icons.svg#search-node"></use>
                                 </svg>
                             </div>
-                            <input type="text" name="song" placeholder="Search for music you love!" />
+                            <input type="text" name="song" placeholder="Search for music you love!"  onkeyup="searchSongs(this)"/>
                         </div>
                         <div class="header-group">
                             <div class="modes">
@@ -189,39 +188,41 @@
     </section>
     <!-- header section end -->
     <!-- atomatic scrollig -->
-    <section class="atomaticScrolling">
-        <div>
-            <button class="comman-scrolling-css songposterscroll-btn-min" onclick="posterScrolling(false)">
-                <svg class="font">
-                    <use xlink:href="./img/icons.svg#angleLeft-node"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="atomaticScroll-img-wrapper">
-            <div class="poster-parent">
-                <div class="atomaticScroll-next-image leftImgSect">
-                    <a><img class="poster-img img1" src="img/workout.webp"></a>
-                </div>
-                <div class="atomaticScroll-next-image">
-                    <a><img class="poster-img img2" src="img/amit-trivedi.webp"></a>
-                </div>
-                <div class="atomaticScroll-next-image rightImgSect">
-                    <a><img class="poster-img img3" src="img/sad.webp"></a>
-                </div>
-                <div class="atomaticScroll-next-image">
-                    <a><img class="poster-img" src="img/english-songs.webp"></a>
-                </div>
-                <div class="atomaticScroll-next-image">
-                    <a><img class="poster-img" src="img/serial-songs.webp"></a>
-                </div>
+    <section>
+        <div class="atomaticScrolling">
+            <div>
+                <button class="comman-scrolling-css songposterscroll-btn-min" onclick="posterScrolling(false)">
+                    <svg class="font">
+                        <use xlink:href="./img/icons.svg#angleLeft-node"></use>
+                    </svg>
+                </button>
             </div>
-        </diV>
-        <div>
-            <button class="comman-scrolling-css songposterscroll-btn-add" onclick="posterScrolling(true)">
-                <svg class="font">
-                    <use xlink:href="./img/icons.svg#angleRight-node"></use>
-                </svg>
-            </button>
+            <div class="atomaticScroll-img-wrapper">
+                <div class="poster-parent">
+                    <div class="atomaticScroll-next-image leftImgSect">
+                        <a><img class="poster-img img1" src="img/workout.webp"></a>
+                    </div>
+                    <div class="atomaticScroll-next-image">
+                        <a><img class="poster-img img2" src="img/amit-trivedi.webp"></a>
+                    </div>
+                    <div class="atomaticScroll-next-image">
+                        <a><img class="poster-img img3" src="img/sad.webp"></a>
+                    </div>
+                    <div class="atomaticScroll-next-image">
+                        <a><img class="poster-img" src="img/english-songs.webp"></a>
+                    </div>
+                    <div class="atomaticScroll-next-image rightImgSect">
+                        <a><img class="poster-img" src="img/serial-songs.webp"></a>
+                    </div>
+                </div>
+            </diV>
+            <div>
+                <button class="comman-scrolling-css songposterscroll-btn-add" onclick="posterScrolling(true)">
+                    <svg class="font">
+                        <use xlink:href="./img/icons.svg#angleRight-node"></use>
+                    </svg>
+                </button>
+            </div>
         </div>
     </section>
     <!-- song plyer bar in fix bottom -->

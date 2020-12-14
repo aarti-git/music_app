@@ -75,6 +75,19 @@ body ul {
   display: block !important;
   text-align: center;
 }
+#song-not-availab{
+  color: red;
+  font-size: 10px;
+  display: inline-block;
+}
+.outsidArrow{
+  transform: rotate(-45deg);
+    position: relative;
+    top: -10px;
+    left: 0;
+}
+
+// header css 
 .header {
   width: 100%;
   background-color: #21252d;
@@ -256,13 +269,11 @@ body ul {
   }
 }
 .search-font {
-  width: 16px;
-  height: 16px;
-  margin: 4px 7px;
-  @include above("md") {
-    width: 18px;
-    height: 18px;
-  }
+  width: 15px;
+  height: 15px;
+  margin: 0px 7px;
+  vertical-align: middle;
+  
 }
 .search-bar input {
   display: none;
@@ -270,10 +281,11 @@ body ul {
     display: block;
     padding: 0 10px;
     background-color: black;
-    font-size: 16px;
+    font-size: 15px;
     color: #f7f5f5;
     outline: none;
     width: 100%;
+    text-transform: capitalize;
   }
 }
 
@@ -564,7 +576,12 @@ body ul {
 .leftImgSect {
   position: absolute;
   top: 0;
-  right: 100%;
+  left:-100%;
+}
+.rightImgSect{
+  position: absolute;
+  top: 0;
+  right: -300%;
 }
 
 // .rightImgSect {
@@ -582,7 +599,7 @@ body ul {
 .song-player-bar {
   width: 100%;
   margin: 0 auto;
-  background-color: #21252df5;
+  background-color: #202226;
   padding:15px;
   border-radius: 4px;
   z-index: 1;
@@ -764,12 +781,16 @@ body ul {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  background-color: #000000e0;
+  width: 30px;
+  height: 30px;
+  background-color: #0000009e;
   outline: none;
   color: white;
   border-radius: 50%;
+  @include above("md"){
+    width: 40px;
+    height: 40px;
+  }
 }
 .songposterscroll-btn-add {
   right: 0;
@@ -792,7 +813,7 @@ body ul {
 }
 
 .songposterscroll-btn-min {
-  left: 40px;
+  left: 30px;
   @include above("md"){
     left: 194px;
   }
@@ -936,10 +957,8 @@ body ul {
   margin-bottom: 3px;
   @include above('md'){
     font-size: 15px;
+    width: 130px;
   }
-  // @include above('lg'){
-  //   font-size: 15px;
-  // }
 }
 .song-name-div span {
   display: block;
@@ -950,12 +969,9 @@ body ul {
   width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
-  // @include above('md'){
-  //   font-size: 23px;
-  // }
-  // @include above('lg'){
-  //   font-size: 12px;
-  // }
+  @include above('md'){
+    width: 130px;
+  }
 }
 
 // wadda hai song new page
@@ -1109,7 +1125,13 @@ body ul {
   @include above("md"){
     display: flex;
     margin: 15px 10px;
-    margin: 0;
+    // margin: 0;
+  }
+}
+.artist-img-name-div{
+  display: block;
+  @include above("md"){
+    display: flex;
   }
 }
 .artists-img {
@@ -1126,6 +1148,9 @@ body ul {
 .artist-name {
   align-self: center;
   font-weight: 300;
+   @include above("md"){ 
+    
+  }
 }
 .artist-name p {
   font-size: 13px;
@@ -1133,6 +1158,9 @@ body ul {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+    @include above("lg"){
+      width: 100%;
+    }
 }
 .artist-name span {
   font-size: 13px;

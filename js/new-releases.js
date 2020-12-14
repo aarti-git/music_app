@@ -46,19 +46,6 @@ const newRealeases = {
             // albumSongs.init(albumId);
         })
     },
-    // creatScrollingBtn:function(){
-    //     var imgWrapper = document.querySelector(".img-wrapper");
-    //     var ScrollingMinBtn = imgWrapper.querySelector(".scrolling-btn-min-parent");
-    //     var ScrollingAddBtn =  imgWrapper.querySelector(".scrolling-btn-add-parent");
-    //     var className = "\'.img-wrapper\'";
-    //     var falseCond = false;
-    //     var trueCond = true;
-    //     var minObj = {falseCond,className};
-    //     var addObj = {trueCond,className};
-    //     ScrollingMinBtn.innerHTML=template.ScrollingMinBtn(minObj);
-    //     ScrollingAddBtn.innerHTML=template.ScrollingAddBtn(addObj);
-
-    // },
     getImg : function(albumImg,ImgWidth){
         if(ImgWidth !== 300){
             ImgWidth = albumImg[0].width;

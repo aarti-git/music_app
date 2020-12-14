@@ -13,16 +13,21 @@ const template = {
             <div class="songs-img-overlay-wrapper">
                 <a href="song-album-page.html?album-id=${obj.albumId}">
                     <div class="songs-img-overlay">
+                        <div class="play-button-div">
+                            <svg class="play-font">
+                                <use xlink:href="./img/icons.svg#playButton-node"></use>
+                            </svg>
+                        </div>
                         <div class="songs-img-overlay-endFont">
                             <div class="img-layout-font">
                                 <svg class="font">
-                            <use xlink:href="./img/icons.svg#share-node"></use>
-                        </svg>
+                                    <use xlink:href="./img/icons.svg#share-node"></use>
+                                </svg>
                             </div>
                             <div class="img-layout-font">
                                 <svg class="font">
-                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                        </svg>
+                                    <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -63,16 +68,21 @@ const template = {
                 <div class="songs-img-overlay-wrapper">
                     <a href="categories-album.html?album-id=${obj.albumId}">
                         <div class="songs-img-overlay">
+                            <div class="play-button-div">
+                                <svg class="play-font">
+                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                </svg>
+                            </div>
                             <div class="songs-img-overlay-endFont">
                                 <div class="img-layout-font">
                                     <svg class="font">
-                                <use xlink:href="./img/icons.svg#share-node"></use>
-                            </svg>
+                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                    </svg>
                                 </div>
                                 <div class="img-layout-font">
                                     <svg class="font">
-                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                            </svg>
+                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
@@ -165,38 +175,44 @@ const template = {
     },
     aboutartists:function(artistObj){
        return buildTemplate(artistObj, 
-            `<a href="artists-topsong-albumpage.html?artist-id=${artistObj.albumArtistsId}">
-            <div>
-                <img class="artists-img" src="${artistObj.artistMainImg}" />
-            </div>
-            <div class="artist-name">
-                <p>${artistObj.albumArtistsName}</p>
-                <span>Singer</span>
+            `
+            <a href="artists-topsong-albumpage.html?artist-id=${artistObj.albumArtistsId}">
+            <div class="artist-img-name-div">
+                <div>
+                    <img class="artists-img" src="${artistObj.artistMainImg}" />
+                </div>
+                <div class="artist-name">
+                    <p>${artistObj.albumArtistsName}</p>
+                    <span>Singer</span>
+                </div>
             </div>
             </a>
             `
         ) 
     },
     songListHtml : function(songListObj){
-        return buildTemplate(songListObj, 
-            `
+         // ${songListObj.extarnalUrl}
+        //  <svg class="playButton-on-image hide">
+        // <use xlink:href="./img/icons.svg#pause-node"></use>
+        // </svg>
+        return buildTemplate(songListObj, `
             <div class="button-div">
-                <audio controls class="audio-position">
-                    <source src="${songListObj.songMP3Url}" type="audio/ogg">
-                </audio>
-                <div class="playButton-position">
-                    <svg class="font font-opacity">
-                        <use xlink:href="./img/icons.svg#music-list-node"></use>
-                    </svg>
-                    <div onclick="togglePlayPause(this)" class="toggle">
-                        <svg class="playButton-on-image">
-                            <use xlink:href="./img/icons.svg#playButton-node"></use>
+                <a href="${songListObj.extarnalUrl}" target="_blank" class="playButton-position">
+                    ${songListObj.audioTag}
+                    <div>
+                        <svg class="font font-opacity">
+                            <use xlink:href="./img/icons.svg#music-list-node"></use>
                         </svg>
-                        <svg class="playButton-on-image hide">
-                            <use xlink:href="./img/icons.svg#pause-node"></use>
-                        </svg>
+                        <div ${songListObj.outsidArrow}>
+                            <svg class="playButton-on-image">
+                                <use xlink:href="./img/icons.svg#${songListObj.svgId}"></use>
+                            </svg>
+                            <svg class="playButton-on-image hide">
+                                <use xlink:href="./img/icons.svg#pause-node"></use>
+                            </svg>
+                        </div>
                     </div>
-                </div>
+                 </a>
                 <div class="align-self">
                     <p>${songListObj.albumName}</p>
                     <span>${songListObj.artistNames}</span>
@@ -559,7 +575,7 @@ const template = {
         `
             <div class="songs-tittle">
                 <h3>${obj.headerName}</h3>
-                <a onclick="seeAllBtn(${obj.className})">See All</a>
+                <a onclick="seeAllBtn(${obj.className},this)">See All</a>
             </div>
             <div class="scrolling-btn-min-parent">
                 <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, ${obj.className})">

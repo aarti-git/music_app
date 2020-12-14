@@ -9,10 +9,12 @@
             nightMode.classList.remove("hide");
             morningMode.classList.add("hide");
             document.body.style.backgroundColor = "unset";
+            document.body.style.color = "black";  
         } else if (isnightMode) {
             nightMode.classList.add("hide");
             morningMode.classList.remove("hide");
             document.body.style.backgroundColor = "";
+            document.body.style.color = "";  
         }
         isnightMode = !isnightMode;
     })
@@ -44,6 +46,9 @@
     var interval;
     var parentElm = document.querySelector(".atomaticScroll-img-wrapper"); 
     var scrollingImg = parentElm.querySelectorAll(".atomaticScroll-next-image");
+    var leftImgSect = parentElm.querySelector(".leftImgSect");
+    var rightImgSect = parentElm.querySelector(".rightImgSect");
+
     function posterScrolling(elValue) {
       clearInterval(interval);
       var a = parentElm.dataset.slidepos;
@@ -55,16 +60,26 @@
       // var x = 200;
       if (elValue) {
         a -= 100;
-          // if(a == -400){
-          //   a = 100;
-          // }
           if(a == -400){
             a = 100;
+            leftImgSect.style.left="-100%";
+            rightImgSect.style.right="200%";
+          }else if(a == -300){
+            leftImgSect.style.left="400%";
+            rightImgSect.style.right="-300%";
+          }else if(a == -200){
+            leftImgSect.style.left="300%";
           }
       } else if (!elValue) {
         a += 100;
         if(a == 200){
           a = -300;
+          rightImgSect.style.right="-300%";
+          leftImgSect.style.left="400%";
+        }else if(a == 100){
+          rightImgSect.style.right="200%";
+        }else if(a == 0){
+          leftImgSect.style.left="-100%";
         }
       }
       parentElm.dataset.slidepos = a;
@@ -85,12 +100,14 @@
           a = Number(a);
         }
         a += 100;
-
         if(a == 200){
           a = -300;
-        }
-        else if(a == -400){
-          a = +100;
+          rightImgSect.style.right="-300%";
+          leftImgSect.style.left="400%";
+        }else if(a == 100){
+          rightImgSect.style.right="200%";
+        }else if(a == 0){
+          leftImgSect.style.left="-100%";
         }
         parentElm.dataset.slidepos = a;
         for (var i = 0; i < scrollingImg.length; i++) {
@@ -151,28 +168,94 @@
           }
         }
 
-        // toggle play puse
-        var isClick = false;
-        function togglePlayPause(parentEl){
-          // parentEl.addEventListener("click",function(){
-          //  var parentEl = document.querySelector(parent);
-            var playBtn =parentEl.firstElementChild;
-            var pauseBtn = parentEl.lastElementChild;
-            if(!isClick){
-              playBtn.classList.add("hide");
-              pauseBtn.classList.remove("hide");
-            }else{
-              playBtn.classList.remove("hide");
-              pauseBtn.classList.add("hide");
-            }
-            isClick = !isClick;
-            // })
-          
-        }
 
         // song player
+      function playSong(AudioPlay,songImg){
+        AudioPlay.nextElementSibling.lastElementChild.firstElementChild.classList.add("hide");
+        AudioPlay.nextElementSibling.lastElementChild.lastElementChild.classList.remove("hide");
+        console.log(songImg);
+        appPlayerBar(AudioPlay,songImg);
+      }
 
-        var playButtonParent = document.querySelectorAll(".playButton-position");
+      function pauseSong(AudioPause){
+        AudioPause.nextElementSibling.lastElementChild.firstElementChild.classList.remove("hide");
+        AudioPause.nextElementSibling.lastElementChild.lastElementChild.classList.add("hide")
+      }
+
+      function appPlayerBar(AudioPlay,songImg){
+        var songPlayerBar = document.querySelector(".player-position");
+        songPlayerBar.classList.remove("hide");
+        var nameAbdArtistDiv = AudioPlay.parentElement.nextElementSibling;
+        var songTittle = nameAbdArtistDiv.firstElementChild.innerHTML;
+        var songArtist = nameAbdArtistDiv.lastElementChild.innerHTML;
+        var playerParent = document.querySelector(".song-player-bar");
+        playerParent.innerHTML= `<div class="row">
+                    <div class="col-xs-8 col-sm-5 col-md-4 col-xl-4">
+                        <div class="player-bar-sections">
+                            <div class="playButton-position">
+                                <img class="album-list-img" src=${songImg}>
+                            </div>
+                            <div class="song-Name-artist-div">
+                                <p>${songTittle}</p>
+                                <span>${songArtist}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-sm-4 col-md-4 col-xl-4 justify-center">
+                        <div class="player-bar-sections">
+                            <div class="side-font-onPlayerBar">
+                                <svg class="font">
+                                    <use xlink:href="./img/icons.svg#shuffer-node"></use>
+                                </svg>
+                            </div>
+                            <div class="next-pervious-onPlayerBar">
+                                <svg class="font">
+                                    <use xlink:href="./img/icons.svg#step-backward-node"></use>
+                                </svg>
+                            </div>
+                            <div class="play-button-onPlayerBar">
+                                <svg class="play-font-onPlayerBar">
+                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                </svg>
+                                <svg class="pause-font-onPlayerBar hide">
+                                    <use xlink:href="./img/icons.svg#pause-node"></use>
+                                </svg>
+                            </div>
+                            <div class="next-pervious-onPlayerBar">
+                                <svg class="font">
+                                    <use xlink:href="./img/icons.svg#step-forward-node"></use>
+                                </svg>
+                            </div>
+                            <div class="side-font-onPlayerBar">
+                                <svg class="font">
+                                    <use xlink:href="./img/icons.svg#repeat-node"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-sm-3 col-md-4 col-xl-4 justify-end">
+                        <div class="player-bar-sections">
+                            <div class="volumefont-onPlayerBar">
+                                <svg class="logo-font">
+                                    <use xlink:href="./img/icons.svg#volume-node"></use>
+                                </svg>
+                            </div>
+                            <div>
+                                <svg class="font">
+                                    <use xlink:href="./img/icons.svg#music-list-node"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
+        // playerBarBtnToggle();
+      }
+
+      // playerBarBtnToggle(){
+
+      // }
+        // 
+        var playButtonParent = document.querySelectorAll(".audio-position");
         for (var i = 0; i < playButtonParent.length; i++) {
               var item = playButtonParent[i];
               item.addEventListener("click",function(){
@@ -204,7 +287,7 @@
                                     <use xlink:href="./img/icons.svg#step-backward-node"></use>
                                 </svg>
                             </div>
-                            <div class="play-button-onPlayerBar" onclick="togglePlayPause(this)">
+                            <div class="play-button-onPlayerBar">
                                 <svg class="play-font-onPlayerBar">
                                     <use xlink:href="./img/icons.svg#playButton-node"></use>
                                 </svg>
@@ -245,12 +328,25 @@
 
         // see all button
         var btnClick = false; 
-        function seeAllBtn(parentElm){
+        function seeAllBtn(parentElm,thisElm){
           var parentSongAlbum = document.querySelector(parentElm);
           if(!btnClick){
             parentSongAlbum.classList.add("listContaintCenter")
+            thisElm.innerText = "see Lase"
+
           }else{
             parentSongAlbum.classList.remove("listContaintCenter")
+            thisElm.innerHTML = "see All"
           }
           btnClick = !btnClick;
         }
+
+// search bar
+function searchSongs(thisEl){
+  var searchInput = thisEl;
+}
+
+
+
+
+    

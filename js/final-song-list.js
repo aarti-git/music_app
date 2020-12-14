@@ -1,4 +1,5 @@
 // "https://api.spotify.com/v1/albums/2d9BCZeAAhiZWPpbX9aPCW?market=IN" 
+
 // this id artist api bad bunny https://api.spotify.com/v1/artists/4q3ewBCX7sLwd24euuV69X
 const albumSongs = {
     init : function(albumId){
@@ -52,7 +53,26 @@ const albumSongs = {
             var albumName = albumItems.name;
             var artistNames = this.artistName(albumArtists);
             var songMP3Url = albumItems.preview_url;
-            var songListObj = {songMP3Url,albumName,artistNames}
+            var extarnalUrl;
+            var audioTag;
+            var svgId;
+            var outsidArrow;
+            if(songMP3Url == null){
+                extarnalUrl = albumItems.external_urls.spotify;
+                audioTag = "";
+                svgId = "outside-arrow-node";
+                outsidArrow = "class='outsidArrow'";
+            }else{
+                extarnalUrl = "";
+                svgId = "playButton-node";
+                outsidArrow = "";
+                var songImg = "\'"+imgSrc+ "\'";
+                audioTag = `
+                <audio controls class="audio-position" onplay="playSong(this,${songImg})" onpause="pauseSong(this)">
+                    <source src="${songMP3Url}" type="audio/ogg">
+                </audio>`
+            }
+            var songListObj = {albumName,artistNames,extarnalUrl,audioTag,svgId,outsidArrow}
             this.creatSongList(songListObj);
         };
     },
