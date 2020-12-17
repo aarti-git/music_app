@@ -54,25 +54,29 @@ const albumSongs = {
             var artistNames = this.artistName(albumArtists);
             var songMP3Url = albumItems.preview_url;
             var extarnalUrl;
-            var audioTag;
+            // var audioTag;
+            var audioEvent;
             var svgId;
             var outsidArrow;
             if(songMP3Url == null){
                 extarnalUrl = albumItems.external_urls.spotify;
-                audioTag = "";
+                var anchorTagStart= `<a href="${extarnalUrl}" target="_blank" class="flex-align">`
+                var anchorTagEnd =`</a>`
+                // audioTag = "";
+                audioEvent = '';
                 svgId = "outside-arrow-node";
                 outsidArrow = "class='outsidArrow'";
             }else{
-                extarnalUrl = "";
+                anchorTagStart = "";
+                anchorTagEnd = "";
                 svgId = "playButton-node";
+                var songMP3UrlString ="\'"+ songMP3Url + "\'";
                 outsidArrow = "";
                 var songImg = "\'"+imgSrc+ "\'";
-                audioTag = `
-                <audio controls class="audio-position" onplay="playSong(this,${songImg})" onpause="pauseSong(this)">
-                    <source src="${songMP3Url}" type="audio/ogg">
-                </audio>`
+                audioEvent = `onclick="playSong(this,${songMP3UrlString},${songImg})"`;
+                
             }
-            var songListObj = {albumName,artistNames,extarnalUrl,audioTag,svgId,outsidArrow}
+            var songListObj = {albumName,artistNames,anchorTagStart,anchorTagEnd,audioEvent,svgId,outsidArrow}
             this.creatSongList(songListObj);
         };
     },

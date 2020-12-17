@@ -49,24 +49,30 @@ const playlistSongs = {
             var songMP3Url = albumtrack.preview_url;
             var svgId;
             var extarnalUrl;
-            var audioTag;
+            // var audioTag;
             var outsidArrow;
             if(songMP3Url == null){
                 extarnalUrl = albumtrack.external_urls.spotify;
-                audioTag = "";
+                var anchorTagStart= `<a href="${extarnalUrl}" target="_blank" class="flex-align">`
+                var anchorTagEnd =`</a>`
+                // audioTag = "";
+                audioEvent = '';
                 svgId = "outside-arrow-node";
                 outsidArrow = "class='outsidArrow'";    
             }else{
-                extarnalUrl = "";
+                anchorTagStart = "";
+                anchorTagEnd = "";
                 svgId = "playButton-node";
+                var songMP3UrlString ="\'"+ songMP3Url + "\'";
                 outsidArrow = "";
                 var songImg = "\'"+imgSrc+ "\'";
-                audioTag = `
-                <audio controls class="audio-position" onplay="playSong(this,${songImg})" onpause="pauseSong(this)">
-                    <source src="${songMP3Url}" type="audio/ogg">
-                </audio>`
+                audioEvent = `onclick="playSong(this,${songMP3UrlString},${songImg})"`;
+                // audioTag = `
+                // <audio controls class="audio-position" onplay="playSong(this,${songImg})" onpause="pauseSong(this)">
+                //     <source src="${songMP3Url}" type="audio/ogg">
+                // </audio>`
             }
-            var songListObj = {albumName,artistNames,extarnalUrl,audioTag,svgId,outsidArrow}
+            var songListObj = {albumName,artistNames,anchorTagStart,anchorTagEnd,audioEvent,svgId,outsidArrow}
             // var songListObj = {songMP3Url,albumName,artistNames}
             this.creatSongList(songListObj);
         };

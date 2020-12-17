@@ -1,4 +1,3 @@
-
     // screenModes
     var screenModes = document.querySelector(".modes");
     var isnightMode = false;
@@ -118,215 +117,151 @@
 
 
     // horizontal scrolling in js
-      // var a = 0;
-      function horizontalscroll(elValue, parent) {
-          var parentElm = document.querySelector(parent);
-          var grandParent = parentElm.parentElement; 
-          var scrollingImg = parentElm.querySelectorAll(".watch-next-image");
-          var scrollBtnMin = grandParent.querySelector(".scroll-btn-min");
-          var scrollBtnAdd = grandParent.querySelector(".scroll-btn-add");
-        
-          var elWidth = scrollingImg[0].offsetWidth;
-          var a = parentElm.dataset.slidepos;
-          var scrollBtncantroler ;
-          var noOfScrollingDistance ;
-          if (a === undefined) {
-            a = 0;
-          } else {
-            a = Number(a);
-          }
-          if(scrollingImg.length < 16){
-            scrollBtncantroler = 1;
-          }else{
-            scrollBtncantroler = 2;
-          }
-          if(elWidth < 165){
-            noOfScrollingDistance = 800;
-          }else{
-            noOfScrollingDistance = 600;
-          }
-        
-          var scrillingWidth = noOfScrollingDistance;
-          if (elValue) {
-            a -= noOfScrollingDistance;
-            scrollBtnMin.style.display = "block";
-            if (a == -(scrillingWidth * scrollBtncantroler)) {
-              scrollBtnAdd.style.display = "none";
-            }
-          } else if (!elValue) {
-            a += noOfScrollingDistance;
-            if (a == 0) {
-              scrollBtnMin.style.display = "none";
-              scrollBtnAdd.style.display = "block";
-            } 
-          }
-    
-          parentElm.dataset.slidepos = a;
-          // save the value of a
-          for (var i = 0; i < scrollingImg.length; i++) {
-            scrollingImg[i].style.transform = "translateX(" + a + "%)";
-          }
+    function horizontalscroll(elValue, parent) {
+        var parentElm = document.querySelector(parent);
+        var grandParent = parentElm.parentElement; 
+        var scrollingImg = parentElm.querySelectorAll(".watch-next-image");
+        var scrollBtnMin = grandParent.querySelector(".scroll-btn-min");
+        var scrollBtnAdd = grandParent.querySelector(".scroll-btn-add");
+      
+        var elWidth = scrollingImg[0].offsetWidth;
+        var a = parentElm.dataset.slidepos;
+        var scrollBtncantroler ;
+        var noOfScrollingDistance ;
+        if (a === undefined) {
+          a = 0;
+        } else {
+          a = Number(a);
         }
-
-
-        // song player
-      function playSong(AudioPlay,songImg){
-        AudioPlay.nextElementSibling.lastElementChild.firstElementChild.classList.add("hide");
-        AudioPlay.nextElementSibling.lastElementChild.lastElementChild.classList.remove("hide");
-        console.log(songImg);
-        appPlayerBar(AudioPlay,songImg);
+        if(scrollingImg.length < 16){
+          scrollBtncantroler = 1;
+        }else{
+          scrollBtncantroler = 2;
+        }
+        if(elWidth < 165){
+          noOfScrollingDistance = 800;
+        }else{
+          noOfScrollingDistance = 600;
+        }
+      
+        var scrillingWidth = noOfScrollingDistance;
+        if (elValue) {
+          a -= noOfScrollingDistance;
+          scrollBtnMin.style.display = "block";
+          if (a == -(scrillingWidth * scrollBtncantroler)) {
+            scrollBtnAdd.style.display = "none";
+          }
+        } else if (!elValue) {
+          a += noOfScrollingDistance;
+          if (a == 0) {
+            scrollBtnMin.style.display = "none";
+            scrollBtnAdd.style.display = "block";
+          } 
+        }
+  
+        parentElm.dataset.slidepos = a;
+        // save the value of a
+        for (var i = 0; i < scrollingImg.length; i++) {
+          scrollingImg[i].style.transform = "translateX(" + a + "%)";
+        }
       }
 
-      function pauseSong(AudioPause){
-        AudioPause.nextElementSibling.lastElementChild.firstElementChild.classList.remove("hide");
-        AudioPause.nextElementSibling.lastElementChild.lastElementChild.classList.add("hide")
+
+    // song player
+    function playSong(thisElement,songMP3Url,songImg){
+      appPlayerBar(thisElement,songMP3Url,songImg);
+      const audioTag = document.querySelector(".audio-position");
+          thisElement.lastElementChild.firstElementChild.classList.add("hide");
+          thisElement.lastElementChild.lastElementChild.classList.remove("hide");
+          audioTag.play();
+          songInterval = setInterval(function(){
+            getSongCurrentTime();
+          });
+        songPause(thisElement);
+    }
+
+
+      var songInterval;
+      var isClick = false;
+      function onplayEvent(ThisSvg){
+        // var playBtnOnPlayer = document.querySelector(playerBarBtn);
+        const audioTag = document.querySelector(".audio-position");
+        if(!isClick){
+          ThisSvg.firstElementChild.classList.remove("hide");
+          ThisSvg.lastElementChild.classList.add("hide");
+          audioTag.pause();
+          isClick = true;
+          songPause(isClick);
+        }else{
+          ThisSvg.firstElementChild.classList.add("hide");
+          ThisSvg.lastElementChild.classList.remove("hide");
+          audioTag.play();
+          isClick = false;
+          songPause(isClick);
+        }
       }
 
-      function appPlayerBar(AudioPlay,songImg){
-        var songPlayerBar = document.querySelector(".player-position");
+      var elArray = [];
+      function songPause(thisElement){
+        if(thisElement == true || thisElement == false){
+            if(thisElement == true){
+              elArray[0].a.classList.remove("hide");
+              elArray[0].b.classList.add("hide");
+            }else{
+              elArray[0].a.classList.add("hide");
+              elArray[0].b.classList.remove("hide");
+            }
+        }else{
+          elArray = [];
+          var a = thisElement.lastElementChild.firstElementChild;
+          var b = thisElement.lastElementChild.lastElementChild;
+          var elObj = {};
+          elObj["a"] = a;
+          elObj["b"] = b;
+          elArray.push(elObj);
+        }
+       
+      }
+      function getSongCurrentTime(){
+        const audioTag = document.querySelector("#audio");
+        const sliderNobe = document.querySelector(".SongSlider-nobe");
+        var audioCurrTim = audioTag.currentTime;
+        var audioDuration = audioTag.duration;
+        var v = audioCurrTim/audioDuration * 100;
+        if(v < 99){
+          sliderNobe.style.left = v + '%';
+        }else{
+          sliderNobe.style.left ='calc('+ v +' % - 14px)';
+        }
+        sliderNobe.parentElement.style.background = "#e8121a"
+        sliderNobe.parentElement.style.width =  v + '%'
+      }
+
+      function appPlayerBar(thisElement,songMP3Url,songImg){
+        var songPlayerBar = document.querySelector(".player-bar-section");
         songPlayerBar.classList.remove("hide");
-        var nameAbdArtistDiv = AudioPlay.parentElement.nextElementSibling;
+        var nameAbdArtistDiv = thisElement.nextElementSibling;
         var songTittle = nameAbdArtistDiv.firstElementChild.innerHTML;
         var songArtist = nameAbdArtistDiv.lastElementChild.innerHTML;
-        var playerParent = document.querySelector(".song-player-bar");
-        playerParent.innerHTML= `<div class="row">
-                    <div class="col-xs-8 col-sm-5 col-md-4 col-xl-4">
-                        <div class="player-bar-sections">
-                            <div class="playButton-position">
-                                <img class="album-list-img" src=${songImg}>
-                            </div>
-                            <div class="song-Name-artist-div">
-                                <p>${songTittle}</p>
-                                <span>${songArtist}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 col-sm-4 col-md-4 col-xl-4 justify-center">
-                        <div class="player-bar-sections">
-                            <div class="side-font-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#shuffer-node"></use>
-                                </svg>
-                            </div>
-                            <div class="next-pervious-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#step-backward-node"></use>
-                                </svg>
-                            </div>
-                            <div class="play-button-onPlayerBar">
-                                <svg class="play-font-onPlayerBar">
-                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                </svg>
-                                <svg class="pause-font-onPlayerBar hide">
-                                    <use xlink:href="./img/icons.svg#pause-node"></use>
-                                </svg>
-                            </div>
-                            <div class="next-pervious-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#step-forward-node"></use>
-                                </svg>
-                            </div>
-                            <div class="side-font-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#repeat-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 col-sm-3 col-md-4 col-xl-4 justify-end">
-                        <div class="player-bar-sections">
-                            <div class="volumefont-onPlayerBar">
-                                <svg class="logo-font">
-                                    <use xlink:href="./img/icons.svg#volume-node"></use>
-                                </svg>
-                            </div>
-                            <div>
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#music-list-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>`
-        // playerBarBtnToggle();
+        const obj = {songMP3Url,songImg,songTittle,songArtist}
+        songPlayerBar.innerHTML=template.playerBar(obj);
+      }
+      var isVolMute = false;
+      function volumeToggle(volEl){
+        const audioTag = document.querySelector("#audio");
+        if(!isVolMute){
+          volEl.firstElementChild.classList.add("hide");
+          volEl.lastElementChild.classList.remove("hide")
+          audioTag.muted = true;
+        }else{
+          volEl.firstElementChild.classList.remove("hide");
+          volEl.lastElementChild.classList.add("hide")
+          audioTag.muted = false;
+        }
+        isVolMute = !isVolMute;
       }
 
-      // playerBarBtnToggle(){
-
-      // }
-        // 
-        var playButtonParent = document.querySelectorAll(".audio-position");
-        for (var i = 0; i < playButtonParent.length; i++) {
-              var item = playButtonParent[i];
-              item.addEventListener("click",function(){
-                var a = item.nextElementSibling.children[0].innerText;
-                var b = item.nextElementSibling.children[1].innerText;
-                var playerParent = document.querySelector(".song-player-bar");
-                playerParent.classList.remove("hide");
-                    playerParent.innerHTML= `<div class="row">
-                    <div class="col-xs-8 col-sm-5 col-md-4 col-xl-4">
-                        <div class="player-bar-sections">
-                            <div class="playButton-position">
-                                <img class="album-list-img" src="img/song-1.webp">
-                            </div>
-                            <div class="song-Name-artist-div">
-                                <p>${a}</p>
-                                <span>${b}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 col-sm-4 col-md-4 col-xl-4 justify-center">
-                        <div class="player-bar-sections">
-                            <div class="side-font-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#shuffer-node"></use>
-                                </svg>
-                            </div>
-                            <div class="next-pervious-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#step-backward-node"></use>
-                                </svg>
-                            </div>
-                            <div class="play-button-onPlayerBar">
-                                <svg class="play-font-onPlayerBar">
-                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                </svg>
-                                <svg class="pause-font-onPlayerBar hide">
-                                    <use xlink:href="./img/icons.svg#pause-node"></use>
-                                </svg>
-                            </div>
-                            <div class="next-pervious-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#step-forward-node"></use>
-                                </svg>
-                            </div>
-                            <div class="side-font-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#repeat-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 col-sm-3 col-md-4 col-xl-4 justify-end">
-                        <div class="player-bar-sections">
-                            <div class="volumefont-onPlayerBar">
-                                <svg class="logo-font">
-                                    <use xlink:href="./img/icons.svg#volume-node"></use>
-                                </svg>
-                            </div>
-                            <div>
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#music-list-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>`
-                    // template.playerBar(obj)
-              })
-        }
-
-        // see all button
+      // see all button
         var btnClick = false; 
         function seeAllBtn(parentElm,thisElm){
           var parentSongAlbum = document.querySelector(parentElm);
@@ -341,10 +276,10 @@
           btnClick = !btnClick;
         }
 
-// search bar
-function searchSongs(thisEl){
-  var searchInput = thisEl;
-}
+      // search bar
+      function searchSongs(thisEl){
+        var searchInput = thisEl;
+      }
 
 
 

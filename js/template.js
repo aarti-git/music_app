@@ -195,11 +195,12 @@ const template = {
         //  <svg class="playButton-on-image hide">
         // <use xlink:href="./img/icons.svg#pause-node"></use>
         // </svg>
+        // ${songListObj.audioTag}
+        // <a href="${songListObj.extarnalUrl}" target="_blank" class="playButton-position">
         return buildTemplate(songListObj, `
             <div class="button-div">
-                <a href="${songListObj.extarnalUrl}" target="_blank" class="playButton-position">
-                    ${songListObj.audioTag}
-                    <div>
+                ${songListObj.anchorTagStart}
+                    <div ${songListObj.audioEvent} class="playButton-position">
                         <svg class="font font-opacity">
                             <use xlink:href="./img/icons.svg#music-list-node"></use>
                         </svg>
@@ -208,11 +209,11 @@ const template = {
                                 <use xlink:href="./img/icons.svg#${songListObj.svgId}"></use>
                             </svg>
                             <svg class="playButton-on-image hide">
-                                <use xlink:href="./img/icons.svg#pause-node"></use>
+                                <use xlink:href="./img/icons.svg#song-waves-node"></use>
                             </svg>
                         </div>
                     </div>
-                 </a>
+                    ${songListObj.anchorTagEnd}
                 <div class="align-self">
                     <p>${songListObj.albumName}</p>
                     <span>${songListObj.artistNames}</span>
@@ -505,67 +506,98 @@ const template = {
         ) 
     },
     // audio player
-     playerBar:function(obj){
+    playerBar:function(obj){
+        // onplay="playSong(this)" onpause="pauseSong(this)
+        // onclick="togglePlayPause(this,"audio-position",playerBar)""
+        // onplay="onplayEvent('.play-button-onPlayerBar')" onpause="onpauseEvent('.play-button-onPlayerBar')"
+        // <div class="slidecontainer">
+        // <input type="range" min="0" max="100" value="0" step="0.0000001" class="slider" id="SongRange">
+        // </div>
        return buildTemplate(obj,
-    //         `<div class="row">
-    //         <div class="col-xs-8 col-sm-5 col-md-4 col-xl-4">
-    //             <div class="player-bar-sections">
-    //                 <div class="playButton-position">
-    //                     <img class="album-list-img" src="img/song-1.webp">
-    //                 </div>
-    //                 <div class="song-Name-artist-div">
-    //                     <p>${obj.a}</p>
-    //                     <span>${obj.b}</span>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //         <div class="col-xs-2 col-sm-4 col-md-4 col-xl-4 justify-center">
-    //             <div class="player-bar-sections">
-    //                 <div class="side-font-onPlayerBar">
-    //                     <svg class="font">
-    //                         <use xlink:href="./img/icons.svg#shuffer-node"></use>
-    //                     </svg>
-    //                 </div>
-    //                 <div class="next-pervious-onPlayerBar">
-    //                     <svg class="font">
-    //                         <use xlink:href="./img/icons.svg#step-backward-node"></use>
-    //                     </svg>
-    //                 </div>
-    //                 <div class="play-button-onPlayerBar" onclick="togglePlayPause(this)">
-    //                     <svg class="play-font-onPlayerBar">
-    //                         <use xlink:href="./img/icons.svg#playButton-node"></use>
-    //                     </svg>
-    //                     <svg class="pause-font-onPlayerBar hide">
-    //                         <use xlink:href="./img/icons.svg#pause-node"></use>
-    //                     </svg>
-    //                 </div>
-    //                 <div class="next-pervious-onPlayerBar">
-    //                     <svg class="font">
-    //                         <use xlink:href="./img/icons.svg#step-forward-node"></use>
-    //                     </svg>
-    //                 </div>
-    //                 <div class="side-font-onPlayerBar">
-    //                     <svg class="font">
-    //                         <use xlink:href="./img/icons.svg#repeat-node"></use>
-    //                     </svg>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //         <div class="col-xs-2 col-sm-3 col-md-4 col-xl-4 justify-end">
-    //             <div class="player-bar-sections">
-    //                 <div class="volumefont-onPlayerBar">
-    //                     <svg class="logo-font">
-    //                         <use xlink:href="./img/icons.svg#volume-node"></use>
-    //                     </svg>
-    //                 </div>
-    //                 <div>
-    //                     <svg class="font">
-    //                         <use xlink:href="./img/icons.svg#music-list-node"></use>
-    //                     </svg>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </div>`
+            `
+            <div class="player-position">
+                <div class="container">
+                    <div class="song-player-bar">
+                    <audio controls class="audio-position" id="audio">
+                        <source src="${obj.songMP3Url}" type="audio/ogg">
+                    </audio>
+                        <div class="row">
+                        <div class="col-xs-8 col-sm-5 col-md-4 col-xl-4">
+                            <div class="player-bar-sections">
+                                <div class="playButton-position">
+                                    <img class="album-list-img" src="${obj.songImg}">
+                                </div>
+                                <div class="song-Name-artist-div">
+                                    <p>${obj.songTittle}</p>
+                                    <span>${obj.songArtist}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-sm-4 col-md-4 col-xl-4 justify-center">
+                            <div class="player-bar-sections">
+                                <div class="side-font-onPlayerBar">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#shuffer-node"></use>
+                                    </svg>
+                                </div>
+                                <div class="next-pervious-onPlayerBar">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#step-backward-node"></use>
+                                    </svg>
+                                </div>
+                                <div class="play-button-onPlayerBar" onclick="onplayEvent(this)">
+                                    <svg class="play-font-onPlayerBar hide">
+                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                    </svg>
+                                    <svg class="pause-font-onPlayerBar">
+                                        <use xlink:href="./img/icons.svg#pause-node"></use>
+                                    </svg>
+                                </div>
+                                <div class="next-pervious-onPlayerBar">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#step-forward-node"></use>
+                                    </svg>
+                                </div>
+                                <div class="side-font-onPlayerBar">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#repeat-node"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-sm-3 col-md-4 col-xl-4 justify-end">
+                            <div class="player-bar-sections">
+                                <div class="volume-controlar">
+                                    <div class="volume-handler">
+                                        <div class="volume-line">
+                                            <div class="volume-nobe"></div>
+                                        </div>
+                                    </div>
+                                    <div class="volumefont-onPlayerBar" onclick="volumeToggle(this)">
+                                        <svg class="logo-font">
+                                            <use xlink:href="./img/icons.svg#volume-node"></use>
+                                        </svg>
+                                        <svg class="logo-font hide">
+                                            <use xlink:href="./img/icons.svg#volume-mute-node"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div>
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#music-list-node"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                 </div>
+            </div>
+            <div class="playerSongSlider-parent">
+                <div class="playerSongSlider">
+                    <div class="SongSlider-nobe"></div>
+                </div>
+            </div>
+        </div>
+        `
              )
      },
     // all album scrolling list body html:

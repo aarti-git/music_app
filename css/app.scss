@@ -51,6 +51,9 @@ body ul {
 .justify-end{
   justify-content: flex-end;
 }
+.flex-align{
+  align-self: center;
+}
 .audioTag {
   opacity: 0;
 }
@@ -60,8 +63,6 @@ body ul {
   left: 0;
   z-index: 1;
   opacity: 0;
-  height: 100%;
-  margin: 0 -8px;
 }
 .artistAlbum-audio-position {
   position: absolute;
@@ -604,11 +605,12 @@ body ul {
   border-radius: 4px;
   z-index: 1;
   border: 1px solid #454545;
-  
+  position: relative;
 }
 .player-bar-sections{
   display: flex;
   align-items: center;
+  position: relative;
 }
 .song-Name-artist-div{
   align-self: center;
@@ -663,6 +665,59 @@ body ul {
     margin-right: 15px;
   }
 }
+// volume-handler
+.volume-handler{
+  width: 22px;
+  height: 100px;
+  background: #595957;
+  position: absolute;
+  top: -90px;
+  left: 0;
+  border-radius: 8px;
+}
+.volume-line{
+  width: 3px;
+  height: 80px;
+  background: #e1e1da;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.volume-nobe{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 6px;
+  left: 6px;
+  border-radius: 50%;
+  background-color: red;
+}
+.playerSongSlider-parent{
+  background-color: white;
+  width: 100%;
+  position: relative;
+  bottom: 4px;
+  left: 0;
+  z-index: 1;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.playerSongSlider{
+  width: 100%;
+  height: 3px;
+  background-color: white;
+
+}
+.SongSlider-nobe{
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background-color: #e8121a;
+  border-radius: 50%;
+}
+
+// playerBart css end
 
 // app body containt
 .div-parent {
@@ -1456,4 +1511,5 @@ body ul {
   @include above("md") {
     display: none;
   }
+
 }
