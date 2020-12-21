@@ -3,34 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>music app</title>
-    <link rel="stylesheet" href="css/index.css" />
-    <script src="js/jquery.min.js"></script>
-    <script src="js/token.js"></script>
-    <script src="js/app-modul.js"></script>
-    <script src="js/template.js"></script>
-    <script src="js/new-releases.js"></script>
-    <script src="js/artist.js"></script>
-    <script src="js/hindiPop.js"></script>
-    <script src="js/categories.js"></script>
-    <script src="js/popup.js"></script>
-    
+    <title>liked song</title>
+    <link rel="stylesheet" href="css/index.css"/>
     <script defer src="js/music-app.js"></script>
-    <!-- <script defer src="js/musicApp.js"></script> -->
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            app.init()
-            newRealeases.init();
-            categories.init();
-            artistList.init();
-            hindiPop.init();
-            atomaticScroll();
-        });
-    </script>
 </head>
-
 <body>
     <section class="header">
         <div class="container">
@@ -92,8 +68,8 @@
                                 <li><a href="">my music</a>
                                     <div class="myMusic-hover-list">
                                         <ul>
-                                            <a href="All-like-songs.html"><li>like songs</li></a>
                                             <li>my plylist</li>
+                                            <li>like songs</li>
                                             <li>recently plyed songs</li>
                                         </ul>
                                     </div>
@@ -175,148 +151,9 @@
         </div>
     </section>
     <!-- header section end -->
-    <!-- atomatic scrollig -->
-    <section>
-        <div class="atomaticScrolling">
-            <div>
-                <button class="comman-scrolling-css songposterscroll-btn-min" onclick="posterScrolling(false)">
-                    <svg class="font">
-                        <use xlink:href="./img/icons.svg#angleLeft-node"></use>
-                    </svg>
-                </button>
-            </div>
-            <div class="atomaticScroll-img-wrapper">
-                <div class="poster-parent">
-                    <div class="atomaticScroll-next-image leftImgSect">
-                        <a><img class="poster-img img1" src="img/workout.webp"></a>
-                    </div>
-                    <div class="atomaticScroll-next-image">
-                        <a><img class="poster-img img2" src="img/amit-trivedi.webp"></a>
-                    </div>
-                    <div class="atomaticScroll-next-image">
-                        <a><img class="poster-img img3" src="img/sad.webp"></a>
-                    </div>
-                    <div class="atomaticScroll-next-image">
-                        <a><img class="poster-img" src="img/english-songs.webp"></a>
-                    </div>
-                    <div class="atomaticScroll-next-image rightImgSect">
-                        <a><img class="poster-img" src="img/serial-songs.webp"></a>
-                    </div>
-                </div>
-            </diV>
-            <div>
-                <button class="comman-scrolling-css songposterscroll-btn-add" onclick="posterScrolling(true)">
-                    <svg class="font">
-                        <use xlink:href="./img/icons.svg#angleRight-node"></use>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </section>
-    <!-- song plyer bar in fix bottom -->
-    <!-- <section class="player-position">
-        <div class="container">
-            <div class="song-player-bar">
-                <div class="row">
-                    <div class="col-xs-8 col-sm-5 col-md-4 col-xl-4">
-                        <div class="player-bar-sections">
-                            <div class="playButton-position">
-                                <img class="album-list-img" src="img/song-1.webp">
-                            </div>
-                            <div class="song-Name-artist-div">
-                                <p>wadda hai</p>
-                                <span>Arjun Kanungo- artist</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 col-sm-4 col-md-4 col-xl-4 justify-center">
-                        <div class="player-bar-sections">
-                            <div class="side-font-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#shuffer-node"></use>
-                                </svg>
-                            </div>
-                            <div class="next-pervious-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#step-backward-node"></use>
-                                </svg>
-                            </div>
-                            <div class="play-button-onPlayerBar" onclick="onplayEvent(this)">
-                                <svg class="play-font-onPlayerBar hide">
-                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                </svg>
-                                <svg class="pause-font-onPlayerBar">
-                                    <use xlink:href="./img/icons.svg#pause-node"></use>
-                                </svg>
-                            </div>
-                            <div class="next-pervious-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#step-forward-node"></use>
-                                </svg>
-                            </div>
-                            <div class="side-font-onPlayerBar">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#repeat-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 col-sm-3 col-md-4 col-xl-4 justify-end">
-                        <div class="player-bar-sections">
-                            <div class="volume-controlar">
-                                <div class="volume-handler">
-                                    <div class="volume-line">
-                                        <div class="volume-nobe"></div>
-                                    </div>
-                                </div>
-                                <div class="volumefont-onPlayerBar" onclick="volumeToggle(this)">
-                                    <svg class="logo-font">
-                                        <use xlink:href="./img/icons.svg#volume-node"></use>
-                                    </svg>
-                                    <svg class="logo-font hide">
-                                        <use xlink:href="./img/icons.svg#volume-mute-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div>
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#music-list-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-             </div>
-        </div>
-        <div class="playerSongSlider-parent">
-            <div class="playerSongSlider">
-                <div class="SongSlider-nobe"></div>
-            </div>
-        </div>
-    </div>
-    </section> -->
-    <!-- body part -->
-    <section class="container">
-        <div class="div-parent">
-            <!-- new-release-section -->
-            <section class="new-release-section sections-space">
-            </section>
-
-            <!-- Categories -->
-            <section class="Categories-section sections-space">
-            </section>
-
-            <!--hindiPop -->
-            <section class="hindiPop-section sections-space">
-            </section>
-
-            <!-- artist list -->
-            <section class="popularArtist-section sections-space">
-            </section>
-        </div>
-    </section>
 
     <!-- footer section -->
-    <section class="container">
+     <section class="container">
         <div class="footer-head-wrapper">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 content-space">
@@ -551,5 +388,3 @@
     </section>
 </body>
 </html>
-
-<!-- git push https://aarti-git:iamaarti001@github.com/aarti-git/music_app.git master -->

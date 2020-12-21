@@ -198,12 +198,17 @@ const template = {
         // ${songListObj.audioTag}
         // <a href="${songListObj.extarnalUrl}" target="_blank" class="playButton-position">
         return buildTemplate(songListObj, `
-            <div class="button-div">
+            <div class="button-div" ${songListObj.audioEvent}>
                 ${songListObj.anchorTagStart}
-                    <div ${songListObj.audioEvent} class="playButton-position">
-                        <svg class="font font-opacity">
-                            <use xlink:href="./img/icons.svg#music-list-node"></use>
-                        </svg>
+                    <div class="playButton-position">
+                        <div class="active-music-logo">
+                            <svg class="font font-opacity">
+                                <use xlink:href="./img/icons.svg#music-list-node"></use>
+                            </svg>
+                            <svg class="font font-opacity hide">
+                                <use xlink:href="./img/icons.svg#song-waves-node"></use>
+                            </svg>
+                        </div>
                         <div ${songListObj.outsidArrow}>
                             <svg class="playButton-on-image">
                                 <use xlink:href="./img/icons.svg#${songListObj.svgId}"></use>
@@ -220,9 +225,9 @@ const template = {
                 </div>
             </div>
             <div class="button-div">
-                <div class="font-wrapper align-self">
+                <div class="font-wrapper align-self" onclick="likeSongToggle(this)">
                     <svg class="font">
-                        <use xlink:href="./img/icons.svg#download-node"></use>
+                        <use xlink:href="./img/icons.svg#heart-node"></use>
                     </svg>
                 </div>
                 <div class="font-wrapper align-self">
@@ -424,7 +429,7 @@ const template = {
                 <div class="about-artist">
                     <h3 class="headings">about ${obj.artistName}</h3>
                     <div>
-                         <p>${obj.artistName} was an Indian playback singer, actor, lyricist, composer, producer, director, and screenwriter. He is considered one of the most successful playback singers in the Hindi film industry. Apart from Hindi, he sang in many Indian languages including Bengali, Marathi, Assamese, Gujarati, Kannada, Bhojpuri, Malayalam and Urdu. He has also sung in private albums in several languages especially in Bengali, which are noted as all time classics. He won 8 Filmfare Awards for Best Male Playbac ...</p>
+                         <p>${obj.artistName} is an Indian playback singer, actor, lyricist, composer, producer, director, and screenwriter. He is considered one of the most successful playback singers in the Hindi film industry. Apart from Hindi, he sang in many Indian languages including Bengali, Marathi, Assamese, Gujarati, Kannada, Bhojpuri, Malayalam and Urdu. He has also sung in private albums in several languages especially in Bengali, which are noted as all time classics. He won 8 Filmfare Awards for Best Male Playbac ...</p>
                     </div>
                 </div>
             </div>
@@ -507,18 +512,12 @@ const template = {
     },
     // audio player
     playerBar:function(obj){
-        // onplay="playSong(this)" onpause="pauseSong(this)
-        // onclick="togglePlayPause(this,"audio-position",playerBar)""
-        // onplay="onplayEvent('.play-button-onPlayerBar')" onpause="onpauseEvent('.play-button-onPlayerBar')"
-        // <div class="slidecontainer">
-        // <input type="range" min="0" max="100" value="0" step="0.0000001" class="slider" id="SongRange">
-        // </div>
        return buildTemplate(obj,
             `
             <div class="player-position">
                 <div class="container">
                     <div class="song-player-bar">
-                    <audio controls class="audio-position" id="audio">
+                    <audio controls class="audio-position hide" id="audio">
                         <source src="${obj.songMP3Url}" type="audio/ogg">
                     </audio>
                         <div class="row">
@@ -540,7 +539,7 @@ const template = {
                                         <use xlink:href="./img/icons.svg#shuffer-node"></use>
                                     </svg>
                                 </div>
-                                <div class="next-pervious-onPlayerBar">
+                                <div class="next-pervious-onPlayerBar" onclick="PlayPrevious()">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#step-backward-node"></use>
                                     </svg>
@@ -553,7 +552,7 @@ const template = {
                                         <use xlink:href="./img/icons.svg#pause-node"></use>
                                     </svg>
                                 </div>
-                                <div class="next-pervious-onPlayerBar">
+                                <div class="next-pervious-onPlayerBar" onclick="PlayNext()">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#step-forward-node"></use>
                                     </svg>
@@ -568,9 +567,11 @@ const template = {
                         <div class="col-xs-2 col-sm-3 col-md-4 col-xl-4 justify-end">
                             <div class="player-bar-sections">
                                 <div class="volume-controlar">
-                                    <div class="volume-handler">
-                                        <div class="volume-line">
-                                            <div class="volume-nobe"></div>
+                                    <div class="volume-handler" onclick="volumeControal(event)">
+                                        <div class="volume-line-parent">
+                                            <div class="volume-line">
+                                                <div class="volume-nobe"></div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="volumefont-onPlayerBar" onclick="volumeToggle(this)">
@@ -591,7 +592,7 @@ const template = {
                         </div>
                  </div>
             </div>
-            <div class="playerSongSlider-parent">
+            <div class="playerSongSlider-parent" onclick="cliPointOnSongScroll(this,event)">
                 <div class="playerSongSlider">
                     <div class="SongSlider-nobe"></div>
                 </div>

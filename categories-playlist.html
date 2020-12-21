@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +43,7 @@
                                     </div>
                                     <div class="menu-bar-list">
                                         <ul>
-                                            <li><a href="">home</a></li>
+                                            <li><a href="index.html">home</a></li>
                                             <li>my music</li>
                                             <li>dounlode app</li>
                                             <li>sign in</li>
@@ -80,24 +79,13 @@
                         </div>
                         <div class="list-wrapper">
                             <ul class="header-list">
-                                <li><a href="">HOME</a></li>
+                                <li><a href="index.html">HOME</a></li>
                                 <li><a href="">my music</a>
                                     <div class="myMusic-hover-list">
                                         <ul>
+                                            <a href="All-like-songs.html"><li>like songs</li></a>
                                             <li>my plylist</li>
-                                            <li>like songs</li>
                                             <li>recently plyed songs</li>
-                                            <li>downloaded songs</li>
-                                            <li>Music Language</li>
-                                            <li>Sound Quality</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a href="">download app</a>
-                                    <div class="download-hover-list">
-                                        <ul>
-                                            <li>for android</li>
-                                            <li>for los</li>
                                         </ul>
                                     </div>
                                 </li>
@@ -111,7 +99,7 @@
                                     <use xlink:href="./img/icons.svg#search-node"></use>
                                 </svg>
                             </div>
-                            <input type="text" name="song" placeholder="Search for music you love!" />
+                            <input type="text" name="song" placeholder="Search for music you love!"  onkeyup="searchSongs(this)"/>
                         </div>
                         <div class="header-group">
                             <div class="modes">
@@ -180,12 +168,6 @@
     <!-- hrader end -->
     <!-- song plyer bar in fix bottom -->
     <section class="player-bar-section hide">
-        <!-- <div class="player-position">
-            <div class="container">
-                <div class="song-player-bar">
-                </div>
-            </div>
-        </div> -->
     </section>
     <!-- body -->
     <section class="container">

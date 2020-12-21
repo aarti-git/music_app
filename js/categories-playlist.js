@@ -67,13 +67,8 @@ const playlistSongs = {
                 outsidArrow = "";
                 var songImg = "\'"+imgSrc+ "\'";
                 audioEvent = `onclick="playSong(this,${songMP3UrlString},${songImg})"`;
-                // audioTag = `
-                // <audio controls class="audio-position" onplay="playSong(this,${songImg})" onpause="pauseSong(this)">
-                //     <source src="${songMP3Url}" type="audio/ogg">
-                // </audio>`
             }
             var songListObj = {albumName,artistNames,anchorTagStart,anchorTagEnd,audioEvent,svgId,outsidArrow}
-            // var songListObj = {songMP3Url,albumName,artistNames}
             this.creatSongList(songListObj);
         };
     },
