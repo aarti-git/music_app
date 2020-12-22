@@ -1779,7 +1779,6 @@ body ul {
 .artist-infom {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 @media (min-width: 768px) {

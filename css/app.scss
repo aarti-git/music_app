@@ -1211,7 +1211,6 @@ body ul {
 .artist-infom{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   @include above("md"){
     display: unset;
   }
