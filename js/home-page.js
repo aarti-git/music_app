@@ -44,7 +44,9 @@ const AboutScrollingJs = {
         // save the value of a
         for (var i = 0; i < this._scrollingImg.length; i++) {
             this._scrollingImg[i].style.transform = "translateX(" + a + "%)";
-            // this._scrollingImg[i].style.transition = "transform.1s";
+            // this._scrollingImg[i].style.transition = "transform.1s ease-in-out";
+            // transition: transform 1s ease-in-out;
+
         }
         this.atomaticScroll();
     },
@@ -73,7 +75,12 @@ const AboutScrollingJs = {
             parentElm.dataset.slidepos = a;
             for (var i = 0; i < scrollingImg.length; i++) {
                 scrollingImg[i].style.transform = "translateX(" + a + "%)";
-                // scrollingImg[i].style.transition = "transform 1s ease-in-out";
+                if(a == -300){
+                    scrollingImg[i].style.transition = "transform 0s ease-in-out";
+                }else{
+                    scrollingImg[i].style.transition = "transform 1s ease-in-out";
+                }
+                
             }
           }, 3000);
     },
