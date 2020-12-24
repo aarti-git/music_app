@@ -128,14 +128,7 @@ const template = {
                         </div>
                         <div class="album-song-div">
                             <div class="button-div">
-                                <button class="btn">Play Now</button>
-                                <button class="btn btn-2">download</button>
-                                <button class="btn btn-2 free-hellotune-btn">set free hellotune</button>
-                                <div class="font-wrapper">
-                                    <svg class="font">
-                                        <use xlink:href="./img/icons.svg#heart-node"></use>
-                                    </svg>
-                                </div>
+                                <button class="btn" onclick="playNow()">Play Now</button>
                             </div>
                             <div class="button-div">
                                 <div class="font-wrapper share-btn">
@@ -198,7 +191,7 @@ const template = {
         // ${songListObj.audioTag}
         // <a href="${songListObj.extarnalUrl}" target="_blank" class="playButton-position">
         return buildTemplate(songListObj, `
-            <div class="button-div" ${songListObj.audioEvent}>
+            <div class="button-div" ${songListObj.audioEvent} ${songListObj.dataAttrs.join(' ')}>
                 ${songListObj.anchorTagStart}
                     <div class="playButton-position">
                         <div class="active-music-logo">
@@ -218,7 +211,7 @@ const template = {
                             </svg>
                         </div>
                     </div>
-                    ${songListObj.anchorTagEnd}
+                ${songListObj.anchorTagEnd}
                 <div class="align-self">
                     <p>${songListObj.albumName}</p>
                     <span>${songListObj.artistNames}</span>
@@ -264,14 +257,7 @@ const template = {
                 <h2>${obj.categoriesName}</h2>
                 <div class="album-song-div">
                     <div class="button-div">
-                        <button class="btn">Play Now</button>
-                        <button class="btn btn-2">download</button>
-                        <button class="btn btn-2 free-hellotune-btn">set free hellotune</button>
-                        <div class="font-wrapper">
-                            <svg class="font">
-                                <use xlink:href="./img/icons.svg#heart-node"></use>
-                            </svg>
-                        </div>
+                        <button class="btn" onclick="playNow()">Play Now</button>
                     </div>
                     <div class="button-div">
                         <div class="font-wrapper share-btn">
@@ -521,7 +507,7 @@ const template = {
                         <source src="${obj.songMP3Url}" type="audio/ogg">
                     </audio>
                         <div class="row">
-                        <div class="col-xs-8 col-sm-5 col-md-4 col-xl-4">
+                        <div class="col-xs-6 col-sm-5 col-md-4 col-xl-4">
                             <div class="player-bar-sections">
                                 <div class="playButton-position">
                                     <img class="album-list-img" src="${obj.songImg}">
@@ -532,19 +518,19 @@ const template = {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-2 col-sm-4 col-md-4 col-xl-4 justify-center">
+                        <div class="col-xs-6 col-sm-4 col-md-4 col-xl-4 justify-center">
                             <div class="player-bar-sections">
                                 <div class="side-font-onPlayerBar">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#shuffer-node"></use>
                                     </svg>
                                 </div>
-                                <div class="next-pervious-onPlayerBar" onclick="PlayPrevious()">
+                                <div class="next-pervious-onPlayerBar" onclick="playerBar.PlayPrevious()">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#step-backward-node"></use>
                                     </svg>
                                 </div>
-                                <div class="play-button-onPlayerBar" onclick="onplayEvent(this)">
+                                <div class="play-button-onPlayerBar" onclick="playerBar.onplayEvent(this)">
                                     <svg class="play-font-onPlayerBar hide">
                                         <use xlink:href="./img/icons.svg#playButton-node"></use>
                                     </svg>
@@ -552,29 +538,30 @@ const template = {
                                         <use xlink:href="./img/icons.svg#pause-node"></use>
                                     </svg>
                                 </div>
-                                <div class="next-pervious-onPlayerBar" onclick="PlayNext()">
+                                <div class="next-pervious-onPlayerBar" onclick="playerBar.PlayNext()">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#step-forward-node"></use>
                                     </svg>
                                 </div>
-                                <div class="side-font-onPlayerBar">
+                                <div class="side-font-onPlayerBar" onclick="playerBar.repeatSongList()">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#repeat-node"></use>
                                     </svg>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-2 col-sm-3 col-md-4 col-xl-4 justify-end">
+                        <div class="col-xs-0 col-sm-3 col-md-4 col-xl-4 justify-end">
                             <div class="player-bar-sections">
+                                <div class="live-song-duration"></div>
                                 <div class="volume-controlar">
-                                    <div class="volume-handler" onclick="volumeControal(event)">
+                                    <div class="volume-handler" onclick="playerBar.volumeControal(event)">
                                         <div class="volume-line-parent">
                                             <div class="volume-line">
                                                 <div class="volume-nobe"></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="volumefont-onPlayerBar" onclick="volumeToggle(this)">
+                                    <div class="volumefont-onPlayerBar" onclick="playerBar.volumeToggle(this)">
                                         <svg class="logo-font">
                                             <use xlink:href="./img/icons.svg#volume-node"></use>
                                         </svg>
@@ -583,7 +570,7 @@ const template = {
                                         </svg>
                                     </div>
                                 </div>
-                                <div>
+                                <div class="music-font-onPlayerbar">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#music-list-node"></use>
                                     </svg>
@@ -592,7 +579,7 @@ const template = {
                         </div>
                  </div>
             </div>
-            <div class="playerSongSlider-parent" onclick="cliPointOnSongScroll(this,event)">
+            <div class="playerSongSlider-parent" onclick="playerBar.cliPointOnSongScroll(this,event)">
                 <div class="playerSongSlider">
                     <div class="SongSlider-nobe"></div>
                 </div>
@@ -611,7 +598,7 @@ const template = {
                 <a onclick="seeAllBtn(${obj.className},this)">See All</a>
             </div>
             <div class="scrolling-btn-min-parent">
-                <button class="comman-scrolling-css scroll-btn-min" onclick="horizontalscroll(false, ${obj.className})">
+                <button class="comman-scrolling-css scroll-btn-min" onclick="AboutScrollingJs.horizontalscroll(false, ${obj.className})">
                     <svg class="font">
                         <use xlink:href="./img/icons.svg#angleLeft-node"></use>
                     </svg>
@@ -620,7 +607,7 @@ const template = {
             <div class= ${obj.jsClass}>
             </div>
             <div class="scrolling-btn-add-parent">
-                <button class="comman-scrolling-css scroll-btn-add" onclick="horizontalscroll(true,${obj.className})">
+                <button class="comman-scrolling-css scroll-btn-add" onclick="AboutScrollingJs.horizontalscroll(true,${obj.className})">
                     <svg class="font">
                         <use xlink:href="./img/icons.svg#angleRight-node"></use>
                     </svg>

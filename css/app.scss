@@ -59,6 +59,7 @@ body ul {
   top: 0;
   left: 0;
   z-index: 1;
+  opacity: 0;
 }
 .artistAlbum-audio-position {
   position: absolute;
@@ -546,6 +547,7 @@ body ul {
   width: 100%;
   height: 140px;
   padding: 0 10px;
+  scroll-behavior: smooth;
   @include above("md"){
     width: 900px;
     height: 300px;
@@ -586,6 +588,7 @@ body ul {
 // }
 
 // player bar css
+
 .player-position{
   position: fixed;
   bottom: 0;
@@ -597,11 +600,14 @@ body ul {
   width: 100%;
   margin: 0 auto;
   background-color: #202226;
-  padding:15px;
+  padding:12px;
   border-radius: 4px;
   z-index: 1;
   border: 1px solid #454545;
   position: relative;
+  @include above("md"){
+    padding:15px;
+  }
 }
 .player-bar-sections{
   display: flex;
@@ -617,8 +623,11 @@ body ul {
   font-weight: 400;
   white-space: nowrap;
   overflow: hidden;
-  width: 130px;
+  width: 110px;
   text-overflow: ellipsis;
+  @include above("md"){
+    width: 130px;
+  }
 }
 .song-player-bar span{
   display: block;
@@ -627,8 +636,11 @@ body ul {
   font-size: 11px;
   white-space: nowrap;
   overflow: hidden;
-  width: 130px;
+  width: 110px;
   text-overflow: ellipsis;
+  @include above("md"){
+    width: 130px;
+  }
 }
 .play-font-onPlayerBar,
 .pause-font-onPlayerBar{
@@ -664,17 +676,20 @@ body ul {
   color: #e8121a;
 }
 .next-pervious-onPlayerBar{
-  margin: 0 15px;
-  display: none;
-  @include above("sm"){
-    display: block;
-  }
+    margin: 0 15px;
+  
 }
 .volumefont-onPlayerBar{
   display: none;
   @include above("sm"){
     display: block;
     margin:5px 15px 0 0 ;
+  }
+}
+.music-font-onPlayerbar{
+  display: none;
+  @include above("md"){
+    display: block;
   }
 }
 // volume-handler
@@ -689,7 +704,7 @@ body ul {
   background: #595957;
   position: absolute;
   top: -88px;
-  left: 0;
+  left: 75px;
   border-radius: 8px;
 }
 .volume-line-parent{
@@ -716,6 +731,17 @@ body ul {
   left: -4px;
   border-radius: 50%;
   background-color: #e8121a;
+  // margin-bottom: -6px;
+}
+.live-song-duration{
+  display: none;
+  @include above("md"){
+    display: block;
+    font-size: 14px;
+    margin-right: 10px;
+    font-weight: 300;
+    width: 65px;
+  }
 }
 .playerSongSlider-parent:hover{
   height: 5px;
@@ -1079,7 +1105,7 @@ body ul {
     margin: 40px 0;
   }
 }
-.free-hellotune-btn,
+
 .share-btn{
   display: none !important;
   @include above("md"){
@@ -1145,9 +1171,14 @@ body ul {
   margin: 0 5px;
 }
 .album-list-img {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 10px;
+  @include above("md"){
+    width: 50px;
+    height: 50px;
+  }
+  
 }
 .Playlists-width {
   width:33%;

@@ -398,6 +398,7 @@ body ul {
   top: 0;
   left: 0;
   z-index: 1;
+  opacity: 0;
 }
 
 .artistAlbum-audio-position {
@@ -980,6 +981,7 @@ body ul {
   width: 100%;
   height: 140px;
   padding: 0 10px;
+  scroll-behavior: smooth;
 }
 
 @media (min-width: 768px) {
@@ -1040,11 +1042,17 @@ body ul {
   width: 100%;
   margin: 0 auto;
   background-color: #202226;
-  padding: 15px;
+  padding: 12px;
   border-radius: 4px;
   z-index: 1;
   border: 1px solid #454545;
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .song-player-bar {
+    padding: 15px;
+  }
 }
 
 .player-bar-sections {
@@ -1063,8 +1071,14 @@ body ul {
   font-weight: 400;
   white-space: nowrap;
   overflow: hidden;
-  width: 130px;
+  width: 110px;
   text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .song-player-bar p {
+    width: 130px;
+  }
 }
 
 .song-player-bar span {
@@ -1074,8 +1088,14 @@ body ul {
   font-size: 11px;
   white-space: nowrap;
   overflow: hidden;
-  width: 130px;
+  width: 110px;
   text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .song-player-bar span {
+    width: 130px;
+  }
 }
 
 .play-font-onPlayerBar,
@@ -1123,13 +1143,6 @@ body ul {
 
 .next-pervious-onPlayerBar {
   margin: 0 15px;
-  display: none;
-}
-
-@media (min-width: 480px) {
-  .next-pervious-onPlayerBar {
-    display: block;
-  }
 }
 
 .volumefont-onPlayerBar {
@@ -1140,6 +1153,16 @@ body ul {
   .volumefont-onPlayerBar {
     display: block;
     margin: 5px 15px 0 0;
+  }
+}
+
+.music-font-onPlayerbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .music-font-onPlayerbar {
+    display: block;
   }
 }
 
@@ -1154,7 +1177,7 @@ body ul {
   background: #595957;
   position: absolute;
   top: -88px;
-  left: 0;
+  left: 75px;
   border-radius: 8px;
 }
 
@@ -1184,6 +1207,20 @@ body ul {
   left: -4px;
   border-radius: 50%;
   background-color: #e8121a;
+}
+
+.live-song-duration {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .live-song-duration {
+    display: block;
+    font-size: 14px;
+    margin-right: 10px;
+    font-weight: 300;
+    width: 65px;
+  }
 }
 
 .playerSongSlider-parent:hover {
@@ -1622,13 +1659,11 @@ body ul {
   }
 }
 
-.free-hellotune-btn,
 .share-btn {
   display: none !important;
 }
 
 @media (min-width: 768px) {
-  .free-hellotune-btn,
   .share-btn {
     display: block !important;
   }
@@ -1706,9 +1741,16 @@ body ul {
 }
 
 .album-list-img {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  .album-list-img {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .Playlists-width {

@@ -8,12 +8,15 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/token.js"></script>
     <script src="js/app-modul.js"></script>
+    <script src="js/plyer-bar.js"></script>
     <script src="js/template.js"></script>
     <script src="js/new-releases.js"></script>
     <script src="js/artist.js"></script>
     <script src="js/hindiPop.js"></script>
     <script src="js/categories.js"></script>
     <script src="js/popup.js"></script>
+    <script src="js/home-page.js"></script>
+   
     
     <script defer src="js/music-app.js"></script>
     <!-- <script defer src="js/musicApp.js"></script> -->
@@ -21,12 +24,13 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            app.init()
+            app.init();
+            playerBar.init();
             newRealeases.init();
             categories.init();
             artistList.init();
             hindiPop.init();
-            atomaticScroll();
+            AboutScrollingJs.init();
         });
     </script>
 </head>
@@ -179,7 +183,7 @@
     <section>
         <div class="atomaticScrolling">
             <div>
-                <button class="comman-scrolling-css songposterscroll-btn-min" onclick="posterScrolling(false)">
+                <button class="comman-scrolling-css songposterscroll-btn-min" onclick="AboutScrollingJs.posterScrolling(false)">
                     <svg class="font">
                         <use xlink:href="./img/icons.svg#angleLeft-node"></use>
                     </svg>
@@ -205,7 +209,7 @@
                 </div>
             </diV>
             <div>
-                <button class="comman-scrolling-css songposterscroll-btn-add" onclick="posterScrolling(true)">
+                <button class="comman-scrolling-css songposterscroll-btn-add" onclick="AboutScrollingJs.posterScrolling(true)">
                     <svg class="font">
                         <use xlink:href="./img/icons.svg#angleRight-node"></use>
                     </svg>

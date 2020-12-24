@@ -47,21 +47,19 @@ const albumSongs = {
         var obj = {imgSrc, songName, label, albumType, albumArtistsName, albumArtistArray, releasedate,albumArtistsId}
         this.craetAlbumBody(obj);
         var array = data.tracks.items;
-        for(var i=0; i<array.length; i++){
-            var albumItems = array[i];
-            var albumArtists = albumItems.artists;
-            var albumName = albumItems.name;
-            var artistNames = this.artistName(albumArtists);
-            var songMP3Url = albumItems.preview_url;
-            var extarnalUrl;
+        var songArrayLength = array.length
+        for(var i=0; i<songArrayLength; i++){
+            const albumItem = array[i];
+            var artistNames = this.artistName(albumItem.artists);
+            var songMP3Url = albumItem.preview_url;
+            
             // var audioTag;
-            var audioEvent;
-            var svgId;
-            var outsidArrow;
+            var audioEvent, svgId, outsidArrow, anchorTagStart, anchorTagEnd, dataAttrs = [];
+
             if(songMP3Url == null){
-                extarnalUrl = albumItems.external_urls.spotify;
-                var anchorTagStart= `<a href="${extarnalUrl}" target="_blank" class="flex-align">`
-                var anchorTagEnd =`</a>`
+                const extarnalUrl = albumItem.external_urls.spotify;
+                anchorTagStart= `<a href="${extarnalUrl}" target="_blank" class="flex-align">`
+                anchorTagEnd =`</a>`
                 // audioTag = "";
                 audioEvent = '';
                 svgId = "outside-arrow-node";
@@ -70,13 +68,15 @@ const albumSongs = {
                 anchorTagStart = "";
                 anchorTagEnd = "";
                 svgId = "playButton-node";
-                var songMP3UrlString ="\'"+ songMP3Url + "\'";
                 outsidArrow = "";
-                var songImg = "\'"+imgSrc+ "\'";
-                audioEvent = `onclick="playSong(this,${songMP3UrlString},${songImg})"`;
-                
+                audioEvent = `onclick="playerBar.playSong(this)"`;
+                dataAttrs.push(
+                    `data-mp3-url="${songMP3Url}"`,
+                    `data-mp3-img="${imgSrc}"`
+                    `data-Track-id="${i}"`
+                )
             }
-            var songListObj = {albumName,artistNames,anchorTagStart,anchorTagEnd,audioEvent,svgId,outsidArrow}
+            var songListObj = {dataAttrs, albumName: albumItem.name, artistNames,anchorTagStart,anchorTagEnd,audioEvent,svgId,outsidArrow}
             this.creatSongList(songListObj);
         };
     },

@@ -12,6 +12,7 @@
 
     <meta property="twitter:description" content="Full album name and twitter full description" />
     <meta property="twitter:image" content="https://i.scdn.co/image/ab67616d00001e02b84b0516d901f95461bb5165" />
+    
     <link rel="stylesheet" href="css/index.css" />
     <script src="js/jquery.min.js"></script>
     <script src="js/template.js"></script>
@@ -19,12 +20,14 @@
     <script src="js/token.js"></script>
     <script src="js/app-modul.js"></script>
     <script src="js/popup.js"></script>
+    <script src="js/plyer-bar.js"></script>
     <script defer src="js/music-app.js"></script>
     <script>
         var url = new URL(location.href);
         var albumId = url.searchParams.get('album-id');
         document.addEventListener("DOMContentLoaded", function () {
             app.init();
+            playerBar.init();
             albumSongs.init(albumId);
         });
     </script>
