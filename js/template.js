@@ -538,7 +538,7 @@ const template = {
                                         <use xlink:href="./img/icons.svg#pause-node"></use>
                                     </svg>
                                 </div>
-                                <div class="next-pervious-onPlayerBar" onclick="playerBar.PlayNext()">
+                                <div class="next-pervious-onPlayerBar palyNxtBtn" onclick="playerBar.PlayNext()">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#step-forward-node"></use>
                                     </svg>

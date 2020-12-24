@@ -6,6 +6,8 @@ const playerBar = {
         this._songInterval;
         this._isClick = false;
         this._currentSong ;
+        // this._palyNxtBtn = document.querySelector(".palyNxtBtn");
+        // this._palyNxtBtn.addEventListener("click",function(){this.PlayNext});
     },
     playSong: function($this){
         var _this = this;
@@ -33,7 +35,7 @@ const playerBar = {
             preactiveMusicLogo.lastElementChild.classList.add("hide");
             this._previousplaySong = $this;
           }
-          repeatSongList($this);
+          this.repeatSongList($this);
           // playNow($this)
           this._isClick = false;
     },
@@ -140,9 +142,9 @@ const playerBar = {
       PlayPrevious:function(){
         this._currentSong.previousElementSibling.firstElementChild.click();
       },
-      repeatSongList:function($el){
-        const data = $el.dataset
-        const SongtrackId = data.trackId;
+      repeatSongList:function(el){
+        var SongtrackId = el.dataset.trackId;
+        // const SongtrackId = data.trackId;
         // var songIndexNo = SongtrackId+1;
         // var songList = document.querySelectorAll(".artist-song-list");
         // var songListLenght = songList.length;

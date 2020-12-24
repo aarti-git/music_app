@@ -72,7 +72,7 @@ const albumSongs = {
                 audioEvent = `onclick="playerBar.playSong(this)"`;
                 dataAttrs.push(
                     `data-mp3-url="${songMP3Url}"`,
-                    `data-mp3-img="${imgSrc}"`
+                    `data-mp3-img="${imgSrc}"`,
                     `data-Track-id="${i}"`
                 )
             }
