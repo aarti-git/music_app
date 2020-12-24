@@ -76,9 +76,9 @@ const AboutScrollingJs = {
             for (var i = 0; i < scrollingImg.length; i++) {
                 scrollingImg[i].style.transform = "translateX(" + a + "%)";
                 if(a == -300){
-                    scrollingImg[i].style.transition = "transform 0s ease-in-out";
+                    scrollingImg[i].style.transition = "transform 0s";
                 }else{
-                    scrollingImg[i].style.transition = "transform 1s ease-in-out";
+                    scrollingImg[i].style.transition = "transform .2s";
                 }
                 
             }
