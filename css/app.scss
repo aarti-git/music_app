@@ -43,18 +43,17 @@ body ul {
   @include above("md") {
     margin-left: 20px;
   }
-
 }
-.justify-center{
+.justify-center {
   justify-content: center;
 }
-.justify-end{
+.justify-end {
   justify-content: flex-end;
 }
-.flex-align{
+.flex-align {
   align-self: center;
 }
-.audio-position{
+.audio-position {
   position: absolute;
   top: 0;
   left: 0;
@@ -69,28 +68,28 @@ body ul {
   opacity: 0;
   width: 100%;
 }
-.listContaintCenter{
+.listContaintCenter {
   display: block !important;
   text-align: center;
 }
-#song-not-availab{
+#song-not-availab {
   color: red;
   font-size: 10px;
   display: inline-block;
 }
-.outsidArrow{
+.outsidArrow {
   transform: rotate(-45deg);
-    position: relative;
-    top: -10px;
-    left: 0;
+  position: relative;
+  top: -10px;
+  left: 0;
 }
 
-// header css 
+// header css
 .header {
   width: 100%;
   background-color: #21252d;
   margin-bottom: 20px;
-  @include above("md"){
+  @include above("md") {
     margin-bottom: 35px;
   }
 }
@@ -271,7 +270,6 @@ body ul {
   height: 15px;
   margin: 0px 7px;
   vertical-align: middle;
-  
 }
 .search-bar input {
   display: none;
@@ -329,7 +327,7 @@ body ul {
     font-size: 15px;
   }
 }
-.authBtn{
+.authBtn {
   width: auto;
   display: inline-block;
   margin-top: 30px;
@@ -395,7 +393,7 @@ body ul {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 0 12px #00000082;
-  
+
   @include above("sm") {
     width: 800px;
     position: unset;
@@ -530,7 +528,7 @@ body ul {
   overflow: hidden;
   position: relative;
   margin-bottom: 10px;
-  @include above("md"){
+  @include above("md") {
     margin-bottom: 30px;
   }
 }
@@ -539,7 +537,7 @@ body ul {
   margin: 0 auto;
   align-items: center;
   display: flex;
-  @include above("md"){
+  @include above("md") {
     max-width: 900px;
   }
 }
@@ -549,7 +547,7 @@ body ul {
   padding: 0 10px;
   scroll-behavior: smooth;
   // transition: transform .2s;
-  @include above("md"){
+  @include above("md") {
     width: 900px;
     height: 300px;
   }
@@ -559,7 +557,7 @@ body ul {
   width: 100%;
   margin: 0 auto;
   display: -webkit-box;
-  @include above("md"){
+  @include above("md") {
     margin: 0 -10px;
     width: 900px;
   }
@@ -569,16 +567,16 @@ body ul {
   height: 100%;
   border-radius: 30px;
   object-fit: cover;
-  @include above("md"){
+  @include above("md") {
     object-fit: unset;
   }
 }
 .leftImgSect {
   position: absolute;
   top: 0;
-  left:-100%;
+  left: -100%;
 }
-.rightImgSect{
+.rightImgSect {
   position: absolute;
   top: 0;
   right: -300%;
@@ -590,7 +588,7 @@ body ul {
 
 // player bar css
 
-.player-position{
+.player-position {
   position: fixed;
   bottom: 0;
   margin-bottom: 10px;
@@ -601,36 +599,36 @@ body ul {
   width: 100%;
   margin: 0 auto;
   background-color: #202226;
-  padding:12px;
+  padding: 12px;
   border-radius: 4px;
   z-index: 1;
   border: 1px solid #454545;
   position: relative;
-  @include above("md"){
-    padding:15px;
+  @include above("md") {
+    padding: 15px;
   }
 }
-.player-bar-sections{
+.player-bar-sections {
   display: flex;
   align-items: center;
   position: relative;
 }
-.song-Name-artist-div{
+.song-Name-artist-div {
   align-self: center;
   margin-left: 10px;
 }
-.song-player-bar p{
+.song-player-bar p {
   font-size: 13px;
   font-weight: 400;
   white-space: nowrap;
   overflow: hidden;
   width: 110px;
   text-overflow: ellipsis;
-  @include above("md"){
+  @include above("md") {
     width: 130px;
   }
 }
-.song-player-bar span{
+.song-player-bar span {
   display: block;
   padding-top: 2px;
   color: #818c94;
@@ -639,18 +637,18 @@ body ul {
   overflow: hidden;
   width: 110px;
   text-overflow: ellipsis;
-  @include above("md"){
+  @include above("md") {
     width: 130px;
   }
 }
 .play-font-onPlayerBar,
-.pause-font-onPlayerBar{
+.pause-font-onPlayerBar {
   width: 15px;
   height: 15px;
   align-self: center;
   cursor: pointer;
 }
-.play-button-onPlayerBar{
+.play-button-onPlayerBar {
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -659,46 +657,45 @@ body ul {
   display: flex;
   justify-content: center;
 }
-.side-font-onPlayerBar{
+.side-font-onPlayerBar {
   display: none;
-  @include above("sm"){
+  @include above("sm") {
     display: block;
     margin: 0 10px;
   }
-  @include above("lg"){
+  @include above("lg") {
     margin: 0 20px;
   }
 }
-.side-font-onPlayerBar:hover{
+.side-font-onPlayerBar:hover {
   color: #e8121a;
 }
 
-.next-pervious-onPlayerBar :hover{
+.next-pervious-onPlayerBar :hover {
   color: #e8121a;
 }
-.next-pervious-onPlayerBar{
-    margin: 0 15px;
-  
+.next-pervious-onPlayerBar {
+  margin: 0 15px;
 }
-.volumefont-onPlayerBar{
+.volumefont-onPlayerBar {
   display: none;
-  @include above("sm"){
+  @include above("sm") {
     display: block;
-    margin:5px 15px 0 0 ;
+    margin: 5px 15px 0 0;
   }
 }
-.music-font-onPlayerbar{
+.music-font-onPlayerbar {
   display: none;
-  @include above("md"){
+  @include above("md") {
     display: block;
   }
 }
 // volume-handler
-.player-bar-sections :hover .volume-handler{
+.player-bar-sections :hover .volume-handler {
   display: block;
-};
+}
 
-.volume-handler{
+.volume-handler {
   display: none;
   width: 25px;
   height: 100px;
@@ -708,7 +705,7 @@ body ul {
   left: 75px;
   border-radius: 8px;
 }
-.volume-line-parent{
+.volume-line-parent {
   position: relative;
   background: #e8121a;
   width: 4px;
@@ -718,13 +715,13 @@ body ul {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-.volume-line{
+.volume-line {
   width: 100%;
   height: 45%;
   background: #e1e1da;
   border-radius: 3px;
 }
-.volume-nobe{
+.volume-nobe {
   position: absolute;
   width: 12px;
   height: 12px;
@@ -734,9 +731,9 @@ body ul {
   background-color: #e8121a;
   // margin-bottom: -6px;
 }
-.live-song-duration{
+.live-song-duration {
   display: none;
-  @include above("md"){
+  @include above("md") {
     display: block;
     font-size: 14px;
     margin-right: 10px;
@@ -744,7 +741,7 @@ body ul {
     width: 65px;
   }
 }
-.playerSongSlider-parent:hover{
+.playerSongSlider-parent:hover {
   height: 5px;
   margin-top: 0px;
 }
@@ -752,8 +749,8 @@ body ul {
 //   bottom: -4px;
 // }
 
-.playerSongSlider-parent{
-  background-color:#cfc7c7;
+.playerSongSlider-parent {
+  background-color: #cfc7c7;
   width: 100%;
   height: 4px;
   position: relative;
@@ -762,18 +759,18 @@ body ul {
   z-index: 1;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  transition: .2s;
+  transition: 0.2s;
   margin-top: 1px;
   cursor: pointer;
 }
-.playerSongSlider{
+.playerSongSlider {
   width: 100%;
   height: 100%;
   // background-color: #e8121a;
   border-bottom-left-radius: 3px;
   cursor: pointer;
 }
-.SongSlider-nobe{
+.SongSlider-nobe {
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -804,7 +801,7 @@ body ul {
     font-weight: 500;
   }
 }
-.songs-tittle span{
+.songs-tittle span {
   font-size: 12px;
   padding: 0 5px;
   font-weight: 300;
@@ -910,34 +907,34 @@ body ul {
   outline: none;
   color: white;
   border-radius: 50%;
-  @include above("md"){
+  @include above("md") {
     width: 40px;
     height: 40px;
   }
 }
 .songposterscroll-btn-add {
   right: 0;
-  @include above("md"){
+  @include above("md") {
     right: 155px;
   }
 }
 
-.scrolling-btn-min-parent{
+.scrolling-btn-min-parent {
   display: none;
-  @include above("md"){
+  @include above("md") {
     display: block;
   }
 }
-.scrolling-btn-add-parent{
+.scrolling-btn-add-parent {
   display: none;
-  @include above("md"){
+  @include above("md") {
     display: block;
   }
 }
 
 .songposterscroll-btn-min {
   left: 30px;
-  @include above("md"){
+  @include above("md") {
     left: 194px;
   }
 }
@@ -1032,7 +1029,7 @@ body ul {
   // padding-top: 100%;
   position: relative;
 }
-.artist-img-wrapper{
+.artist-img-wrapper {
   position: relative;
   padding-top: 100%;
 }
@@ -1078,7 +1075,7 @@ body ul {
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 3px;
-  @include above('md'){
+  @include above("md") {
     font-size: 15px;
     width: 130px;
   }
@@ -1092,7 +1089,7 @@ body ul {
   width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
-  @include above('md'){
+  @include above("md") {
     width: 130px;
   }
 }
@@ -1102,14 +1099,14 @@ body ul {
   display: flex;
   justify-content: space-between;
   margin: 20px 0 50px 0;
-  @include above("md"){
+  @include above("md") {
     margin: 40px 0;
   }
 }
 
-.share-btn{
+.share-btn {
   display: none !important;
-  @include above("md"){
+  @include above("md") {
     display: block !important;
   }
 }
@@ -1125,9 +1122,12 @@ body ul {
   overflow: hidden;
   width: 180px;
   text-overflow: ellipsis;
-  @include above("md"){
+  @include above("md") {
     font-size: 15px;
     width: 200px;
+  }
+  @include above("lg") {
+    width: 300px;
   }
 }
 .button-div span {
@@ -1139,8 +1139,11 @@ body ul {
   overflow: hidden;
   width: 200px;
   text-overflow: ellipsis;
-  @include above("md"){
+  @include above("md") {
     font-size: 12px;
+  }
+  @include above("lg") {
+    width: 300px;
   }
 }
 
@@ -1150,18 +1153,18 @@ body ul {
 .artist-song-list:hover .playButton-on-image {
   opacity: 1;
 }
-.artist-song-list:hover .font-opacity{
+.artist-song-list:hover .font-opacity {
   opacity: 0;
 }
 .artist-song-list:hover {
   border: 1px solid #7e7e7e;
-  background-color: #4f4f4f2e
+  background-color: #4f4f4f2e;
   // margin: -1px;
 }
 .artist-song-list {
   display: flex;
   justify-content: space-between;
-  padding: 8px;
+  padding: 10px 8px;
   border-radius: 5px;
   position: relative;
   cursor: pointer;
@@ -1175,23 +1178,22 @@ body ul {
   width: 45px;
   height: 45px;
   border-radius: 10px;
-  @include above("md"){
+  @include above("md") {
     width: 50px;
     height: 50px;
   }
-  
 }
 .Playlists-width {
-  width:33%;
-  @include above("md"){
-    width:16.6666666666%;
+  width: 33%;
+  @include above("md") {
+    width: 16.6666666666%;
   }
 }
 .some-links {
   display: none;
   margin: 0px 0 40px;
   text-transform: capitalize;
-  @include above("sm"){
+  @include above("sm") {
     display: block;
   }
 }
@@ -1209,25 +1211,33 @@ body ul {
   cursor: pointer;
 }
 .playButton-on-image {
-  // display: none;
   opacity: 0;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
 }
-// .some-links li::after{
-//   content: " ";
-//   background: #a3a6a6;
-//   width: 3px;
-//   height: 3px;
-//   display: inline-block;
-//   border-radius: 50%;
-//   vertical-align: middle;
-//   margin: 0 5px;
-// }
+.active-music-logo {
+  width: 20px;
+}
+.animationOnMusicIcon {
+  transform: rotateX(0deg);
+  transition: transform 1s ease;
+  animation: tuning 1s infinite;
+  width: 100%;
+}
+@keyframes tuning {
+  from {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(60deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
 .some-links li {
   padding: 0 5px;
   font-size: 12px;
@@ -1236,29 +1246,29 @@ body ul {
 }
 .artist-info-section {
   margin-top: 30px;
-  @include above("md"){
-   margin-top: 50px;
+  @include above("md") {
+    margin-top: 50px;
   }
 }
-.artist-infom{
+.artist-infom {
   display: flex;
   flex-wrap: wrap;
-  @include above("md"){
+  @include above("md") {
     display: unset;
   }
 }
 .artist-inf {
   display: block;
   margin: 0 10px;
-  @include above("md"){
+  @include above("md") {
     display: flex;
     margin: 15px 10px;
     // margin: 0;
   }
 }
-.artist-img-name-div{
+.artist-img-name-div {
   display: block;
-  @include above("md"){
+  @include above("md") {
     display: flex;
   }
 }
@@ -1269,15 +1279,14 @@ body ul {
   border-radius: 50%;
   margin-bottom: 10px;
   object-fit: cover;
-  @include above("md"){ 
+  @include above("md") {
     margin-right: 20px;
   }
 }
 .artist-name {
   align-self: center;
   font-weight: 300;
-   @include above("md"){ 
-    
+  @include above("md") {
   }
 }
 .artist-name p {
@@ -1286,33 +1295,33 @@ body ul {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-    @include above("lg"){
-      width: 100%;
-    }
+  @include above("lg") {
+    width: 100%;
+  }
 }
 .artist-name span {
   font-size: 13px;
   color: #818c94;
 }
-.abot-artist-columan{
+.abot-artist-columan {
   width: 100%;
-  @include above("md"){
+  @include above("md") {
     width: 90%;
   }
 }
-.album-main-img-div{
+.album-main-img-div {
   width: 100%;
-  @include above("md"){
+  @include above("md") {
     width: 90%;
   }
 }
-.page-main-img-parent{
+.page-main-img-parent {
   position: relative;
   padding-top: 50%;
-  @include above("sm"){
+  @include above("sm") {
     padding-top: 35%;
   }
-  @include above("md"){
+  @include above("md") {
     position: static;
     padding-top: 0;
   }
@@ -1326,19 +1335,18 @@ body ul {
   height: 100%;
   object-fit: cover;
   vertical-align: middle;
-  @include above("md"){
+  @include above("md") {
     position: static;
     height: 260px;
     // object-fit: unset;
     width: 100%;
-
   }
 }
 .song-details {
   width: 100%;
   text-transform: capitalize;
   margin-top: 50px;
-  @include above("md"){
+  @include above("md") {
     margin-top: 0;
   }
 }
@@ -1346,9 +1354,8 @@ body ul {
   font-size: 25px;
   font-weight: 500;
   margin-bottom: 5px;
-  @include above("md"){
+  @include above("md") {
     font-size: 32px;
-   
   }
 }
 .song-details span {
@@ -1366,20 +1373,19 @@ body ul {
 }
 .about-song img {
   display: none;
-  @include above("md"){
+  @include above("md") {
     width: 100px;
     vertical-align: middle;
     margin-right: 25px;
     border-radius: 10px;
   }
-  
 }
 .headings {
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 15px;
   text-transform: uppercase;
-  @include above("md"){
+  @include above("md") {
     font-size: 24px;
   }
 }
@@ -1393,10 +1399,10 @@ body ul {
 }
 .about-song a {
   color: white;
-    @include above ("md"){
-      color: #818c94;
-      font-weight: 500;
-    }
+  @include above("md") {
+    color: #818c94;
+    font-weight: 500;
+  }
 }
 
 // artist page. html
@@ -1408,11 +1414,11 @@ body ul {
   font-weight: 400;
   color: #818c94;
 }
-.img-wrapper-artist ,
-.img-wrapper-categoriesAlbum{
+.img-wrapper-artist,
+.img-wrapper-categoriesAlbum {
   margin: 0 -10px;
   text-align: center;
-  @include above("md"){
+  @include above("md") {
     position: relative;
     text-align: unset;
   }
@@ -1420,7 +1426,7 @@ body ul {
 .artist-album-img-w {
   width: 45%;
   margin: 10px 0;
-  @include above("md"){
+  @include above("md") {
     width: 19.99%;
     margin: 25px 0;
   }
@@ -1584,5 +1590,4 @@ body ul {
   @include above("md") {
     display: none;
   }
-
 }

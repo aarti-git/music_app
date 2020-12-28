@@ -1,13 +1,14 @@
-const buildTemplate = function(obj, templateHTML){
-    const templateFn = new Function('obj', `return \`${templateHTML}\``)
-    return templateFn(obj);
-}
+const buildTemplate = function (obj, templateHTML) {
+  const templateFn = new Function("obj", `return \`${templateHTML}\``);
+  return templateFn(obj);
+};
 
 const template = {
-    // new release.js or hindi-pop.js
-    newReleaseAlbum: function(obj){
-        return buildTemplate(obj, 
-            `
+  // new release.js or hindi-pop.js
+  newReleaseAlbum: function (obj) {
+    return buildTemplate(
+      obj,
+      `
         <div class="song-img-overlay-wrapper">
             <img class="song-img" src=${obj.imgSrc}>
             <div class="songs-img-overlay-wrapper">
@@ -38,13 +39,14 @@ const template = {
             <p>${obj.albumName}</p>
             <span>${obj.artistNames}</span>
         </div>`
-            )
-    },
+    );
+  },
 
-    // artist.js
-    artistalbumList: function(obj){
-        return buildTemplate(obj, 
-            `
+  // artist.js
+  artistalbumList: function (obj) {
+    return buildTemplate(
+      obj,
+      `
             <div class="artist-img-div">
                 <div class="artist-img-wrapper">
                     <img class="artist-img" src="${obj.imgSrc}">
@@ -57,12 +59,14 @@ const template = {
             </div>
             <div class="artist-name-div">${obj.artistName}</div>
             `
-            )
-    },
+    );
+  },
 
-    // categories.js
-    categoriesAlbum: function(obj){
-        return buildTemplate(obj, `
+  // categories.js
+  categoriesAlbum: function (obj) {
+    return buildTemplate(
+      obj,
+      `
             <div class="song-img-overlay-wrapper">
                 <img class="song-img" src=${obj.imgSrc}>
                 <div class="songs-img-overlay-wrapper">
@@ -92,12 +96,14 @@ const template = {
             <div class="song-name-div">
                 <p>${obj.albumName}</p>
             </div>`
-            )
-    }, 
+    );
+  },
 
-    // new-release-albumPage.js
-    album: function(obj){
-        return buildTemplate(obj, `
+  // new-release-albumPage.js
+  album: function (obj) {
+    return buildTemplate(
+      obj,
+      `
             <div class="some-links">
                 <ul>
                     <li>home</li>
@@ -149,11 +155,13 @@ const template = {
                     </div>
                 </div>
             </div>
-        `)
-    },
-    albumAboutSong:function(obj){
-        return buildTemplate(obj, 
-            `<div class="about-song">
+        `
+    );
+  },
+  albumAboutSong: function (obj) {
+    return buildTemplate(
+      obj,
+      `<div class="about-song">
                 <div>
                     <img src="${obj.imgSrc}">
                 </div>
@@ -164,11 +172,12 @@ const template = {
                     or download the mp3 from the Wynk Music mobile app. Keep Wynking!</p>
                 </div>
             </div>`
-        )
-    },
-    aboutartists:function(artistObj){
-       return buildTemplate(artistObj, 
-            `
+    );
+  },
+  aboutartists: function (artistObj) {
+    return buildTemplate(
+      artistObj,
+      `
             <a href="artists-topsong-albumpage.html?artist-id=${artistObj.albumArtistsId}">
             <div class="artist-img-name-div">
                 <div>
@@ -181,32 +190,31 @@ const template = {
             </div>
             </a>
             `
-        ) 
-    },
-    songListHtml : function(songListObj){
-         // ${songListObj.extarnalUrl}
-        //  <svg class="playButton-on-image hide">
-        // <use xlink:href="./img/icons.svg#pause-node"></use>
-        // </svg>
-        // ${songListObj.audioTag}
-        // <a href="${songListObj.extarnalUrl}" target="_blank" class="playButton-position">
-        return buildTemplate(songListObj, `
-            <div class="button-div" ${songListObj.audioEvent} ${songListObj.dataAttrs.join(' ')}>
+    );
+  },
+  songListHtml: function (songListObj) {
+    return buildTemplate(
+      songListObj,
+      ` <div class="button-div" ${
+        songListObj.audioEvent
+      } ${songListObj.dataAttrs.join(" ")}>
                 ${songListObj.anchorTagStart}
                     <div class="playButton-position">
                         <div class="active-music-logo">
                             <svg class="font font-opacity">
                                 <use xlink:href="./img/icons.svg#music-list-node"></use>
                             </svg>
-                            <svg class="font font-opacity hide">
+                            <svg class="font font-opacity hide animationOnMusicIcon">
                                 <use xlink:href="./img/icons.svg#song-waves-node"></use>
                             </svg>
                         </div>
                         <div ${songListObj.outsidArrow}>
                             <svg class="playButton-on-image">
-                                <use xlink:href="./img/icons.svg#${songListObj.svgId}"></use>
+                                <use xlink:href="./img/icons.svg#${
+                                  songListObj.svgId
+                                }"></use>
                             </svg>
-                            <svg class="playButton-on-image hide">
+                            <svg class="playButton-on-image hide animationOnMusicIcon">
                                 <use xlink:href="./img/icons.svg#song-waves-node"></use>
                             </svg>
                         </div>
@@ -230,12 +238,14 @@ const template = {
                 </div>
             </div>
             `
-        )
-    },
+    );
+  },
 
-    // Categories-albumlst.js
-    CategoriesAlbum: function(obj){
-        return buildTemplate(obj,`
+  // Categories-albumlst.js
+  CategoriesAlbum: function (obj) {
+    return buildTemplate(
+      obj,
+      `
         <div class="some-links">
         <ul>
             <li>home</li>
@@ -283,11 +293,12 @@ const template = {
         </div>
     </div>
         `
-            
-        )
-    },
-    categoriesAlbumList:function(Listobj){
-        return buildTemplate(Listobj,`
+    );
+  },
+  categoriesAlbumList: function (Listobj) {
+    return buildTemplate(
+      Listobj,
+      `
             <div class="song-img-overlay-wrapper">
                     <img class="song-img" src="${Listobj.albumImg}">
                     <div class="songs-img-overlay-wrapper">
@@ -318,13 +329,14 @@ const template = {
                     <p>${Listobj.albumName}</p>
                 </div>
             `
-            
-        )
-    },
+    );
+  },
 
-    // categories-playlist.js
-    categoriesPlaylist: function(obj){
-        return buildTemplate(obj, `
+  // categories-playlist.js
+  categoriesPlaylist: function (obj) {
+    return buildTemplate(
+      obj,
+      `
         <div class="some-links">
             <ul>
                 <li>home</li>
@@ -376,10 +388,12 @@ const template = {
             </div>
         </div>
     `
-        ) 
-    },
-    aboutpageSong:function(obj){
-        return buildTemplate(obj, `
+    );
+  },
+  aboutpageSong: function (obj) {
+    return buildTemplate(
+      obj,
+      `
             <div class="about-song">
                 <div>
                     <img src="${obj.imgSrc}">
@@ -392,12 +406,14 @@ const template = {
                 </div>
             </div>
             `
-         ) 
-     },
+    );
+  },
 
-    // artist-topsong.js 
-    artistTopsongsAlbum: function(obj){
-        return buildTemplate(obj, `
+  // artist-topsong.js
+  artistTopsongsAlbum: function (obj) {
+    return buildTemplate(
+      obj,
+      `
         <div class="some-links">
         <ul>
             <li>home</li>
@@ -458,11 +474,12 @@ const template = {
         </div>
     </div>
         `
-           
-        ) 
-    },
-    artistTopsongsAlbumList: function(obj){
-        return buildTemplate(obj,`
+    );
+  },
+  artistTopsongsAlbumList: function (obj) {
+    return buildTemplate(
+      obj,
+      `
             <div class="song-img-overlay-wrapper">
                 <img class="song-img" src="${obj.albumImg}">
                 <div class="songs-img-overlay-wrapper">
@@ -493,14 +510,13 @@ const template = {
                 <p>${obj.albumName}</p>
             </div>
             `
-           
-        ) 
-    },
-    // audio player
-    playerBar:function(obj){
-       return buildTemplate(obj,
-            `
-            <div class="player-position">
+    );
+  },
+  // audio player
+  playerBar: function (obj) {
+    return buildTemplate(
+      obj,
+      `   <div class="player-position">
                 <div class="container">
                     <div class="song-player-bar">
                     <audio controls class="audio-position hide" id="audio">
@@ -521,7 +537,7 @@ const template = {
                         <div class="col-xs-6 col-sm-4 col-md-4 col-xl-4 justify-center">
                             <div class="player-bar-sections">
                                 <div class="side-font-onPlayerBar">
-                                    <svg class="font">
+                                    <svg class="font" onclick="shufferBtn()">
                                         <use xlink:href="./img/icons.svg#shuffer-node"></use>
                                     </svg>
                                 </div>
@@ -543,7 +559,7 @@ const template = {
                                         <use xlink:href="./img/icons.svg#step-forward-node"></use>
                                     </svg>
                                 </div>
-                                <div class="side-font-onPlayerBar" onclick="playerBar.repeatSongList()">
+                                <div class="side-font-onPlayerBar" onclick="playerBar.repeatesongList(this)">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#repeat-node"></use>
                                     </svg>
@@ -554,7 +570,7 @@ const template = {
                             <div class="player-bar-sections">
                                 <div class="live-song-duration"></div>
                                 <div class="volume-controlar">
-                                    <div class="volume-handler" onclick="playerBar.volumeControal(event)">
+                                    <div class="volume-handler" onclick="playerBar.volumeControal(this,event)">
                                         <div class="volume-line-parent">
                                             <div class="volume-line">
                                                 <div class="volume-nobe"></div>
@@ -586,13 +602,14 @@ const template = {
             </div>
         </div>
         `
-             )
-     },
-    // all album scrolling list body html:
+    );
+  },
+  // all album scrolling list body html:
 
-    albumsBodyHtml: function(obj){
-        return buildTemplate(obj,
-        `
+  albumsBodyHtml: function (obj) {
+    return buildTemplate(
+      obj,
+      `
             <div class="songs-tittle">
                 <h3>${obj.headerName}</h3>
                 <a onclick="seeAllBtn(${obj.className},this)">See All</a>
@@ -613,6 +630,7 @@ const template = {
                     </svg>
                 </button>
             </div>
-        `)
-    },
-}
+        `
+    );
+  },
+};

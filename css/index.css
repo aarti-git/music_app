@@ -1238,7 +1238,7 @@ body ul {
   z-index: 1;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  transition: .2s;
+  transition: 0.2s;
   margin-top: 1px;
   cursor: pointer;
 }
@@ -1691,6 +1691,12 @@ body ul {
   }
 }
 
+@media (min-width: 1024px) {
+  .button-div p {
+    width: 300px;
+  }
+}
+
 .button-div span {
   display: block;
   padding-top: 2px;
@@ -1705,6 +1711,12 @@ body ul {
 @media (min-width: 768px) {
   .button-div span {
     font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .button-div span {
+    width: 300px;
   }
 }
 
@@ -1728,7 +1740,7 @@ body ul {
 .artist-song-list {
   display: flex;
   justify-content: space-between;
-  padding: 8px;
+  padding: 10px 8px;
   border-radius: 5px;
   position: relative;
   cursor: pointer;
@@ -1793,12 +1805,34 @@ body ul {
 
 .playButton-on-image {
   opacity: 0;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+}
+
+.active-music-logo {
+  width: 20px;
+}
+
+.animationOnMusicIcon {
+  transform: rotateX(0deg);
+  transition: transform 1s ease;
+  animation: tuning 1s infinite;
+  width: 100%;
+}
+
+@keyframes tuning {
+  from {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(60deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
 }
 
 .some-links li {
