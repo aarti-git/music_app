@@ -1194,7 +1194,7 @@ body ul {
 
 .volume-line {
   width: 100%;
-  height: 45%;
+  height: 80%;
   background: #e1e1da;
   border-radius: 3px;
 }
@@ -1203,7 +1203,7 @@ body ul {
   position: absolute;
   width: 12px;
   height: 12px;
-  bottom: 45%;
+  bottom: 20%;
   left: -4px;
   border-radius: 50%;
   background-color: #e8121a;
@@ -1827,8 +1827,11 @@ body ul {
   from {
     transform: rotateX(0deg);
   }
-  50% {
-    transform: rotateX(60deg);
+  30% {
+    transform: rotateX(70deg);
+  }
+  60% {
+    transform: rotateX(40deg);
   }
   to {
     transform: rotateX(0deg);

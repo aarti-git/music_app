@@ -1,15 +1,9 @@
 const playerBar = {
   init: function () {
-    // this._audioTag = document.querySelector(".audio-position");
-    this._previousplaySong;
     this._isVolMute = false;
-    this._songInterval;
     this._isClick = false;
-    this._currentSong;
     this._isSongRepeet = false;
-    this._songIndexNo;
-    // this._palyNxtBtn = document.querySelector(".palyNxtBtn");
-    // this._palyNxtBtn.addEventListener("click",function(){this.PlayNext});
+    this._count = 0;
   },
   playSong: function ($this) {
     var _this = this;
@@ -21,17 +15,26 @@ const playerBar = {
     onHoverLogo.lastElementChild.classList.remove("hide");
     activeMusicLogo.firstElementChild.classList.add("hide");
     activeMusicLogo.lastElementChild.classList.remove("hide");
+    if(this._volumeControler == undefined || this._volumeDetailsObj == undefined){
+      this._volumeControler = 0.2;
+      audioTag.volume = this._volumeControler;
+    }else{
+        this._volumeControler =this._volumeDetailsObj.currentVolume;
+        var volumeEl = document.querySelector(".volume-handler");
+        this.volumeControal(volumeEl,this._volumeDetailsObj,true)
+      
+    }
     audioTag.play();
-    this._songInterval = setInterval(function () {
-      _this.getSongCurrentTime();
-    });
+    var songInterval = setInterval(function () {
+        _this.getSongCurrentTime();
+      });
+    this._songInterval = songInterval;
+
     if (this._previousplaySong == undefined) {
       this._previousplaySong = $this;
     } else if (this._previousplaySong !== $this) {
-      var preonHoverLogo = this._previousplaySong.firstElementChild
-        .lastElementChild;
-      var preactiveMusicLogo = this._previousplaySong.firstElementChild
-        .firstElementChild;
+      var preonHoverLogo = this._previousplaySong.firstElementChild.lastElementChild;
+      var preactiveMusicLogo = this._previousplaySong.firstElementChild.firstElementChild;
       preonHoverLogo.firstElementChild.classList.remove("hide");
       preonHoverLogo.lastElementChild.classList.add("hide");
       preactiveMusicLogo.firstElementChild.classList.remove("hide");
@@ -39,28 +42,41 @@ const playerBar = {
       this._previousplaySong = $this;
     }
 
-    this._isClick = false;
     audioTag.addEventListener("ended", function () {
       var PlayBtnDiv = document.querySelector(".play-button-onPlayerBar");
       PlayBtnDiv.firstElementChild.classList.remove("hide");
       PlayBtnDiv.lastElementChild.classList.add("hide");
+      audioTag.pause();
+      clearInterval(_this._songInterval);
       _this.repeatesongListactive($this);
     });
+    this._isClick = false;
   },
   appPlayerBarActiv: function ($el) {
     var songPlayerBar = document.querySelector(".player-bar-section");
-    songPlayerBar.classList.remove("hide");
     var nameAbdArtistDiv = $el.lastElementChild;
-    var songTittle = nameAbdArtistDiv.firstElementChild.innerHTML;
-    var songArtist = nameAbdArtistDiv.lastElementChild.innerHTML;
-    const data = $el.dataset;
-    const obj = {
-      songMP3Url: data.mp3Url,
-      songImg: data.mp3Img,
-      songTittle,
-      songArtist,
-    };
-    songPlayerBar.innerHTML = template.playerBar(obj);
+      var songTittle = nameAbdArtistDiv.firstElementChild.innerHTML;
+      var songArtist = nameAbdArtistDiv.lastElementChild.innerHTML;
+      const data = $el.dataset;
+      const obj = {
+        songMP3Url: data.mp3Url,
+        songImg: data.mp3Img,
+        songTittle,
+        songArtist,
+      };
+    if(this._count == 0){
+      songPlayerBar.classList.remove("hide");
+      songPlayerBar.innerHTML = template.playerBar(obj);
+    }else{
+      const audioTag = songPlayerBar.querySelector(".audio-position");
+      const albumListImg = songPlayerBar.querySelector(".album-list-img")
+      const songNameArtistDiv = songPlayerBar.querySelector(".song-Name-artist-div")
+      audioTag.src = obj.songMP3Url;
+      albumListImg.src=obj.songImg;
+      songNameArtistDiv.firstElementChild.innerHTML= obj.songTittle;
+      songNameArtistDiv.lastElementChild.innerHTML= obj.songArtist;
+    }
+    this._count ++;
     this.PlayNext($el);
   },
   getSongCurrentTime: function () {
@@ -85,23 +101,32 @@ const playerBar = {
     var lineDuration = thisElm.offsetWidth;
     var clickPoint = (x / lineDuration) * 30;
     audioTag.currentTime = clickPoint;
-    this.getSongCurrentTime();
+    // this.getSongCurrentTime();
   },
-  volumeControal: function (thisEl, e) {
-    var y_axis = e.clientY;
+  volumeControal: function (thisEl,e,flag) {
     var audioTag = document.querySelector(".audio-position");
     var volumeLineParent = document.querySelector(".volume-line-parent");
     var volumeNobe = volumeLineParent.querySelector(".volume-nobe");
     var volumeLine = volumeLineParent.querySelector(".volume-line");
-    var thisElTopBott = thisEl.getClientRects();
-    var elBottom = thisElTopBott[0].bottom;
-    var elTop = thisElTopBott[0].top;
-    var nobeTopPosition = elBottom - y_axis;
-    var nobeHeight = y_axis - elTop;
-    var audioVolume = nobeTopPosition / 100;
+    if(flag == true){
+     var nobeHeight =  e.height;
+     var nobeTopPosition =  e.bottom;
+     audioTag.volume = e.currentVolume;
+    }else{
+      var y_axis = e.clientY;
+      var thisElTopBott = thisEl.getClientRects();
+      var elBottom = thisElTopBott[0].bottom;
+      var elTop = thisElTopBott[0].top;
+      var nobeTopPosition = elBottom - y_axis;
+      var nobeHeight = y_axis - elTop;
+      var audioVolume = nobeTopPosition / 100;
+      audioTag.volume = audioVolume;
+      var VolObj = {height:nobeHeight,bottom:nobeTopPosition,currentVolume:audioVolume};
+      this._volumeDetailsObj = VolObj;
+    }
     volumeLine.style.height = nobeHeight + "%";
     volumeNobe.style.bottom = nobeTopPosition + "%";
-    audioTag.volume = audioVolume;
+   
   },
   volumeToggle: function (volEl) {
     var audioTag = document.querySelector(".audio-position");
@@ -116,8 +141,8 @@ const playerBar = {
       volEl.firstElementChild.classList.remove("hide");
       volEl.lastElementChild.classList.add("hide");
       audioTag.muted = false;
-      volumeLine.style.height = "50%";
-      volumeLine.firstElementChild.style.bottom = "50%";
+      volumeLine.style.height = "80%";
+      volumeLine.firstElementChild.style.bottom = "20%";
     }
     this._isVolMute = !this._isVolMute;
   },
@@ -140,18 +165,29 @@ const playerBar = {
     this._isClick = !this._isClick;
   },
   PlayNext: function (thisElement) {
-    if (thisElement == undefined) {
+  //   const songList = document.querySelectorAll(".artist-song-list");
+  //   const songListLenght = songList.length - 1;
+  //   this._SongtrackId = data;
+  //   const data = thisElement.dataset;
+  //   const SongtrackId = data.trackId;
+  //   if (songListLenght == SongtrackId) {
+  //     if(this._isSongRepeet){
+  //       playNow();
+  //     }
+  // }else
+   if (thisElement == undefined) {
       this._currentSong.nextElementSibling.firstElementChild.click();
       return;
     } else {
       var currentsongParent = thisElement.parentElement;
       this._currentSong = currentsongParent;
     }
+    
   },
   PlayPrevious: function () {
     this._currentSong.previousElementSibling.firstElementChild.click();
   },
-  repeatSong: function (el) {
+  epeatSongSingleLoop: function (el) {
     const audioTag = document.querySelector(".audio-position");
     if (!this._isSongRepeet) {
       el.style.color = "red";
