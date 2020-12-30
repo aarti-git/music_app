@@ -18,6 +18,7 @@
         var playlistId = url.searchParams.get('playlist-id');
         document.addEventListener("DOMContentLoaded", function () {
             app.init();
+            playerBar.init();
             playlistSongs.init(playlistId);
         });
     </script>
