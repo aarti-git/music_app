@@ -46,12 +46,9 @@ const artistTopSong = {
         var array = data.tracks;
         for(var i=0; i<array.length; i++){
             var albumItems = array[i];
-            // var albumArtists = albumItems.artists;
             var albumName = albumItems.name;
             var albumId = albumItems.album.id;
             var albumImg = albumItems.album.images[1].url
-            // var artistNames = this.artistName(albumArtists);
-            // var songMP3Url = albumItems.preview_url;
             var obj = {albumId,albumName,albumImg};
             this.creatSongList(obj);
         };

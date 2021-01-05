@@ -195,7 +195,7 @@ const template = {
   songListHtml: function (songListObj) {
     return buildTemplate(
       songListObj,
-      ` <div class="button-div" ${
+      ` <div class="button-div clikeArea" ${
         songListObj.audioEvent
       } ${songListObj.dataAttrs.join(" ")}>
                 ${songListObj.anchorTagStart}
@@ -359,14 +359,7 @@ const template = {
                     <span>${obj.albumName}</span>
                     <div class="album-song-div">
                         <div class="button-div">
-                            <button class="btn">Play Now</button>
-                            <button class="btn btn-2">download</button>
-                            <button class="btn btn-2 free-hellotune-btn">set free hellotune</button>
-                            <div class="font-wrapper">
-                                <svg class="font">
-                                    <use xlink:href="./img/icons.svg#heart-node"></use>
-                                </svg>
-                            </div>
+                            <button class="btn"onclick="playNow()">Play Now</button>
                         </div>
                         <div class="button-div">
                             <div class="font-wrapper share-btn">
@@ -442,9 +435,7 @@ const template = {
                 <span>${obj.followers}M Followers</span>
                 <div class="album-song-div">
                             <div class="button-div">
-                                <button class="btn">Play Now</button>
-                                <button class="btn btn-2">download</button>
-                                <button class="btn btn-2 free-hellotune-btn">set free hellotune</button>
+                                <button class="btn" onclick="playNow()">Play Now</button>
                                 <div class="font-wrapper">
                                     <svg class="font">
                                         <use xlink:href="./img/icons.svg#heart-node"></use>
@@ -537,7 +528,7 @@ const template = {
                         <div class="col-xs-6 col-sm-4 col-md-4 col-xl-4 justify-center">
                             <div class="player-bar-sections">
                                 <div class="side-font-onPlayerBar">
-                                    <svg class="font" onclick="shufferBtn()">
+                                    <svg class="font" onclick="playerBar.shufferBtn(this)">
                                         <use xlink:href="./img/icons.svg#shuffer-node"></use>
                                     </svg>
                                 </div>
@@ -631,6 +622,54 @@ const template = {
                 </button>
             </div>
         `
+    );
+  },
+  searchResultTemp : function (obj) {
+    return buildTemplate(
+      obj,
+        `
+        <div class="artistListResult">
+            <h1 class="headings">Artist</h1>
+        </div>
+        <div class="trackListResult">
+            <h1 class="headings">Album</h1>
+        </div>
+            
+        `
+    );
+  },
+  searchBarArtist: function (obj) {
+    return buildTemplate(
+      obj,
+      `
+            <div class="artist-img-div">
+                <div class="artist-img-wrapper">
+                    <img class="artist-img" src="${obj.imgSrc}">
+                </div>
+                <div class="songs-img-overlay-wrapper">
+                    <a href="artists-topsong-albumpage.html?artist-id=${obj.artistId}">
+                        <div class="artist-img-overlay"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="search-item-name-div">${obj.artistName}</div>
+            `
+    );
+  },
+  searchBarAlbum: function (obj) {
+    return buildTemplate(
+      obj,
+      `
+        <div class="song-img-overlay-wrapper">
+            <img class="song-img" src=${obj.imgSrc}>
+            <div class="songs-img-overlay-wrapper">
+                <a href="song-album-page.html?album-id=${obj.albumId}">
+                    <div class="songs-img-overlay">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="search-item-name-div">${obj.albumName}</div>`
     );
   },
 };

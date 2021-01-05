@@ -91,7 +91,9 @@ function seeAllBtn(parentElm, thisElm) {
   btnClick = !btnClick;
 }
 
-// search bar
-function searchSongs(thisEl) {
-  var searchInput = thisEl;
-}
+
+// const searchBarInput =document.querySelector("#searchBarInput");
+// searchBarInput.onkeyup=function(searchBarInput,event){
+//   searchBar.init(searchBarInput,event)
+// }
+

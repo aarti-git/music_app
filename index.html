@@ -15,6 +15,7 @@
     <script src="js/hindiPop.js"></script>
     <script src="js/categories.js"></script>
     <script src="js/popup.js"></script>
+    <script src="js/searchBar.js"></script>
     <script src="js/home-page.js"></script>
     <script defer src="js/music-app.js"></script>
     <script>
@@ -107,7 +108,14 @@
                                     <use xlink:href="./img/icons.svg#search-node"></use>
                                 </svg>
                             </div>
-                            <input type="text" name="song" placeholder="Search for music you love!"  onkeyup="searchSongs(this)"/>
+                            <div>
+                                <input type="text" name="song" placeholder="Search for music you love!" id="searchBarInput" onkeyup="searchBar.init(this,event)"/>
+                                <div class="search-remove" onclick="searchBar.clearSearchBtn()">x</div>
+                                <div class="searchResult-parent">
+                                    <div class="searchResult hide">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="header-group">
                             <div class="modes">

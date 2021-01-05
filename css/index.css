@@ -423,8 +423,8 @@ body ul {
 .outsidArrow {
   transform: rotate(-45deg);
   position: relative;
-  top: -10px;
-  left: 0;
+  top: -17px;
+  left: -7px;
 }
 
 .header {
@@ -600,6 +600,10 @@ body ul {
   font-weight: 400;
 }
 
+.search-bar:hover .search-remove {
+  display: block;
+}
+
 @media (min-width: 768px) {
   .search-bar {
     display: block;
@@ -609,6 +613,7 @@ body ul {
     background: black;
     height: 40px;
     border-radius: 5px;
+    position: relative;
   }
 }
 
@@ -616,6 +621,16 @@ body ul {
   .search-bar {
     width: 350px;
   }
+}
+
+.search-remove {
+  display: none;
+  position: absolute;
+  right: 7px;
+  right: 10px;
+  top: 10px;
+  color: #d2d0d1;
+  cursor: pointer;
 }
 
 .menu-bar-svg {
@@ -651,6 +666,35 @@ body ul {
     width: 100%;
     text-transform: capitalize;
   }
+}
+
+.searchResult-parent {
+  overflow: hidden;
+}
+
+.searchResult {
+  background-color: #21252d;
+  height: 400px;
+  z-index: 2;
+  width: 500px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding: 10px;
+}
+
+.search-item-name-div {
+  text-align: center;
+  margin: 10px 0;
+  font-weight: 300;
+  font-size: 12px;
+  text-transform: capitalize;
+  white-space: nowrap;
+  width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header-group {
@@ -1350,6 +1394,25 @@ body ul {
   }
 }
 
+.watch-next-image-searchList:hover .songs-img-overlay-wrapper {
+  display: block;
+}
+
+.watch-next-image-searchList {
+  width: auto;
+  display: inline-table;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.1s ease;
+  padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .watch-next-image-searchList {
+    width: 90px;
+  }
+}
+
 .new-release-section:hover .scroll-btn-add {
   display: block;
 }
@@ -1604,10 +1667,20 @@ body ul {
   font-weight: 300;
   font-size: 17px;
   text-transform: capitalize;
+  white-space: nowrap;
+  width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .artist-name-div {
+    width: 130px;
+  }
 }
 
 .song-name-div {
-  margin: 8px 5px;
+  margin: 8px 0;
   color: #818c94;
 }
 
@@ -1666,6 +1739,11 @@ body ul {
   .share-btn {
     display: block !important;
   }
+}
+
+.clikeArea {
+  width: calc(100% - 20%);
+  justify-content: left !important;
 }
 
 .button-div {

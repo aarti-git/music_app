@@ -79,8 +79,8 @@ body ul {
 .outsidArrow {
   transform: rotate(-45deg);
   position: relative;
-  top: -10px;
-  left: 0;
+  top: -17px;
+  left: -7px;
 }
 
 // header css
@@ -242,6 +242,9 @@ body ul {
   font-size: 15px;
   font-weight: 400;
 }
+.search-bar:hover .search-remove{
+  display: block;
+}
 .search-bar {
   @include above("md") {
     display: block;
@@ -251,10 +254,20 @@ body ul {
     background: black;
     height: 40px;
     border-radius: 5px;
+    position: relative;
   }
   @include above("lg") {
     width: 350px;
   }
+}
+.search-remove{
+  display: none;
+  position: absolute;
+  right: 7px;
+  right: 10px;
+  top: 10px;
+  color: #d2d0d1;
+  cursor: pointer;
 }
 .menu-bar-svg {
   align-self: center;
@@ -282,6 +295,35 @@ body ul {
     width: 100%;
     text-transform: capitalize;
   }
+}
+.searchResult-parent{
+  overflow: hidden;
+}
+.searchResult{
+  background-color: #21252d;
+  height: 400px;
+  z-index: 2;
+  width: 500px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding: 10px;
+}
+// .search-img-overlay-wrapper{
+  
+// }
+.search-item-name-div{
+  text-align: center;
+  margin:10px 0 ;
+  font-weight: 300;
+  font-size: 12px;
+  text-transform: capitalize;
+  white-space: nowrap;
+  width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header-group {
@@ -834,7 +876,6 @@ body ul {
   flex-shrink: 0;
   transition: transform 0.1s ease;
   padding: 0 10px;
-  // height: 230px;
   @include above("xs") {
     width: 35%;
   }
@@ -847,9 +888,20 @@ body ul {
   @include above("lg") {
     width: 12.5%;
   }
-  // @include above('xl'){
-  //   width: 12.5%;
-  // }
+}
+.watch-next-image-searchList:hover .songs-img-overlay-wrapper {
+  display: block;
+}
+.watch-next-image-searchList{
+  width: auto;
+  display: inline-table;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.1s ease;
+  padding: 0 10px;
+  @include above("md") {
+    width: 90px;
+  }
 }
 .new-release-section:hover .scroll-btn-add {
   display: block;
@@ -1060,9 +1112,16 @@ body ul {
   font-weight: 300;
   font-size: 17px;
   text-transform: capitalize;
+  white-space: nowrap;
+  width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include above("md") {
+    width: 130px;
+  }
 }
 .song-name-div {
-  margin: 8px 5px;
+  margin: 8px 0;
   color: #818c94;
 }
 .song-name-div p {
@@ -1108,6 +1167,10 @@ body ul {
   @include above("md") {
     display: block !important;
   }
+}
+.clikeArea {
+  width: calc(100% - 20%);
+  justify-content: left !important;
 }
 .button-div {
   display: flex;
