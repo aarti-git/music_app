@@ -627,14 +627,12 @@ const template = {
   searchResultTemp : function (obj) {
     return buildTemplate(
       obj,
-        `
+        `<div class="trackListResult">
+            <h1 class="headings">Songs</h1>
+        </div>
         <div class="artistListResult">
             <h1 class="headings">Artist</h1>
         </div>
-        <div class="trackListResult">
-            <h1 class="headings">Album</h1>
-        </div>
-            
         `
     );
   },

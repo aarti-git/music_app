@@ -88,6 +88,7 @@ body ul {
   width: 100%;
   background-color: #21252d;
   margin-bottom: 20px;
+  position: relative;
   @include above("md") {
     margin-bottom: 35px;
   }
@@ -242,15 +243,23 @@ body ul {
   font-size: 15px;
   font-weight: 400;
 }
+// mobileSearch-bar start
+.mobile-search-parent{
+  display: flex;
+  justify-content: center;
+  @include above("md") {
+    display: none;
+  }
+}
+// mobileSearch-bar end
 .search-bar:hover .search-remove{
   display: block;
 }
 .search-bar {
+  display: none;
   @include above("md") {
     display: block;
     width: 300px;
-    display: flex;
-    align-items: center;
     background: black;
     height: 40px;
     border-radius: 5px;
@@ -259,6 +268,12 @@ body ul {
   @include above("lg") {
     width: 350px;
   }
+}
+.search-wrapper{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 .search-remove{
   display: none;
@@ -281,18 +296,17 @@ body ul {
   width: 15px;
   height: 15px;
   margin: 0px 7px;
-  vertical-align: middle;
+  align-self: center;
 }
 .search-bar input {
-  display: none;
   @include above("md") {
-    display: block;
     padding: 0 10px;
     background-color: black;
     font-size: 15px;
     color: #f7f5f5;
     outline: none;
-    width: 100%;
+    width: 300px;
+    height: 40px;
     text-transform: capitalize;
   }
 }
@@ -307,7 +321,7 @@ body ul {
   position: absolute;
   top: 50px;
   left: 0;
-  overflow-y: scroll;
+  overflow: auto;
   scroll-behavior: smooth;
   padding: 10px;
 }
@@ -321,7 +335,7 @@ body ul {
   font-size: 12px;
   text-transform: capitalize;
   white-space: nowrap;
-  width: 90px;
+  width: 95px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -900,7 +914,7 @@ body ul {
   transition: transform 0.1s ease;
   padding: 0 10px;
   @include above("md") {
-    width: 90px;
+    width: 95px;
   }
 }
 .new-release-section:hover .scroll-btn-add {

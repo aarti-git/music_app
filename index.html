@@ -27,6 +27,9 @@
             artistList.init();
             hindiPop.init();
             AboutScrollingJs.init();
+
+            const searchEl = document.querySelector('#searchBarInput');
+            searchBar.init(searchEl);
         });
     </script>
 </head>
@@ -102,17 +105,28 @@
                         </div>
                     </div>
                     <div class="div-wrapper">
+                        <div class="mobile-search-parent">
+                            <svg class="search-font">
+                                <use xlink:href="./img/icons.svg#search-node"></use>
+                            </svg>
+                        </div>
                         <div class="search-bar">
-                            <div>
-                                <svg class="search-font">
-                                    <use xlink:href="./img/icons.svg#search-node"></use>
-                                </svg>
-                            </div>
-                            <div>
-                                <input type="text" name="song" placeholder="Search for music you love!" id="searchBarInput" onkeyup="searchBar.init(this,event)"/>
-                                <div class="search-remove" onclick="searchBar.clearSearchBtn()">x</div>
-                                <div class="searchResult-parent">
-                                    <div class="searchResult hide">
+                            <div class="search-wrapper">
+                                <div class="search-font-parent">
+                                    <svg class="search-font">
+                                        <use xlink:href="./img/icons.svg#search-node"></use>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <input type="text" name="song" placeholder="Search for music you love!" id="searchBarInput"/>
+                                    <div class="search-remove" onclick="searchBar.clearSearchBtn()">
+                                        <svg class="font">
+                                            <use xlink:href="./img/icons.svg#cross-node"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="searchResult-parent">
+                                        <div class="searchResult hide">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

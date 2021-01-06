@@ -93,7 +93,7 @@ function seeAllBtn(parentElm, thisElm) {
 
 
 // const searchBarInput =document.querySelector("#searchBarInput");
-// searchBarInput.onkeyup=function(searchBarInput,event){
+// searchBarInput.onkeyup=function(e){
 //   searchBar.init(searchBarInput,event)
 // }
 
