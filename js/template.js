@@ -9,10 +9,10 @@ const template = {
     return buildTemplate(
       obj,
       `
+      <a href="song-album-page.html?album-id=${obj.albumId}">
         <div class="song-img-overlay-wrapper">
             <img class="song-img" src=${obj.imgSrc}>
             <div class="songs-img-overlay-wrapper">
-                <a href="song-album-page.html?album-id=${obj.albumId}">
                     <div class="songs-img-overlay">
                         <div class="play-button-div">
                             <svg class="play-font">
@@ -32,13 +32,14 @@ const template = {
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
-        </div>
-        <div class="song-name-div">
-            <p>${obj.albumName}</p>
-            <span>${obj.artistNames}</span>
-        </div>`
+            <div class="song-name-div">
+                <p>${obj.albumName}</p>
+                <span>${obj.artistNames}</span>
+            </div>
+        </a>
+        `
     );
   },
 
@@ -47,18 +48,18 @@ const template = {
     return buildTemplate(
       obj,
       `
+        <a href="artists-topsong-albumpage.html?artist-id=${obj.artistId}">
             <div class="artist-img-div">
                 <div class="artist-img-wrapper">
                     <img class="artist-img" src="${obj.imgSrc}">
                 </div>
                 <div class="songs-img-overlay-wrapper">
-                    <a href="artists-topsong-albumpage.html?artist-id=${obj.artistId}">
                         <div class="artist-img-overlay"></div>
-                    </a>
                 </div>
             </div>
             <div class="artist-name-div">${obj.artistName}</div>
-            `
+        </a>
+        `
     );
   },
 
@@ -67,10 +68,10 @@ const template = {
     return buildTemplate(
       obj,
       `
+      <a href="categories-album.html?album-id=${obj.albumId}">
             <div class="song-img-overlay-wrapper">
                 <img class="song-img" src=${obj.imgSrc}>
                 <div class="songs-img-overlay-wrapper">
-                    <a href="categories-album.html?album-id=${obj.albumId}">
                         <div class="songs-img-overlay">
                             <div class="play-button-div">
                                 <svg class="play-font">
@@ -90,12 +91,13 @@ const template = {
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
-            </div>
-            <div class="song-name-div">
-                <p>${obj.albumName}</p>
-            </div>`
+                <div class="song-name-div">
+                    <p>${obj.albumName}</p>
+                </div>
+                </a>
+                `
     );
   },
 
@@ -299,35 +301,35 @@ const template = {
     return buildTemplate(
       Listobj,
       `
+      <a href="categories-playlist.html?playlist-id=${Listobj.albumId}">
             <div class="song-img-overlay-wrapper">
                     <img class="song-img" src="${Listobj.albumImg}">
                     <div class="songs-img-overlay-wrapper">
-                        <a href="categories-playlist.html?playlist-id=${Listobj.albumId}">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
+                        <div class="songs-img-overlay">
+                            <div class="play-button-div">
+                                <svg class="play-font">
+                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
+                                </svg>
+                            </div>
+                            <div class="songs-img-overlay-endFont">
+                                <div class="img-layout-font">
+                                    <svg class="font">
+                                <use xlink:href="./img/icons.svg#share-node"></use>
+                            </svg>
                                 </div>
-                                <div class="songs-img-overlay-endFont">
-                                    <div class="img-layout-font">
-                                        <svg class="font">
-                                    <use xlink:href="./img/icons.svg#share-node"></use>
-                                </svg>
-                                    </div>
-                                    <div class="img-layout-font">
-                                        <svg class="font">
-                                    <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                </svg>
-                                    </div>
+                                <div class="img-layout-font">
+                                    <svg class="font">
+                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                            </svg>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                </div>
-                <div class="song-name-div">
-                    <p>${Listobj.albumName}</p>
-                </div>
+                    </div>
+                    <div class="song-name-div">
+                        <p>${Listobj.albumName}</p>
+                    </div>
+                </a>
             `
     );
   },
@@ -471,35 +473,35 @@ const template = {
     return buildTemplate(
       obj,
       `
+        <a href="song-album-page.html?album-id=${obj.albumId}">
             <div class="song-img-overlay-wrapper">
                 <img class="song-img" src="${obj.albumImg}">
                 <div class="songs-img-overlay-wrapper">
-                    <a href="song-album-page.html?album-id=${obj.albumId}">
-                        <div class="songs-img-overlay">
-                            <div class="play-button-div">
-                                <svg class="play-font">
-                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                </svg>
+                    <div class="songs-img-overlay">
+                        <div class="play-button-div">
+                            <svg class="play-font">
+                                <use xlink:href="./img/icons.svg#playButton-node"></use>
+                            </svg>
+                        </div>
+                        <div class="songs-img-overlay-endFont">
+                            <div class="img-layout-font">
+                                <svg class="font">
+                            <use xlink:href="./img/icons.svg#share-node"></use>
+                        </svg>
                             </div>
-                            <div class="songs-img-overlay-endFont">
-                                <div class="img-layout-font">
-                                    <svg class="font">
-                                <use xlink:href="./img/icons.svg#share-node"></use>
-                            </svg>
-                                </div>
-                                <div class="img-layout-font">
-                                    <svg class="font">
-                                <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                            </svg>
-                                </div>
+                            <div class="img-layout-font">
+                                <svg class="font">
+                            <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                        </svg>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
             <div class="song-name-div">
                 <p>${obj.albumName}</p>
             </div>
+        </a>
             `
     );
   },
@@ -628,10 +630,10 @@ const template = {
     return buildTemplate(
       obj,
         `<div class="trackListResult">
-            <h1 class="headings">Songs</h1>
+            <h1 class="searchResultH">Songs</h1>
         </div>
         <div class="artistListResult">
-            <h1 class="headings">Artist</h1>
+            <h1 class="searchResultH">Artist</h1>
         </div>
         `
     );
@@ -640,34 +642,35 @@ const template = {
     return buildTemplate(
       obj,
       `
+        <a href="artists-topsong-albumpage.html?artist-id=${obj.artistId}">
             <div class="artist-img-div">
                 <div class="artist-img-wrapper">
                     <img class="artist-img" src="${obj.imgSrc}">
                 </div>
                 <div class="songs-img-overlay-wrapper">
-                    <a href="artists-topsong-albumpage.html?artist-id=${obj.artistId}">
-                        <div class="artist-img-overlay"></div>
-                    </a>
+                    <div class="artist-img-overlay"></div>
                 </div>
             </div>
             <div class="search-item-name-div">${obj.artistName}</div>
+            </a>
             `
     );
   },
   searchBarAlbum: function (obj) {
     return buildTemplate(
       obj,
-      `
-        <div class="song-img-overlay-wrapper">
-            <img class="song-img" src=${obj.imgSrc}>
-            <div class="songs-img-overlay-wrapper">
-                <a href="song-album-page.html?album-id=${obj.albumId}">
+      `<a href="song-album-page.html?album-id=${obj.albumId}">
+            <div class="song-img-overlay-wrapper">
+                <img class="song-img" src=${obj.imgSrc}>
+                <div class="songs-img-overlay-wrapper">
                     <div class="songs-img-overlay">
                     </div>
-                </a>
+                </div>
             </div>
-        </div>
-        <div class="search-item-name-div">${obj.albumName}</div>`
+            <div class="search-item-name-div">${obj.albumName}</div>
+        </a>
+        `
+        
     );
   },
 };

@@ -3,6 +3,8 @@ const app = {
         this.registerInterceptor()
         token.init();
         popup.init();
+        // const spotifyUserInf = document.querySelector('.spotify-user-inf');
+        // token.getUserData(spotifyUserInf);
     },
 
     registerInterceptor(){

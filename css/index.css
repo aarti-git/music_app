@@ -689,9 +689,20 @@ body ul {
   overflow: hidden;
 }
 
+.searchResultH {
+  font-size: 14px;
+  text-transform: uppercase;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.trackListResult {
+  margin-bottom: 30px;
+}
+
 .searchResult {
   background-color: #21252d;
-  height: 400px;
+  max-height: 400px;
   z-index: 2;
   width: 500px;
   position: absolute;
@@ -700,6 +711,7 @@ body ul {
   overflow: auto;
   scroll-behavior: smooth;
   padding: 10px;
+  border-bottom: 2px solid #ed1c24;
 }
 
 .search-item-name-div {
@@ -709,7 +721,6 @@ body ul {
   font-size: 12px;
   text-transform: capitalize;
   white-space: nowrap;
-  width: 95px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -717,7 +728,7 @@ body ul {
 .header-group {
   display: flex;
   justify-content: center;
-  align-self: center;
+  align-items: center;
 }
 
 .modes {
@@ -855,6 +866,34 @@ body ul {
 
 .auth-frame {
   width: 100%;
+}
+
+.spotify-user-inf {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .spotify-user-inf {
+    display: flex;
+    margin: 0 10px;
+    align-items: center;
+    text-transform: capitalize;
+  }
+}
+
+.spotify-user-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-color: white;
+  padding: 1px;
+}
+
+.profile-Arrow {
+  transform: rotate(90deg);
+  vertical-align: middle;
+  color: #b6c3c7;
 }
 
 .login-img {
@@ -1004,6 +1043,12 @@ body ul {
   .veiw-in-dekstop {
     display: block;
   }
+}
+
+.sign-in {
+  display: none;
+  margin-left: 15px;
+  cursor: pointer;
 }
 
 @media (min-width: 480px) {
@@ -1380,7 +1425,7 @@ body ul {
 
 .watch-next-image {
   width: auto;
-  display: inline-table;
+  display: inline-block;
   position: relative;
   flex-shrink: 0;
   transition: transform 0.1s ease;
@@ -1416,18 +1461,11 @@ body ul {
 }
 
 .watch-next-image-searchList {
-  width: auto;
-  display: inline-table;
+  width: 20%;
+  display: inline-block;
   position: relative;
-  flex-shrink: 0;
   transition: transform 0.1s ease;
   padding: 0 10px;
-}
-
-@media (min-width: 768px) {
-  .watch-next-image-searchList {
-    width: 95px;
-  }
 }
 
 .new-release-section:hover .scroll-btn-add {
@@ -1706,7 +1744,6 @@ body ul {
   font-weight: 300;
   color: white;
   white-space: nowrap;
-  width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 3px;
@@ -1715,7 +1752,6 @@ body ul {
 @media (min-width: 768px) {
   .song-name-div p {
     font-size: 15px;
-    width: 130px;
   }
 }
 
@@ -1725,15 +1761,8 @@ body ul {
   font-weight: 300;
   color: #818c94;
   white-space: nowrap;
-  width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-@media (min-width: 768px) {
-  .song-name-div span {
-    width: 130px;
-  }
 }
 
 .album-song-div {

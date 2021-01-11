@@ -100,21 +100,23 @@ app.get('/callback', function(req, res) {
           headers: { 'Authorization': 'Bearer ' + access_token },
           json: true
         };
-        // var userName;
+
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
           console.log(body);
-          // var userName = body.display_name;
+          var spotify_userName=body.display_name;
+          var spotify_userImg = body.images;
+          var user_data = {spotify_userName,spotify_userImg}
           
+          // set tokens in cookie
+          res.cookie('spotify_access_token', access_token);
+          res.cookie('spotify_refresh_token', refresh_token);
+          res.cookie('spotify_user_data', JSON.stringify(user_data));
+          
+          res.redirect('/');
         });
 
-        // set tokens in cookie
-        res.cookie('spotify_access_token', access_token);
-        res.cookie('spotify_refresh_token', refresh_token);
-        // res.cookie('userName', userName);
         
-        
-        res.redirect('/');
       } else {
         res.redirect('/#' +
           querystring.stringify({

@@ -49,6 +49,8 @@ const playerBar = {
       preonHoverLogo.lastElementChild.classList.add("hide");
       preactiveMusicLogo.firstElementChild.classList.remove("hide");
       preactiveMusicLogo.lastElementChild.classList.add("hide");
+      // this._previousplaySong._audioTag.pause();
+      // clearInterval(this._songInterval);
       this._previousplaySong = $this;
     }
     this._isClick = false;
@@ -187,12 +189,18 @@ const playerBar = {
     //       playNow();
     //     }
     // }else
+  
     if (thisElement == undefined) {
       this._audioTag.pause();
       clearInterval(this._songInterval);
-      this._currentSong.nextElementSibling.firstElementChild.click();
+      var clikeElm =  this._currentSong.nextElementSibling.firstElementChild;
+
+      if (clikeElm.firstElementChild.className == "flex-align") {
+        clikeElm = clikeElm.parentElement.nextElementSibling.firstElementChild;
+      }
+      clikeElm.click();
       return;
-    } else {
+    }else {
       var currentsongParent = thisElement.parentElement;
       this._currentSong = currentsongParent;
     }
@@ -200,7 +208,12 @@ const playerBar = {
   PlayPrevious: function () {
     this._audioTag.pause();
     clearInterval(this._songInterval);
-    this._currentSong.previousElementSibling.firstElementChild.click();
+    var PlayElement = this._currentSong.previousElementSibling.firstElementChild;
+
+    if (PlayElement.firstElementChild.className == "flex-align") {
+      PlayElement = PlayElement.parentElement.previousElementSibling.firstElementChild;
+    }
+    PlayElement.click();
   },
   epeatSongSingleLoop: function (el) {
     if (!this._isSongRepeet) {
@@ -232,8 +245,7 @@ const playerBar = {
     } else {
       var clikeEl = el.parentElement.nextElementSibling.firstElementChild;
       if (clikeEl.firstElementChild.className == "flex-align") {
-        var clikeEl =
-          clikeEl.parentElement.nextElementSibling.firstElementChild;
+        clikeEl = clikeEl.parentElement.nextElementSibling.firstElementChild;
       }
       clikeEl.click();
     }

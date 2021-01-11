@@ -17,6 +17,7 @@
     <script src="js/popup.js"></script>
     <script src="js/searchBar.js"></script>
     <script src="js/home-page.js"></script>
+    <script src="js/cookies-module.js"></script>
     <script defer src="js/music-app.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -27,6 +28,8 @@
             artistList.init();
             hindiPop.init();
             AboutScrollingJs.init();
+            const spotifyUserInf = document.querySelector('.spotify-user-inf');
+            token.getUserData(spotifyUserInf);
 
             const searchEl = document.querySelector('#searchBarInput');
             searchBar.init(searchEl);
@@ -148,7 +151,7 @@
                                 <img class="language-img" src="img/language-white.svg">
                             </div>
                             <div>
-                                <span class="veiw-in-dekstop" onclick="loginForm()">SIGN IN</span>
+                                <span class="sign-in" onclick="loginForm()">SIGN IN</span>
                                 <div>
                                     <svg class="font user-svg modes">
                                         <use xlink:href="./img/icons.svg#user-node"></use>
@@ -162,19 +165,28 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="spotify-user-inf">
+                                <img class="spotify-user-img" src="img/profile-icon.jpg">
+                                <div class="Spotify-User-Name"></div>
+                                <!-- <div>
+                                    <svg class="font profile-Arrow">
+                                        <use xlink:href="./img/icons.svg#angleRight-node"></use>
+                                    </svg>
+                                </div> -->
+                            </div>
 
                             <!-- sign in popup -->
                             <div class="sign-in-div hide">
                                 <div class="login-containt">
                                     <img class="login-img" src="img/login.png">
                                     <div class="form-design">
-                                        <div class="remove-form" onclick="removeOverlay('.sign-in-div')">
+                                        <!-- <div class="remove-form" onclick="removeOverlay('.sign-in-div')">
                                             <button class="remove-form-btn">
                                                 <svg class="font">
                                                     <use xlink:href="./img/icons.svg#cross-node"></use>
                                                 </svg>
                                             </button>
-                                        </div>
+                                        </div> -->
                                         <div class="form-text">
                                             <h3>Login/Sign Up</h3>
                                             <span>Get a personalised experience, and access all your music</span>

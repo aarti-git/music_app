@@ -313,9 +313,18 @@ body ul {
 .searchResult-parent{
   overflow: hidden;
 }
+.searchResultH{
+  font-size: 14px;
+  text-transform: uppercase;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.trackListResult{
+  margin-bottom: 30px
+}
 .searchResult{
   background-color: #21252d;
-  height: 400px;
+  max-height: 400px;
   z-index: 2;
   width: 500px;
   position: absolute;
@@ -324,6 +333,7 @@ body ul {
   overflow: auto;
   scroll-behavior: smooth;
   padding: 10px;
+  border-bottom: 2px solid #ed1c24;
 }
 // .search-img-overlay-wrapper{
   
@@ -335,7 +345,6 @@ body ul {
   font-size: 12px;
   text-transform: capitalize;
   white-space: nowrap;
-  width: 95px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -343,7 +352,7 @@ body ul {
 .header-group {
   display: flex;
   justify-content: center;
-  align-self: center;
+  align-items: center;
 }
 .modes {
   margin-left: 18px;
@@ -464,6 +473,28 @@ body ul {
 .auth-frame {
   width: 100%;
 }
+.spotify-user-inf{
+  display: none;
+  @include above("md"){
+    display: flex;
+    margin: 0 10px;
+    align-items: center;
+    text-transform: capitalize;
+  }
+}
+.spotify-user-img{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-color: white;
+  padding: 1px;
+}
+.profile-Arrow{
+  transform: rotate(90deg);
+  vertical-align: middle;
+  color: #b6c3c7;
+}
 
 .login-img {
   display: none;
@@ -571,6 +602,14 @@ body ul {
   cursor: pointer;
   @include above("sm") {
     display: block;
+  }
+}
+.sign-in{
+  display: none;
+  margin-left: 15px;
+  cursor: pointer;
+  @include above("sm") {
+    // display: block;
   }
 }
 .user-svg {
@@ -885,7 +924,7 @@ body ul {
 
 .watch-next-image {
   width: auto;
-  display: inline-table;
+  display: inline-block;
   position: relative;
   flex-shrink: 0;
   transition: transform 0.1s ease;
@@ -907,15 +946,14 @@ body ul {
   display: block;
 }
 .watch-next-image-searchList{
-  width: auto;
-  display: inline-table;
+  width: 20%;
+  display: inline-block;
   position: relative;
-  flex-shrink: 0;
   transition: transform 0.1s ease;
   padding: 0 10px;
-  @include above("md") {
-    width: 95px;
-  }
+  // @include above("md") {
+  //   width: 95px;
+  // }
 }
 .new-release-section:hover .scroll-btn-add {
   display: block;
@@ -1143,13 +1181,13 @@ body ul {
   font-weight: 300;
   color: white;
   white-space: nowrap;
-  width: 110px;
+  // width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 3px;
   @include above("md") {
     font-size: 15px;
-    width: 130px;
+    // width: 130px;
   }
 }
 .song-name-div span {
@@ -1158,12 +1196,12 @@ body ul {
   font-weight: 300;
   color: #818c94;
   white-space: nowrap;
-  width: 110px;
+  // width: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
-  @include above("md") {
-    width: 130px;
-  }
+  // @include above("md") {
+  //   // width: 130px;
+  // }
 }
 
 // wadda hai song new page

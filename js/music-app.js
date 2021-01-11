@@ -96,4 +96,15 @@ function seeAllBtn(parentElm, thisElm) {
 // searchBarInput.onkeyup=function(e){
 //   searchBar.init(searchBarInput,event)
 // }
-
+// this.cookies = document.cookie.split('; ').reduce((cookies, cookie) => {
+//   const parts = cookie.split('=')
+//   cookies[parts[0]] = parts[1]
+//   console.log("cookies = ", cookies);
+//   return cookies
+// }, {})
+// getUserData :function(el,cookies){
+//   var user_data =  cookies.spotify_user_data;
+//   var user_dataObj = JSON.parse(decodeURIComponent(user_data));
+//   console.log("user_dataObj",user_dataObj);
+//   // el.
+// }
