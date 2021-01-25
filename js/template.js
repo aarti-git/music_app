@@ -106,57 +106,57 @@ const template = {
     return buildTemplate(
       obj,
       `
-            <div class="some-links">
-                <ul>
-                    <li>home</li>
-                    <li>${obj.albumType}</li>
-                    <li>${obj.songName} SONG</li>
-                    <li>${obj.songName}</li>
-                </ul>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                    <div class="album-main-img-div">
-                        <div class="page-main-img-parent">
-                            <img class="page-main-img" src="${obj.imgSrc}">
-                        </div>
-                        <div class="artist-info-section">
-                            <h3 class="headings">Artist</h3>
-                            <div class="artist-infom">
-                            </div>
-                        </div>
+         <div class="some-links">
+            <ul>
+                <li>home</li>
+                <li>${obj.albumType}</li>
+                <li>${obj.songName} SONG</li>
+                <li>${obj.songName}</li>
+            </ul>
+         </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                <div class="album-main-img-div">
+                    <div class="page-main-img-parent">
+                        <img class="page-main-img" src="${obj.imgSrc}">
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
-                    <div class="song-details">
-                        <div>
-                            <h2 class="song-name">${obj.songName}</h2>
-                            <span>${obj.songName}</span>
-                            <span>4:11 • ${obj.releasedate} ℗  ${obj.label}  Pvt.</span>
-                        </div>
-                        <div class="album-song-div">
-                            <div class="button-div">
-                                <button class="btn" onclick="playNow()">Play Now</button>
-                            </div>
-                            <div class="button-div">
-                                <div class="font-wrapper share-btn">
-                                    <svg class="font">
-                                        <use xlink:href="./img/icons.svg#share-node"></use>
-                                    </svg>
-                                </div>
-                                <div class="font-wrapper">
-                                    <svg class="font">
-                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="album-song-list">
-                            <h3 class="headings">Other <a>${obj.albumArtistsName}</a> Songs</h3>
+                    <div class="artist-info-section">
+                        <h3 class="headings">Artist</h3>
+                        <div class="artist-infom">
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                <div class="song-details">
+                    <div>
+                        <h2 class="song-name">${obj.songName}</h2>
+                        <span>${obj.songName}</span>
+                        <span>4:11 • ${obj.releasedate} ℗  ${obj.label}  Pvt.</span>
+                    </div>
+                    <div class="album-song-div">
+                        <div class="button-div">
+                            <button class="btn" onclick="playNow()">Play Now</button>
+                        </div>
+                        <div class="button-div">
+                            <div class="font-wrapper share-btn">
+                                <svg class="font">
+                                    <use xlink:href="./img/icons.svg#share-node"></use>
+                                </svg>
+                            </div>
+                            <div class="font-wrapper">
+                                <svg class="font">
+                                    <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="album-song-list">
+                        <h3 class="headings">Other <a>${obj.albumArtistsName}</a> Songs</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
         `
     );
   },
@@ -228,7 +228,7 @@ const template = {
                 </div>
             </div>
             <div class="button-div">
-                <div class="font-wrapper align-self" onclick="likeSongToggle(this)">
+                <div class="font-wrapper align-self likeBtn" onclick="likeSongs.likeSongToggle(this)">
                     <svg class="font">
                         <use xlink:href="./img/icons.svg#heart-node"></use>
                     </svg>
@@ -626,10 +626,10 @@ const template = {
         `
     );
   },
-  searchResultTemp : function (obj) {
+  searchResultTemp: function (obj) {
     return buildTemplate(
       obj,
-        `<div class="trackListResult">
+      `<div class="trackListResult">
             <h1 class="searchResultH">Songs</h1>
         </div>
         <div class="artistListResult">
@@ -670,7 +670,66 @@ const template = {
             <div class="search-item-name-div">${obj.albumName}</div>
         </a>
         `
-        
+    );
+  },
+  bannerscrolling: function (obj) {
+    return buildTemplate(
+      obj,
+      `<div class="atomaticScrolling">
+      <div>
+          <button class="comman-scrolling-css songposterscroll-btn-min" onclick="AboutScrollingJs.posterScrolling(false)">
+              <svg class="font">
+                  <use xlink:href="./img/icons.svg#angleLeft-node"></use>
+              </svg>
+          </button>
+      </div>
+      <div class="atomaticScroll-img-wrapper">
+          <div class="poster-parent">
+          <div class="atomaticScroll-next-image leftImgSect">
+            <a href="categories-playlist.html?playlist-id=7AiuMp1D8Hli18nyTbriZ9" class="banner-anchorTag">
+                <img class="poster-img img1" src="img/workout.webp">
+            </a>
+            </div>
+            <div class="atomaticScroll-next-image">
+                <a href="categories-playlist.html?playlist-id=6an0hNyshVMWORG7qVNUbq" class="banner-anchorTag">
+                    <img class="poster-img" src="img/70's.jpg">
+                </a>
+            </div>
+            <div class="atomaticScroll-next-image">
+            <a href="categories-playlist.html?playlist-id=6uchCLdoFiL3xCj8nRICI4" class="banner-anchorTag">
+                <img class="poster-img img3" src="img/90's2.jpg">
+            </a>
+            </div>
+            <div class="atomaticScroll-next-image">
+                <a href="categories-playlist.html?playlist-id=2IbZGv306zaldI0lap578G" class="banner-anchorTag">
+                    <img class="poster-img img2" src="img/sad.webp">
+                </a>
+            </div>
+            <div class="atomaticScroll-next-image rightImgSect">
+            <a href="categories-playlist.html?playlist-id=37i9dQZF1DXd8cOUiye1o2" class="banner-anchorTag">
+                <img class="poster-img" src="img/bollywood2.jpg">
+            </a>
+            </div> 
+          </div>
+      </diV>
+      <div>
+          <button class="comman-scrolling-css songposterscroll-btn-add" onclick="AboutScrollingJs.posterScrolling(true)">
+              <svg class="font">
+                  <use xlink:href="./img/icons.svg#angleRight-node"></use>
+              </svg>
+          </button>
+      </div>
+  </div>
+        `
+    );
+  },
+  bannerList: function (obj) {
+    return buildTemplate(
+      obj,
+      ` <a href="categories-playlist.html?playlist-id=${obj.id}" class="banner-anchorTag">
+         <img class="poster-img img1" src="${obj.imgSrc}">
+        </a>
+        `
     );
   },
 };

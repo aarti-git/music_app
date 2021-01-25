@@ -4,10 +4,16 @@ const searchBar = {
         this.$el = el;
         el.addEventListener('keyup', function(e){
             _this.search(e)
-        })
+        });
+        
         this._searchFont = document.querySelector('.mobile-search-parent');
         this._searchFont.addEventListener('click', function(){
             _this.mobileSearchOpen()
+        });
+
+        this._searchRemove = document.querySelector('.search-remove');
+        this._searchRemove.addEventListener('click', function(){
+            _this.clearSearchBtn();
         })
     },
     search: function(e){

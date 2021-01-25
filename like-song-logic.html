@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="getLocalStorage()">
+    <div>
+        <input type="text" id="input" />
+        <button class="submit">submit</button>
+        <div>
+            <div id="printHear"></div>
+        </div>
+    </div>
+    <script>
+        var TextBox = document.querySelector("#input");
+        var ResultprintHear = document.querySelector("#printHear");
+        const submit = document.querySelector(".submit")
+        var array = [];
+        submit.addEventListener("click", function() {
+            var TextBoxValue = TextBox.value;
+            if (TextBoxValue == '') {
+                return;
+            } else {
+                creatList(TextBoxValue);
+                array.push(TextBoxValue);
+                // localStorage.removeItem("saveValue");
+                var arrayString = JSON.stringify(array);
+                localStorage.setItem("saveValue", arrayString);
+                TextBox.value = "";
+            }
+
+        })
+
+        function getLocalStorage() {
+            var get = localStorage.getItem("saveValue");
+            var localStorlist = JSON.parse(get);
+            if (get == null) {
+                return;
+            }
+            for (i = 0; i < localStorlist.length; i++) {
+                var item = localStorlist[i];
+                array.push(item);
+                creatList(item);
+            }
+        }
+        function creatList(val){
+            var creatList = document.createElement("div");
+            var creatBtn = document.createElement("button"); 
+            creatBtn.innerHTML =  " x " ;
+            creatList.innerHTML =`<span>${val}</span>`;
+            ResultprintHear.append(creatList);
+            creatList.append(creatBtn);
+            creatBtn.addEventListener("click",removeMe);
+        }
+
+        function removeMe() {
+            var removeVal = this.previousElementSibling.innerHTML;
+            var index = array.indexOf(removeVal);
+            if (index !== -1) {
+                array.splice(index, 1);
+            }
+            this.parentElement.remove();
+            var arrayString = JSON.stringify(array);
+            localStorage.setItem("saveValue", arrayString);
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+<!-- // var localSPreviousVal = localStorage.getItem("saveValue");
+// if(localSPreviousVal == null){
+//     array.push(TextBoxValue);
+// }else{
+//     array = [];
+//     localStorage.removeItem("saveValue");
+//     array.push(TextBoxValue);
+//    var savedArray = JSON.parse(localSPreviousVal);
+//    for(i=0; i<savedArray.length; i++){
+//     var item =savedArray[i];
+//     array.push(item);
+//    }
+
+// }
+// var arrayString = JSON.stringify(array)
+// localStorage.setItem("saveValue",arrayString);
+//    var get = localStorage.getItem("saveValue");
+//    var localStorlist = JSON.parse(get);
+//    for(i=0; i<localStorlist.length; i++){
+//         var item =localStorlist[i];
+//         var CreatList = document.createElement("li");
+//         CreatList.innerHTML = item;
+//         ResultprintHear.append(CreatList);
+//        } -->

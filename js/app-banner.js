@@ -1,5 +1,7 @@
 const AboutScrollingJs = {
-  init: function () {
+  init: function (el) {
+    this.$el = el;
+    el.innerHTML = template.bannerscrolling();
     this._interval;
     this._parentElm = document.querySelector(".atomaticScroll-img-wrapper");
     this._scrollingImg = this._parentElm.querySelectorAll(
@@ -8,6 +10,23 @@ const AboutScrollingJs = {
     this._leftImgSect = this._parentElm.querySelector(".leftImgSect");
     this._rightImgSect = this._parentElm.querySelector(".rightImgSect");
     this.atomaticScroll();
+  },
+  creatBannerList:function(result,playlistitem,i) {
+    var data = result
+    var x = data["url"];
+    var imgSrc = data[0].url;
+    console.log("imgSrc", imgSrc);
+    const obj = {id:playlistitem,imgSrc} 
+    const bannerParent= this.$el.querySelector(".poster-parent")
+    const bannerListParent= document.createElement("div");
+    bannerListParent.classList.add("atomaticScroll-next-image")
+    if(i == 0 ){
+      bannerListParent.classList.add("leftImgSect");
+    }else if(i ==  this._bannerplayList.length - 1){
+      bannerListParent.classList.add("rightImgSect");
+    }
+    bannerListParent.innerHTML = template.bannerList(obj)
+    bannerParent.append(bannerListParent);
   },
   posterScrolling: function (elValue) {
     clearInterval(this._interval);

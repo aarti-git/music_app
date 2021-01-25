@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>The syntax for accessing the property of an object is:</h1>
+    <div>objectName.property  // ex.person.age</div>
+    <div>objectName[property]  // ex.person[age]</div>
+    <div>objectName[expression]  // ex. x = "age"; person[x]  </div>
+    <script>
+        //
+        var obj = {name:"aarti",age:22};
+        var b = obj.name;
+        console.log("b = ",b);
+        var c = obj['name'];
+        console.log("c = ",c);
+        //
+        var obj2 = {a:"apple",b:"banana"};
+        var v1 = obj2['a'];
+        console.log("a = ",v1);
+        //
+        const car = {
+            color:"white",
+            company:"tata",
+            model:"nexon",
+        }
+        var x = "model";
+        console.log("car model", car[x]);
+        console.log("companyName",car['company']);
+        console.log("companyName",car.company);
+        // 
+        const fees = {
+            aarti:100,
+            yogesh:200
+        }
+        console.log("fees",fees.aarti);
+        console.log("fees",fees['yogesh']);
+        // 
+        const person2 = {
+            firstname:"rahul",
+            lastname:"k",
+            age:93,
+        } 
+        person2['firstname'] = 'raj';
+        console.log("person2",person2['firstname']);
+        person2['lastname'] = 'bhosle';
+        console.log("person2",person2['lastname']);
+        person2['age'] = 66;
+        console.log("person2",person2['age']);
+        // 
+        var person = {
+            firstname:"aarti",
+            lastname:"s",
+            age:23,
+        };
+        console.log(`iam ${person['firstname']}.iam ${obj['age']}.`);
+        var x = person['firstname'];
+        function  fn(x){
+            console.log(x)
+            person['firstname'] = "yogesh";
+            console.log(person['firstname']);
+        }
+        fn(x);
+
+        //
+        function fn2(){
+            
+        }
+    </script>
+</body>
+</html>

@@ -54,28 +54,27 @@ function playNow(x) {
 
 // like song
 // var likeSongListArray =[];
-var isSongLiked = false;
-var previousLikeBtnEl;
-function likeSongToggle(LikeFontEl) {
-  // likeSongListArray=[];
-  if (previousLikeBtnEl !== LikeFontEl) {
-    isSongLiked = false;
-  }
-  var likeFontSvg = LikeFontEl.firstElementChild;
-  if (!isSongLiked) {
-    likeFontSvg.style.color = "#e8121a";
-    // likeSongMinOarent = LikeFontEl.parentElement.parentElement;
-    // likeSongListArray.push();
-  } else {
-    likeFontSvg.style.color = "";
-  }
-  previousLikeBtnEl = LikeFontEl;
-  isSongLiked = !isSongLiked;
-}
+// var isSongLiked = false;
+// var previousLikeBtnEl;
+// function likeSongToggle(LikeFontEl) {
+//   if (previousLikeBtnEl !== LikeFontEl) {
+//     isSongLiked = false;
+//   }
+//   var likeFontSvg = LikeFontEl.firstElementChild;
+//   if (!isSongLiked) {
+//     likeFontSvg.style.color = "#e8121a";
+//     var likeSongMinOarent = LikeFontEl.parentElement.parentElement;
+//     likeSongListArray.push(likeSongMinOarent);
+//   } else {
+//     likeFontSvg.style.color = "";
+//   }
+//   previousLikeBtnEl = LikeFontEl;
+//   isSongLiked = !isSongLiked;
+// }
 
-function likeSongList() {
-  console.log(likeSongListArray);
-}
+// function likeSongList() {
+//   console.log(likeSongListArray);
+// }
 
 // see all button
 var btnClick = false;
@@ -91,20 +90,16 @@ function seeAllBtn(parentElm, thisElm) {
   btnClick = !btnClick;
 }
 
-
-// const searchBarInput =document.querySelector("#searchBarInput");
-// searchBarInput.onkeyup=function(e){
-//   searchBar.init(searchBarInput,event)
-// }
-// this.cookies = document.cookie.split('; ').reduce((cookies, cookie) => {
-//   const parts = cookie.split('=')
-//   cookies[parts[0]] = parts[1]
-//   console.log("cookies = ", cookies);
-//   return cookies
-// }, {})
-// getUserData :function(el,cookies){
-//   var user_data =  cookies.spotify_user_data;
-//   var user_dataObj = JSON.parse(decodeURIComponent(user_data));
-//   console.log("user_dataObj",user_dataObj);
-//   // el.
-// }
+function userProfileDetails(el) {
+  var user_dataObj = token.getUserData();
+  var userloginImg = user_dataObj.spotify_userImg;
+  const profile = el.querySelector('.spotify-user-img')
+  if(userloginImg.length == 0){
+   profile.src ="img/profile-icon.jpg";
+  }else{
+   profile.src = user_dataObj.spotify_userImg[0].url;
+  }
+   el.firstElementChild.nextElementSibling.innerHTML = user_dataObj.spotify_userName;
+  var signIn = document.querySelector(".sign-in") ;
+  signIn.style.dispaly="none";
+}

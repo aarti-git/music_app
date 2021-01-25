@@ -5,7 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>liked song</title>
     <link rel="stylesheet" href="css/index.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/like-song.js"></script>
+    <script src="js/plyer-bar.js"></script>
+    <script src="js/token.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/app-modul.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/cookies-module.js"></script>
     <script defer src="js/music-app.js"></script>
+    <script>
+        // const likeSongList = document.querySelector(".like-song-list");
+        document.addEventListener("DOMContentLoaded", function () {
+            app.init();
+            playerBar.init();
+            likeSongs.init();
+        });
+    </script>
 </head>
 <body>
     <section class="header">
@@ -92,7 +108,8 @@
                                 </div>
                                 <div>
                                     <input type="text" name="song" placeholder="Search for music you love!" id="searchBarInput"/>
-                                    <div class="search-remove" onclick="searchBar.clearSearchBtn()">
+                                    <div class="search-remove">
+                                        <!-- onclick="searchBar.clearSearchBtn()" -->
                                         <svg class="font">
                                             <use xlink:href="./img/icons.svg#cross-node"></use>
                                         </svg>
@@ -177,7 +194,42 @@
             </div>
         </div>
     </section>
+    <!-- plyerbar -->
+    <section class="player-bar-section hide">
+    </section>
     <!-- header section end -->
+    <section class="container">
+        <div class="like-page-wrapper">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="song-details">
+                        <div>
+                            <h2 class="song-name">Like Songs</h2>
+                        </div>
+                        <div class="album-song-div hide">
+                            <div class="button-div">
+                                <button class="btn" onclick="playNow()">Play Now</button>
+                            </div>
+                            <div class="button-div">
+                                <div class="font-wrapper share-btn">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#share-node"></use>
+                                    </svg>
+                                </div>
+                                <div class="font-wrapper">
+                                    <svg class="font">
+                                        <use xlink:href="./img/icons.svg#dottedMenu-node"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="like-song-list">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- footer section -->
      <section class="container">

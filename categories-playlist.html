@@ -13,6 +13,8 @@
     <script src="js/popup.js"></script>
     <script src="js/plyer-bar.js"></script>
     <script defer src="js/music-app.js"></script>
+    <script src="js/like-song.js"></script>
+    <script src="js/cookies-module.js"></script>
     <script>
         var url = new URL(location.href);
         var playlistId = url.searchParams.get('playlist-id');
@@ -20,6 +22,7 @@
             app.init();
             playerBar.init();
             playlistSongs.init(playlistId);
+            likeSongs.init();
         });
     </script>
 </head>
@@ -201,89 +204,6 @@
     <!-- body -->
     <section class="container">
         <section class="page-section-wrapper">
-        </section>
-        <section class="latest-song-section sections-space">
-            <div class="songs-tittle">
-                <h3>Playlists Featuring Waada Hai</h3>
-            </div>
-            <div class="img-wrapper">
-                <div class="watch-next-image Playlists-width">
-                    <!-- <a href="waada-hai-song-page.html"> -->
-                    <img class="song-img" src="img/song-1.webp">
-                    <!-- </a> -->
-                    <div class="songs-img-overlay-wrapper">
-                        <a href="waada-hai-song-page.html">
-                            <div class="songs-img-overlay">
-                                <div class="play-button-div">
-                                    <svg class="play-font">
-                                        <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="watch-next-image Playlists-width">
-                    <a><img class="song-img" src="img/song-2.webp"></a>
-                    <div class="songs-img-overlay-wrapper">
-                        <div class="songs-img-overlay">
-                            <div class="play-button-div">
-                                <svg class="play-font">
-                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="watch-next-image Playlists-width">
-                    <a><img class="song-img" src="img/song-3.webp"></a>
-                    <div class="songs-img-overlay-wrapper">
-                        <div class="songs-img-overlay">
-                            <div class="play-button-div">
-                                <svg class="play-font">
-                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="watch-next-image Playlists-width">
-                    <a><img class="song-img" src="img/song-4.webp"></a>
-                    <div class="songs-img-overlay-wrapper">
-                        <div class="songs-img-overlay">
-                            <div class="play-button-div">
-                                <svg class="play-font">
-                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="watch-next-image Playlists-width">
-                    <a><img class="song-img" src="img/song-5.webp"></a>
-                    <div class="songs-img-overlay-wrapper">
-                        <div class="songs-img-overlay">
-                            <div class="play-button-div">
-                                <svg class="play-font">
-                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="watch-next-image Playlists-width">
-                    <a><img class="song-img" src="img/song-6.webp"></a>
-                    <div class="songs-img-overlay-wrapper">
-                        <div class="songs-img-overlay">
-                            <div class="play-button-div">
-                                <svg class="play-font">
-                                    <use xlink:href="./img/icons.svg#playButton-node"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
         <section class="about-song-section">
         </section>

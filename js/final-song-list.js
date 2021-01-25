@@ -50,12 +50,11 @@ const albumSongs = {
     };
     this.craetAlbumBody(obj);
     var array = data.tracks.items;
-    var songArrayLength = array.length;
-    for (var i = 0; i < songArrayLength; i++) {
+    for (var i = 0; i < array.length; i++) {
       const albumItem = array[i];
       var artistNames = this.artistName(albumItem.artists);
       var songMP3Url = albumItem.preview_url;
-      // var audioTag;
+      this._trackId = albumItem.id;
       var audioEvent,
         svgId,
         outsidArrow,
@@ -79,7 +78,8 @@ const albumSongs = {
         dataAttrs.push(
           `data-mp3-url="${songMP3Url}"`,
           `data-mp3-img="${imgSrc}"`,
-          `data-Track-id="${i}"`
+          `data-Track-index="${i}"`,
+          ` data-Track-id = "${this._trackId}"`
         );
       }
       var songListObj = {
@@ -138,6 +138,18 @@ const albumSongs = {
     songdivWrapper.classList.add("artist-song-list");
     songdivWrapper.innerHTML = template.songListHtml(songListObj);
     albumSongList.append(songdivWrapper);
+    var localStoragepreviousVal = localStorage.getItem("liked-songs");
+    var localPreviousVal = JSON.parse(localStoragepreviousVal);
+    if (localPreviousVal == null) {
+      return;
+    } else {
+      var ind = localPreviousVal.indexOf(this._trackId);
+      if (ind !== -1) {
+        songdivWrapper.lastElementChild.firstElementChild.classList.add(
+          "likesong-color"
+        );
+      }
+    }
   },
   // craeatPlayerBar : function(obj){
   // var playerParent = document.querySelector(".song-player-bar");

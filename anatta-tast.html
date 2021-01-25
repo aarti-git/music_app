@@ -77,6 +77,29 @@
             <img class="img" src="img/marguerite-1372118.jpg">
         </div>
     </div>
+    <script>
+        const obj ={
+            tittle:"Heading",
+            items :[
+                {name:"name1"},
+                {name:"name2"},
+            ]
+        };
+        var parentDiv = document.createElement("div");
+        document.body.append(parentDiv);
+        var heading = document.createElement("h1");
+        heading.innerHTML = obj.tittle;
+        parentDiv.append(heading);
+        var list = obj.items;
+        for(var i=0; i<list.length;i++){
+            var item = list[i];
+            var name = item.name;
+            var span = document.createElement("span");
+            span.innerHTML = name;
+            parentDiv.append(span);
+        }
+
+    </script>
 </body>
 
 </html>

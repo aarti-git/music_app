@@ -1110,6 +1110,12 @@ body ul {
   }
 }
 
+.banner-anchorTag {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .poster-img {
   width: 100%;
   height: 100%;
@@ -1777,6 +1783,16 @@ body ul {
   }
 }
 
+.emptyLikePage {
+  text-align: center;
+  padding: 50px;
+  border: 1px solid #eb1c24;
+  margin: 50px 0;
+  font-size: 18px;
+  font-family: monospace;
+  border-radius: 10px;
+}
+
 .share-btn {
   display: none !important;
 }
@@ -1858,6 +1874,10 @@ body ul {
 .artist-song-list:hover {
   border: 1px solid #7e7e7e;
   background-color: #4f4f4f2e;
+}
+
+.likesong-color {
+  color: #e8121a;
 }
 
 .artist-song-list {
@@ -2136,6 +2156,10 @@ body ul {
   padding-top: 2px;
   color: #818c94;
   font-size: 12px;
+}
+
+.about-song-section {
+  margin: 50px 0;
 }
 
 .about-song {

@@ -656,6 +656,11 @@ body ul {
     width: 900px;
   }
 }
+.banner-anchorTag{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 .poster-img {
   width: 100%;
   height: 100%;
@@ -1213,7 +1218,15 @@ body ul {
     margin: 40px 0;
   }
 }
-
+.emptyLikePage{
+  text-align: center;
+  padding: 50px;
+  border: 1px solid #eb1c24;
+  margin: 50px 0;
+  font-size: 18px;
+  font-family: monospace;
+  border-radius: 10px;
+}
 .share-btn {
   display: none !important;
   @include above("md") {
@@ -1274,6 +1287,12 @@ body ul {
   border: 1px solid #7e7e7e;
   background-color: #4f4f4f2e;
   // margin: -1px;
+}
+// .alignmentdiv{
+//   display: flex;
+// }
+.likesong-color{
+  color: #e8121a;
 }
 .artist-song-list {
   display: flex;
@@ -1480,6 +1499,9 @@ body ul {
   padding-top: 2px;
   color: #818c94;
   font-size: 12px;
+}
+.about-song-section{
+  margin: 50px 0;
 }
 .about-song {
   border: 1px solid #7e7e7e;

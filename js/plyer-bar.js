@@ -209,7 +209,6 @@ const playerBar = {
     this._audioTag.pause();
     clearInterval(this._songInterval);
     var PlayElement = this._currentSong.previousElementSibling.firstElementChild;
-
     if (PlayElement.firstElementChild.className == "flex-align") {
       PlayElement = PlayElement.parentElement.previousElementSibling.firstElementChild;
     }
@@ -237,8 +236,8 @@ const playerBar = {
     const songList = document.querySelectorAll(".artist-song-list");
     const songListLenght = songList.length - 1;
     const data = el.dataset;
-    const SongtrackId = data.trackId;
-    if (songListLenght == SongtrackId) {
+    const SongtrackIndex = data.trackIndex;
+    if (songListLenght == SongtrackIndex) {
       if (this._isSongRepeet) {
         playNow();
       }

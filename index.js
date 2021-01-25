@@ -106,6 +106,7 @@ app.get('/callback', function(req, res) {
           console.log(body);
           var spotify_userName=body.display_name;
           var spotify_userImg = body.images;
+          console.log('body', spotify_userImg)
           var user_data = {spotify_userName,spotify_userImg}
           
           // set tokens in cookie

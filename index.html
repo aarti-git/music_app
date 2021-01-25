@@ -16,8 +16,9 @@
     <script src="js/categories.js"></script>
     <script src="js/popup.js"></script>
     <script src="js/searchBar.js"></script>
-    <script src="js/home-page.js"></script>
+    <script src="js/app-banner.js"></script>
     <script src="js/cookies-module.js"></script>
+    <script src="js/like-song.js"></script>
     <script defer src="js/music-app.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -27,12 +28,17 @@
             categories.init();
             artistList.init();
             hindiPop.init();
-            AboutScrollingJs.init();
+            const bannerSection = document.querySelector('.banner-section');
+            AboutScrollingJs.init(bannerSection);
             const spotifyUserInf = document.querySelector('.spotify-user-inf');
-            token.getUserData(spotifyUserInf);
+            // token.getUserData(spotifyUserInf);
+            userProfileDetails(spotifyUserInf);
 
             const searchEl = document.querySelector('#searchBarInput');
             searchBar.init(searchEl);
+            // likeSongs.init();
+            // const likeBtn = document.querySelector('.likeBtn');
+            // likeSongs.init(likeBtn);
         });
     </script>
 </head>
@@ -95,14 +101,14 @@
                         <div class="list-wrapper">
                             <ul class="header-list">
                                 <li><a href="index.html">HOME</a></li>
-                                <li><a href="">my music</a>
-                                    <div class="myMusic-hover-list">
+                                <li><a href="All-like-songs.html">LIKE SONGS</a>
+                                    <!-- <div class="myMusic-hover-list">
                                         <ul>
                                             <a href="All-like-songs.html"><li>like songs</li></a>
                                             <li>my plylist</li>
                                             <li>recently plyed songs</li>
                                         </ul>
-                                    </div>
+                                    </div> -->
                                 </li>
                             </ul>
                         </div>
@@ -122,7 +128,8 @@
                                 </div>
                                 <div>
                                     <input type="text" name="song" placeholder="Search for music you love!" id="searchBarInput"/>
-                                    <div class="search-remove" onclick="searchBar.clearSearchBtn()">
+                                    <div class="search-remove">
+                                        <!-- onclick="searchBar.clearSearchBtn()" -->
                                         <svg class="font">
                                             <use xlink:href="./img/icons.svg#cross-node"></use>
                                         </svg>
@@ -208,43 +215,9 @@
         </div>
     </section>
     <!-- header section end -->
-    <!-- atomatic scrollig -->
-    <section>
-        <div class="atomaticScrolling">
-            <div>
-                <button class="comman-scrolling-css songposterscroll-btn-min" onclick="AboutScrollingJs.posterScrolling(false)">
-                    <svg class="font">
-                        <use xlink:href="./img/icons.svg#angleLeft-node"></use>
-                    </svg>
-                </button>
-            </div>
-            <div class="atomaticScroll-img-wrapper">
-                <div class="poster-parent">
-                    <div class="atomaticScroll-next-image leftImgSect">
-                        <a><img class="poster-img img1" src="img/workout.webp"></a>
-                    </div>
-                    <div class="atomaticScroll-next-image">
-                        <a><img class="poster-img img2" src="img/amit-trivedi.webp"></a>
-                    </div>
-                    <div class="atomaticScroll-next-image">
-                        <a><img class="poster-img img3" src="img/sad.webp"></a>
-                    </div>
-                    <div class="atomaticScroll-next-image">
-                        <a><img class="poster-img" src="img/english-songs.webp"></a>
-                    </div>
-                    <div class="atomaticScroll-next-image rightImgSect">
-                        <a><img class="poster-img" src="img/serial-songs.webp"></a>
-                    </div>
-                </div>
-            </diV>
-            <div>
-                <button class="comman-scrolling-css songposterscroll-btn-add" onclick="AboutScrollingJs.posterScrolling(true)">
-                    <svg class="font">
-                        <use xlink:href="./img/icons.svg#angleRight-node"></use>
-                    </svg>
-                </button>
-            </div>
-        </div>
+
+    <!-- banner atomatic scrollig -->
+    <section class="banner-section">
     </section>
     <!-- song plyer bar in fix bottom -->
     <!-- <section class="player-position">
@@ -584,3 +557,4 @@
     </section>
 </body>
 </html>
+
