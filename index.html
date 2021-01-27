@@ -36,9 +36,6 @@
 
             const searchEl = document.querySelector('#searchBarInput');
             searchBar.init(searchEl);
-            // likeSongs.init();
-            // const likeBtn = document.querySelector('.likeBtn');
-            // likeSongs.init(likeBtn);
         });
     </script>
 </head>
@@ -47,8 +44,8 @@
     <section class="header">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content-space">
-                    <div class="div-wrapper">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="div-wrapper app-logo-div">
                         <div class="app-logo-name">
                             <div class="menu-bar-svg">
                                 <svg class="logo-font">
@@ -64,13 +61,12 @@
                                     </div>
                                     <div class="menu-bar-list">
                                         <ul>
-                                            <li><a href="index.html">home</a></li>
-                                            <li>my music</li>
-                                            <li>dounlode app</li>
-                                            <li>sign in</li>
+                                            <li><a href="index.html">HOME</a></li>
+                                            <li><a href="All-like-songs.html">LIKE SONGS</a></li>
+                                            <!-- <li>sign in</li> -->
                                         </ul>
                                     </div>
-                                    <div class="fSocial-media-font">
+                                    <div class="fSocial-media-font menu-share-icons-position">
                                         <div class="font-wrapper">
                                             <svg class="font">
                                                 <use xlink:href="./img/icons.svg#facebook-node"></use>
@@ -90,11 +86,6 @@
                                 </div>
                             </div>
                             <div class="app-logo">
-                                <!-- <div>
-                                    <svg class="logo-font">
-                                        <use xlink:href="./img/icons.svg#music-node"></use>
-                                    </svg>
-                                </div> -->
                                 <h3><span>Music</span>App</h3>
                             </div>
                         </div>
@@ -113,34 +104,39 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="div-wrapper">
+                    <div class="div-wrapper containt-flex-end">
                         <div class="mobile-search-parent">
                             <svg class="search-font">
                                 <use xlink:href="./img/icons.svg#search-node"></use>
                             </svg>
                         </div>
-                        <div class="search-bar">
-                            <div class="search-wrapper">
-                                <div class="search-font-parent">
-                                    <svg class="search-font">
-                                        <use xlink:href="./img/icons.svg#search-node"></use>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <input type="text" name="song" placeholder="Search for music you love!" id="searchBarInput"/>
-                                    <div class="search-remove">
-                                        <!-- onclick="searchBar.clearSearchBtn()" -->
-                                        <svg class="font">
-                                            <use xlink:href="./img/icons.svg#cross-node"></use>
+                            <div class="search-bar">
+                                <div class="search-wrapper">
+                                    <div class="search-font-parent">
+                                        <svg class="search-font">
+                                            <use xlink:href="./img/icons.svg#search-node"></use>
                                         </svg>
                                     </div>
-                                    <div class="searchResult-parent">
-                                        <div class="searchResult hide">
+                                    <div class="search-parent">
+                                        <input type="text" name="song" placeholder="Search for music you love!" id="searchBarInput"/>
+                                        <div class="search-remove">
+                                            <!-- onclick="searchBar.clearSearchBtn()" -->
+                                            <svg class="font">
+                                                <use xlink:href="./img/icons.svg#cross-node"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="mobile-search-removeBtn  hide">
+                                            <svg class="font">
+                                                <use xlink:href="./img/icons.svg#cross-node"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="searchResult-parent">
+                                            <div class="searchResult hide">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         <div class="header-group">
                             <div class="modes">
                                 <div class="morning-mode-parent">
@@ -165,9 +161,8 @@
                                     </svg>
                                     <div class="mobile-account-list hide">
                                         <ul>
-                                            <li onclick="loginForm()">Login</li>
-                                            <li class="space-top">Music Language</li>
-                                            <li class="space-top">Sound Quality</li>
+                                            <li onclick="loginForm()">LOGIN</li>
+                                            <li><a href="All-like-songs.html">LIKE SONGS</a></li>
                                         </ul>
                                     </div>
                                 </div>

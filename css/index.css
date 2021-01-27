@@ -348,7 +348,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 20px 20px;
+  padding: 10px;
   display: block;
   flex-direction: column;
   justify-content: center;
@@ -444,9 +444,14 @@ body ul {
   justify-content: space-between;
 }
 
+.containt-flex-end {
+  justify-content: flex-end;
+}
+
 .div-wrapper {
   display: flex;
   padding: 15px 0;
+  width: 100%;
 }
 
 .app-logo-name {
@@ -618,12 +623,12 @@ body ul {
 
 .search-bar {
   display: none;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .search-bar {
-    display: block;
-    width: 300px;
+    display: block !important;
     background: black;
     height: 40px;
     border-radius: 5px;
@@ -642,10 +647,20 @@ body ul {
   align-items: center;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .search-remove {
   display: none;
+  position: absolute;
+  right: 7px;
+  right: 10px;
+  top: 10px;
+  color: #d2d0d1;
+  cursor: pointer;
+}
+
+.mobile-search-removeBtn {
   position: absolute;
   right: 7px;
   right: 10px;
@@ -672,16 +687,24 @@ body ul {
   align-self: center;
 }
 
+.search-parent {
+  width: 100%;
+}
+
+#searchBarInput {
+  width: 100%;
+  padding: 0 10px;
+  background-color: black;
+  font-size: 15px;
+  color: #f7f5f5;
+  outline: none;
+  height: 40px;
+  text-transform: capitalize;
+}
+
 @media (min-width: 768px) {
-  .search-bar input {
-    padding: 0 10px;
-    background-color: black;
-    font-size: 15px;
-    color: #f7f5f5;
-    outline: none;
+  #searchBarInput {
     width: 300px;
-    height: 40px;
-    text-transform: capitalize;
   }
 }
 
@@ -701,10 +724,10 @@ body ul {
 }
 
 .searchResult {
+  width: 100%;
   background-color: #21252d;
   max-height: 400px;
   z-index: 2;
-  width: 500px;
   position: absolute;
   top: 50px;
   left: 0;
@@ -712,6 +735,12 @@ body ul {
   scroll-behavior: smooth;
   padding: 10px;
   border-bottom: 2px solid #ed1c24;
+}
+
+@media (min-width: 768px) {
+  .searchResult {
+    width: 500px;
+  }
 }
 
 .search-item-name-div {
@@ -796,7 +825,7 @@ body ul {
   position: absolute;
   background-color: #21252d;
   top: 58px;
-  right: 20px;
+  right: 15px;
   width: 150px;
   padding: 20px;
   border-bottom-left-radius: 10px;
@@ -816,6 +845,7 @@ body ul {
   font-weight: 500;
   font-size: 14px;
   color: #bbb8b8;
+  margin-bottom: 10px;
 }
 
 .space-top {
@@ -831,7 +861,7 @@ body ul {
 }
 
 .menu-bar-list li {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
   margin: 22px 0;
   color: #d0caca;
@@ -920,7 +950,6 @@ body ul {
 
 .remove-form {
   float: right;
-  margin: 10px;
 }
 
 .remove-form button:hover {
@@ -1467,11 +1496,17 @@ body ul {
 }
 
 .watch-next-image-searchList {
-  width: 20%;
+  width: 25%;
   display: inline-block;
   position: relative;
   transition: transform 0.1s ease;
   padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .watch-next-image-searchList {
+    width: 20%;
+  }
 }
 
 .new-release-section:hover .scroll-btn-add {
@@ -2372,6 +2407,13 @@ body ul {
 .fSocial-media-list a span {
   color: #818c94;
   padding: 0 5px;
+}
+
+.menu-share-icons-position {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .fSocial-media-font {
