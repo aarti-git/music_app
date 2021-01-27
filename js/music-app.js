@@ -1,23 +1,3 @@
-var bodyTag = document.querySelector("body");
-// screenModes
-var screenModes = document.querySelector(".modes");
-var isnightMode = false;
-screenModes.addEventListener("click", function () {
-  var morningMode = screenModes.querySelector(".morning-mode-parent");
-  var nightMode = screenModes.querySelector(".night-mode-parent");
-  if (!isnightMode) {
-    nightMode.classList.remove("hide");
-    morningMode.classList.add("hide");
-    document.body.style.backgroundColor = "unset";
-    document.body.style.color = "black";
-  } else if (isnightMode) {
-    nightMode.classList.add("hide");
-    morningMode.classList.remove("hide");
-    document.body.style.backgroundColor = "";
-    document.body.style.color = "";
-  }
-  isnightMode = !isnightMode;
-});
 
 // Login \sign-in
 function loginForm() {
@@ -31,10 +11,16 @@ function removeOverlay(x) {
 }
 
 // login section-mobile
-var userSvg = document.querySelector(".user-svg");
+var isDisplay = false;
+var userInfo = document.querySelector(".spotify-user-inf");
 var mobileAccountList = document.querySelector(".mobile-account-list");
-userSvg.addEventListener("click", function () {
-  mobileAccountList.classList.remove("hide");
+userInfo.addEventListener("click", function () {
+  if(!isDisplay){
+    mobileAccountList.classList.remove("hide");
+  }else{
+    mobileAccountList.classList.add("hide");
+  }
+  isDisplay = !isDisplay
 });
 
 // menu bar mobile

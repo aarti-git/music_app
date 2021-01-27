@@ -93,6 +93,10 @@ body ul {
     margin-bottom: 35px;
   }
 }
+.onSearchActiveCss{
+  background: black;
+  border-bottom: 1px solid #21252d;
+}
 .content-space {
   justify-content: space-between;
 }
@@ -103,10 +107,9 @@ body ul {
   display: flex;
   padding: 15px 0;
   width: 100%;
-  // margin: 0 auto;
-  // @include above("lg") {
-  //   margin: 0;
-  // }
+}
+.divWrapperPadding{
+  padding: 9px 0;
 }
 
 .app-logo-name {
@@ -273,7 +276,7 @@ body ul {
     position: relative;
   }
   @include above("lg") {
-    width: 350px;
+    width: 380px;
   }
 }
 .search-wrapper{
@@ -326,9 +329,7 @@ body ul {
   outline: none;
   height: 40px;
   text-transform: capitalize;
-  @include above("md") {
-    width: 300px; 
-  }
+  border-radius: 5px;
 }
 .searchResult-parent{
   overflow: hidden;
@@ -498,21 +499,36 @@ body ul {
   width: 100%;
 }
 .spotify-user-inf{
-  display: none;
+  display: flex;
+  margin-left: 5px;
+  align-items: center;
+  text-transform: capitalize;
   @include above("md"){
-    display: flex;
-    margin: 0 10px;
-    align-items: center;
-    text-transform: capitalize;
+    margin-left:10px;
   }
 }
 .spotify-user-img{
-  width: 28px;
-  height: 28px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   margin: 0 5px;
   background-color: white;
   padding: 1px;
+  @include above("md"){
+    width: 28px;
+    height: 28px;
+  }
+}
+.Spotify-User-Name{
+  font-size: 14px;
+  max-width: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  @include above("md"){
+    font-size: 15px;
+    max-width: 60px;
+  }
 }
 .profile-Arrow{
   transform: rotate(90deg);
@@ -1033,8 +1049,8 @@ body ul {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
+  width: 33px;
+  height: 33px;
   background-color: #0000009e;
   outline: none;
   color: white;

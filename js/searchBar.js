@@ -2,10 +2,13 @@ const searchBar = {
   init: function (el) {
     const _this = this;
     this.$el = el;
+    const searchResult = document.querySelector(".searchResult");
+    this._searchResult = searchResult;
     this._searchbar = document.querySelector(".search-bar");
     this._headerIconsGroup = document.querySelector(".header-group");
     this._appLogoDiv = document.querySelector(".app-logo-div");
-
+    this._header = document.querySelector(".header")
+    this._divWrapper = document.querySelector(".containt-flex-end");
     el.addEventListener("keyup", function (e) {
       _this.search(e);
     });
@@ -54,8 +57,6 @@ const searchBar = {
   },
 
   creatSearchBody: function (result) {
-    const searchResult = document.querySelector(".searchResult");
-    this._searchResult = searchResult;
     if (this._searchResult.className == "searchResult") {
         searchResult.innerHTML = '';
     }
@@ -136,12 +137,16 @@ const searchBar = {
     this._appLogoDiv.classList.add("hide");
     this._headerIconsGroup.classList.add("hide");
     this._mobileSearchBarRemove.classList.remove("hide");
+    this._header.classList.add("onSearchActiveCss")
+    this._divWrapper.classList.add("divWrapperPadding");
   },
   mobileSearchClose: function () {
     this._searchFont.classList.remove("hide");
     this._searchbar.style.display = "none";
     this._appLogoDiv.classList.remove("hide");
     this._headerIconsGroup.classList.remove("hide");
+    this._header.classList.remove("onSearchActiveCss")
+    this._divWrapper.classList.remove("divWrapperPadding");
     this.clearSearchBtn();
   },
 };
