@@ -1178,12 +1178,6 @@ body ul {
   object-fit: cover;
 }
 
-@media (min-width: 768px) {
-  .poster-img {
-    object-fit: unset;
-  }
-}
-
 .leftImgSect {
   position: absolute;
   top: 0;

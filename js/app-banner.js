@@ -2,7 +2,7 @@ const AboutScrollingJs = {
   init: function (el) {
     this.$el = el;
     el.innerHTML = template.bannerscrolling();
-    this._interval;
+    // this._interval;
     this._parentElm = document.querySelector(".atomaticScroll-img-wrapper");
     this._scrollingImg = this._parentElm.querySelectorAll(
       ".atomaticScroll-next-image"

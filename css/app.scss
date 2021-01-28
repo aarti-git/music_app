@@ -706,9 +706,6 @@ body ul {
   height: 100%;
   border-radius: 30px;
   object-fit: cover;
-  @include above("md") {
-    object-fit: unset;
-  }
 }
 .leftImgSect {
   position: absolute;
