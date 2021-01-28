@@ -2,8 +2,7 @@ const searchBar = {
   init: function (el) {
     const _this = this;
     this.$el = el;
-    const searchResult = document.querySelector(".searchResult");
-    this._searchResult = searchResult;
+    this._searchResult = document.querySelector(".searchResult");;
     this._searchbar = document.querySelector(".search-bar");
     this._headerIconsGroup = document.querySelector(".header-group");
     this._appLogoDiv = document.querySelector(".app-logo-div");
@@ -58,9 +57,9 @@ const searchBar = {
 
   creatSearchBody: function (result) {
     if (this._searchResult.className == "searchResult") {
-        searchResult.innerHTML = '';
+      this._searchResult .innerHTML = '';
     }
-    searchResult.classList.remove("hide");
+    this._searchResult .classList.remove("hide");
     artistInfDiv = document.createElement("div");
     this._artistArray = result.artists.items;
     this._trackArray = result.tracks.items;
@@ -70,7 +69,7 @@ const searchBar = {
       var obj = {};
       artistInfDiv.innerHTML = template.searchResultTemp(obj);
     }
-    searchResult.append(artistInfDiv);
+    this._searchResult .append(artistInfDiv);
   },
 
   SrachArtistResult: function () {
