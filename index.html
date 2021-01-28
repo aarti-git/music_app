@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,7 @@
     <script src="js/like-song.js"></script>
     <script defer src="js/music-app.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             app.init();
             playerBar.init();
             newRealeases.init();
@@ -51,7 +52,7 @@
                                     <use xlink:href="./img/icons.svg#menuBar-node"></use>
                                 </svg>
                                 <div class="menu-bar-overlay hide">
-                                    <div class="remove-form" onclick="removeOverlay('.menu-bar-overlay')">
+                                    <div class="remove-form">
                                         <button class="remove-form-btn">
                                             <svg class="cross-font">
                                                 <use xlink:href="./img/icons.svg#cross-node"></use>
@@ -102,33 +103,33 @@
                                 <use xlink:href="./img/icons.svg#search-node"></use>
                             </svg>
                         </div>
-                            <div class="search-bar">
-                                <div class="search-wrapper">
-                                    <div class="search-font-parent">
-                                        <svg class="search-font">
+                        <div class="search-bar">
+                            <div class="search-wrapper">
+                                <div class="search-font-parent">
+                                    <svg class="search-font">
                                             <use xlink:href="./img/icons.svg#search-node"></use>
                                         </svg>
+                                </div>
+                                <div class="search-parent">
+                                    <input type="text" name="song" placeholder="Search for music you love!" id="searchBarInput" />
+                                    <div class="search-remove">
+                                        <!-- onclick="searchBar.clearSearchBtn()" -->
+                                        <svg class="font">
+                                                <use xlink:href="./img/icons.svg#cross-node"></use>
+                                            </svg>
                                     </div>
-                                    <div class="search-parent">
-                                        <input type="text" name="song" placeholder="Search for music you love!" id="searchBarInput"/>
-                                        <div class="search-remove">
-                                            <!-- onclick="searchBar.clearSearchBtn()" -->
-                                            <svg class="font">
+                                    <div class="mobile-search-removeBtn  hide">
+                                        <svg class="font">
                                                 <use xlink:href="./img/icons.svg#cross-node"></use>
                                             </svg>
-                                        </div>
-                                        <div class="mobile-search-removeBtn  hide">
-                                            <svg class="font">
-                                                <use xlink:href="./img/icons.svg#cross-node"></use>
-                                            </svg>
-                                        </div>
-                                        <div class="searchResult-parent">
-                                            <div class="searchResult hide">
-                                            </div>
+                                    </div>
+                                    <div class="searchResult-parent">
+                                        <div class="searchResult hide">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         <div class="header-group">
                             <!-- <div class="modes">
                                 <div class="morning-mode-parent">
@@ -240,7 +241,9 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
                     <div class="footer-columne-wrapper">
-                        <div class="fHeading">LATEST ALBUMS</div>
+                        <div class="fHeading">
+                            <a href="categories-playlist.html?playlist-id=37i9dQZF1DXd8cOUiye1o2">LATEST ALBUMS</a>
+                        </div>
                         <div>
                             <span>THE ALBUM | </span>
                             <span>Songs of Trance | </span>
@@ -278,7 +281,9 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
                     <div class="footer-columne-wrapper">
-                        <div class="fHeading">OLD SONGS</div>
+                        <div class="fHeading">
+                            <a href="categories-playlist.html?playlist-id=6an0hNyshVMWORG7qVNUbq">OLD SONGS</a>
+                        </div>
                         <div>
                             <span>THE ALBUM | </span>
                             <span>Songs of Trance | </span>
@@ -297,9 +302,11 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
                     <div class="footer-columne-wrapper">
-                        <div class="fHeading">OLD SONGS</div>
+                        <div class="fHeading">
+                            <a href="artists-topsong-albumpage.html?artist-id=0GF4shudTAFv8ak9eWdd4Y">TOP ARTISTS</a>
+                        </div>
                         <div>
-                            <span>THE ALBUM | </span>
+                            <span>TOP ARTISTS | </span>
                             <span>Songs of Trance | </span>
                             <span> Love Marriage | </span>
                             <span>Love Action Drama | </span>
@@ -340,7 +347,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
                     <div class="footer-columne-wrapper">
-                        <div class="fHeading">LANGUAGES</div>
+                        <div class="fHeading">LATEST SONGS</div>
                         <div>
                             <span>THE ALBUM | </span>
                             <span>Songs of Trance | </span>
@@ -446,5 +453,5 @@
         </div>
     </section>
 </body>
-</html>
 
+</html>

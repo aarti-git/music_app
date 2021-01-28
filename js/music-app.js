@@ -6,9 +6,11 @@ function loginForm() {
 }
 
 // remove form remove button
-function removeOverlay(x) {
-  popup.close(x);
-}
+const MobileMenuRemove =document.querySelector('.remove-form');
+MobileMenuRemove.addEventListener("click",function() {
+  const ActionEl= '.menu-bar-overlay';
+  popup.close(ActionEl);
+})
 
 // login section-mobile
 var isDisplay = false;
