@@ -22,6 +22,7 @@
     <script src="js/popup.js"></script>
     <script src="js/plyer-bar.js"></script>
     <script src="js/cookies-module.js"></script>
+    <script src="js/searchBar.js"></script>
     <script src="js/like-song.js"></script>
     <script defer src="js/music-app.js"></script>
     <script>
@@ -32,6 +33,10 @@
             playerBar.init();
             albumSongs.init(albumId);
             likeSongs.init();
+            const spotifyUserInf = document.querySelector('.spotify-user-inf');
+            userProfileDetails(spotifyUserInf);
+            const searchEl = document.querySelector('#searchBarInput');
+            searchBar.init(searchEl);
         });
     </script>
 </head>
@@ -106,7 +111,7 @@
                                             <use xlink:href="./img/icons.svg#search-node"></use>
                                         </svg>
                                     </div>
-                                    <div>
+                                    <div class="search-parent">
                                         <input type="text" name="song" placeholder="Search for music you love!" id="searchBarInput"/>
                                         <div class="search-remove">
                                             <!-- onclick="searchBar.clearSearchBtn()" -->
@@ -127,7 +132,7 @@
                                 </div>
                             </div>
                         <div class="header-group">
-                            <div class="modes">
+                            <!-- <div class="modes">
                                 <div class="morning-mode-parent">
                                     <svg class="morning-mode-font">
                                         <use xlink:href="./img/icons.svg#sun-node"></use>
@@ -138,32 +143,22 @@
                                         <use xlink:href="./img/icons.svg#night-node"></use>
                                     </svg>
                                 </div>
-                            </div>
-                            <div class="modes veiw-in-dekstop">
+                            </div> -->
+                            <!-- <div class="modes veiw-in-dekstop">
                                 <img class="language-img" src="img/language-white.svg">
-                            </div>
+                            </div> -->
                             <div>
                                 <span class="sign-in" onclick="loginForm()">SIGN IN</span>
-                                <div>
-                                    <svg class="font user-svg modes">
-                                        <use xlink:href="./img/icons.svg#user-node"></use>
-                                    </svg>
-                                    <div class="mobile-account-list hide">
-                                        <ul>
-                                            <li onclick="loginForm()">LOGIN</li>
-                                            <li><a href="All-like-songs.html">LIKE SONGS</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
                             <div class="spotify-user-inf">
                                 <img class="spotify-user-img" src="img/profile-icon.jpg">
                                 <div class="Spotify-User-Name"></div>
-                                <!-- <div>
-                                    <svg class="font profile-Arrow">
-                                        <use xlink:href="./img/icons.svg#angleRight-node"></use>
-                                    </svg>
-                                </div> -->
+                                <div class="mobile-account-list hide">
+                                    <ul>
+                                        <li onclick="loginForm()">LOGIN</li>
+                                        <li><a href="All-like-songs.html">LIKE SONGS</a></li>
+                                    </ul>
+                                </div>
                             </div>
 
                             <!-- sign in popup -->
@@ -171,13 +166,6 @@
                                 <div class="login-containt">
                                     <img class="login-img" src="img/login.png">
                                     <div class="form-design">
-                                        <!-- <div class="remove-form" onclick="removeOverlay('.sign-in-div')">
-                                            <button class="remove-form-btn">
-                                                <svg class="font">
-                                                    <use xlink:href="./img/icons.svg#cross-node"></use>
-                                                </svg>
-                                            </button>
-                                        </div> -->
                                         <div class="form-text">
                                             <h3>Login/Sign Up</h3>
                                             <span>Get a personalised experience, and access all your music</span>

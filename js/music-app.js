@@ -38,30 +38,6 @@ function playNow(x) {
   songList[x].firstElementChild.click();
 }
 
-// like song
-// var likeSongListArray =[];
-// var isSongLiked = false;
-// var previousLikeBtnEl;
-// function likeSongToggle(LikeFontEl) {
-//   if (previousLikeBtnEl !== LikeFontEl) {
-//     isSongLiked = false;
-//   }
-//   var likeFontSvg = LikeFontEl.firstElementChild;
-//   if (!isSongLiked) {
-//     likeFontSvg.style.color = "#e8121a";
-//     var likeSongMinOarent = LikeFontEl.parentElement.parentElement;
-//     likeSongListArray.push(likeSongMinOarent);
-//   } else {
-//     likeFontSvg.style.color = "";
-//   }
-//   previousLikeBtnEl = LikeFontEl;
-//   isSongLiked = !isSongLiked;
-// }
-
-// function likeSongList() {
-//   console.log(likeSongListArray);
-// }
-
 // see all button
 var btnClick = false;
 function seeAllBtn(parentElm, thisElm) {
@@ -79,13 +55,14 @@ function seeAllBtn(parentElm, thisElm) {
 function userProfileDetails(el) {
   var user_dataObj = token.getUserData();
   var userloginImg = user_dataObj.spotify_userImg;
-  const profile = el.querySelector('.spotify-user-img')
+  const profile = el.querySelector('.spotify-user-img');
+  const userName = el.querySelector(".Spotify-User-Name")
   if(userloginImg.length == 0){
    profile.src ="img/profile-icon.jpg";
   }else{
    profile.src = user_dataObj.spotify_userImg[0].url;
   }
-   el.firstElementChild.nextElementSibling.innerHTML = user_dataObj.spotify_userName;
+  userName.innerHTML = user_dataObj.spotify_userName;
   var signIn = document.querySelector(".sign-in") ;
   signIn.style.dispaly="none";
 }
