@@ -31,8 +31,6 @@ const popup = {
         popupElement.classList.remove("hide");
         this._overlay.classList.remove("hide");
         this.Parent.classList.remove("hide");
-        // popupElementParent =popupElement.parentElement;
-        // popupElementParent.style.display="block";
         this.Parent.append(popupElement);
         this.popupElement =popupElement ;
     },

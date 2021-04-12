@@ -115,12 +115,6 @@ body ul {
 .app-logo-name {
   display: flex;
 }
-// .menu-bar-svg {
-//   display: block !important;
-  // @include above("lg") {
-  //   display: none;
-  // }
-// }
 .app-logo {
   margin-left: 10px;
   display: flex;
@@ -1254,7 +1248,7 @@ body ul {
 .album-song-div {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0 50px 0;
+  margin: 20px 0 30px 0;
   @include above("md") {
     margin: 40px 0;
   }

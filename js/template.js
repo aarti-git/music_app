@@ -197,10 +197,10 @@ const template = {
   songListHtml: function (songListObj) {
     return buildTemplate(
       songListObj,
-      ` <div class="button-div clikeArea" ${
-        songListObj.audioEvent
-      } ${songListObj.dataAttrs.join(" ")}>
-                ${songListObj.anchorTagStart}
+      `${songListObj.anchorTagStart}
+       <div class="button-div clikeArea" ${
+         songListObj.audioEvent
+       } ${songListObj.dataAttrs.join(" ")}>
                     <div class="playButton-position">
                         <div class="active-music-logo">
                             <svg class="font font-opacity">
@@ -221,12 +221,12 @@ const template = {
                             </svg>
                         </div>
                     </div>
-                ${songListObj.anchorTagEnd}
                 <div class="align-self">
                     <p>${songListObj.albumName}</p>
                     <span>${songListObj.artistNames}</span>
                 </div>
             </div>
+            ${songListObj.anchorTagEnd}
             <div class="button-div">
                 <div class="font-wrapper align-self likeBtn" onclick="likeSongs.likeSongToggle(this)">
                     <svg class="font">

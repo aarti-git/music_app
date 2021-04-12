@@ -2,7 +2,7 @@ const searchBar = {
   init: function (el) {
     const _this = this;
     this.$el = el;
-    this._searchResult = document.querySelector(".searchResult");;
+    this._searchResult = document.querySelector(".searchResult");
     this._searchbar = document.querySelector(".search-bar");
     this._headerIconsGroup = document.querySelector(".header-group");
     this._appLogoDiv = document.querySelector(".app-logo-div");
@@ -22,9 +22,7 @@ const searchBar = {
       _this.clearSearchBtn();
     });
 
-    this._mobileSearchBarRemove = document.querySelector(
-      ".mobile-search-removeBtn"
-    );
+    this._mobileSearchBarRemove = document.querySelector(".mobile-search-removeBtn");
     this._mobileSearchBarRemove.addEventListener("click", function () {
       _this.mobileSearchClose();
     });
@@ -146,6 +144,7 @@ const searchBar = {
     this._headerIconsGroup.classList.remove("hide");
     this._header.classList.remove("onSearchActiveCss")
     this._divWrapper.classList.remove("divWrapperPadding");
+    this.$el.value = "";
     this.clearSearchBtn();
   },
 };

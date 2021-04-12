@@ -4,9 +4,7 @@ const AboutScrollingJs = {
     el.innerHTML = template.bannerscrolling();
     // this._interval;
     this._parentElm = document.querySelector(".atomaticScroll-img-wrapper");
-    this._scrollingImg = this._parentElm.querySelectorAll(
-      ".atomaticScroll-next-image"
-    );
+    this._scrollingImg = this._parentElm.querySelectorAll(".atomaticScroll-next-image");
     this._leftImgSect = this._parentElm.querySelector(".leftImgSect");
     this._rightImgSect = this._parentElm.querySelector(".rightImgSect");
     this.atomaticScroll();
@@ -74,6 +72,7 @@ const AboutScrollingJs = {
     var rightImgSect = this._rightImgSect;
     var leftImgSect = this._leftImgSect;
     var scrollingImg = this._scrollingImg;
+    
     this._interval = setInterval(function () {
       var a = parentElm.dataset.slidepos;
       if (a === undefined) {
