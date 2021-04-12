@@ -106,6 +106,7 @@ const playerBar = {
       "0." + Math.round(audioCurrTim) + "/" + "0." + Math.round(audioDuration);
   },
   cliPointOnSongScroll: function (thisElm, scrollEvent) {
+    var bodyTag  = document.body;
     var bodyWidth = bodyTag.offsetWidth;
     var thisElmSideSpace = bodyWidth - thisElm.offsetWidth;
     var rightSideSpace = thisElmSideSpace / 2;
